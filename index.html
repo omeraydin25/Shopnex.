@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baydınsal.OyunHizmetleri</title>
+    <title>Baydınsal.OyunHizmetleri - Satış</title>
     <style>
         :root {
-            --primary: #6c5ce7;
-            --secondary: #a29bfe;
-            --bg: #0f0f13;
+            --bg-color: #0f0f13;
             --card-bg: #1e1e24;
+            --primary: #6c5ce7;
+            --accent: #00cec9;
             --text: #ffffff;
             --text-muted: #b2bec3;
             --danger: #ff7675;
             --success: #00b894;
+            --border: #2d3436;
         }
 
         * {
@@ -24,501 +25,516 @@
         }
 
         body {
-            background-color: var(--bg);
+            background-color: var(--bg-color);
             color: var(--text);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        /* Container */
-        .app-container {
-            width: 100%;
-            max-width: 450px;
+        /* Header */
+        header {
             background-color: var(--card-bg);
-            min-height: 100vh;
-            position: relative;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            overflow: hidden;
-        }
-
-        /* Screens */
-        .screen {
-            display: none;
-            padding: 20px;
-            height: 100vh;
-            flex-direction: column;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .screen.active {
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Login Screen */
-        .login-header {
-            text-align: center;
-            margin-bottom: 40px;
-            margin-top: 40px;
-        }
-
-        .login-header h1 {
-            font-size: 2rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        input {
-            width: 100%;
-            padding: 15px;
-            background: #2d2d35;
-            border: 1px solid #444;
-            border-radius: 8px;
-            color: white;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        input:focus {
-            border-color: var(--primary);
-        }
-
-        .btn {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
+        .logo {
+            font-size: 1.5rem;
             font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-bottom: 10px;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .btn-primary {
+        .logo span {
+            color: var(--text);
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 1px solid var(--border);
+            background: #2d2d35;
+            color: white;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(108, 92, 231, 0.3);
+        }
+
+        .cart-btn {
             background: var(--primary);
             color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
         }
 
-        .btn-primary:hover {
+        .cart-btn:hover {
             background: #5649c0;
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--secondary);
-            color: var(--secondary);
+        .cart-count {
+            background: var(--danger);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
         }
 
-        .btn-outline:hover {
-            background: rgba(162, 155, 254, 0.1);
-        }
-
-        .auth-links {
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
             display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            margin-top: 10px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .auth-links a {
+        /* Sidebar Filters */
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            height: fit-content;
+        }
+
+        .filter-group {
+            margin-bottom: 25px;
+        }
+
+        .filter-group h3 {
+            margin-bottom: 15px;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .filter-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            background: transparent;
+            border: none;
             color: var(--text-muted);
-            text-decoration: none;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.2s;
         }
 
-        .auth-links a:hover {
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(108, 92, 231, 0.1);
             color: var(--primary);
         }
 
-        .kvkk-box {
-            background: #2d2d35;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 20px;
-            max-height: 100px;
-            overflow-y: auto;
+        /* Product Grid */
+        .products-grid {
+            flex: 3;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
         }
 
-        /* Main Dashboard */
-        .dashboard-header {
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            border-color: var(--primary);
+        }
+
+        .product-img {
+            height: 180px;
+            background: linear-gradient(45deg, #2d3436, #000);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--success);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .product-info {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .product-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #333;
-            margin-bottom: 20px;
+            margin-top: auto;
         }
 
-        .user-info h2 {
-            font-size: 1.5rem;
+        .price {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: bold;
         }
 
-        .user-info span {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .menu-dots {
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        .menu-dots:hover {
-            background: #333;
-        }
-
-        /* Dropdown Menu */
-        .dropdown-menu {
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background: #2d2d35;
-            border-radius: 10px;
-            width: 200px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            display: none;
-            z-index: 100;
-            overflow: hidden;
-        }
-
-        .dropdown-menu.show {
-            display: block;
-        }
-
-        .dropdown-item {
-            padding: 15px 20px;
-            border-bottom: 1px solid #3d3d45;
+        .add-cart-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
             cursor: pointer;
             transition: 0.2s;
         }
 
-        .dropdown-item:hover {
-            background: var(--primary);
-            color: white;
+        .add-cart-btn:hover {
+            background: #5649c0;
         }
 
-        .dropdown-item:last-child {
-            border-bottom: none;
-            color: var(--danger);
-        }
-
-        /* Social Media Section */
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-card {
-            background: #2d2d35;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.2s;
-            border: 1px solid transparent;
-        }
-
-        .social-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .social-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .social-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .stats-preview {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-
-        /* Modal for Stats */
+        /* Cart Modal */
         .modal {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
-            display: none;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
         }
 
         .modal-content {
             background: var(--card-bg);
-            padding: 30px;
-            border-radius: 15px;
             width: 90%;
-            max-width: 400px;
-            text-align: center;
+            max-width: 500px;
+            border-radius: 12px;
+            padding: 25px;
             position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .close-modal {
             position: absolute;
-            top: 10px;
-            right: 15px;
+            top: 15px;
+            right: 20px;
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--text-muted);
         }
 
-        .stat-row {
+        .cart-item {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 10px 0;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border);
         }
 
-        .stat-value {
-            color: var(--primary);
+        .cart-total {
+            margin-top: 20px;
+            text-align: right;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-size: 1rem;
             font-weight: bold;
         }
 
+        .checkout-btn:hover {
+            background: #00a383;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                order: 2;
+            }
+            .products-grid {
+                order: 1;
+            }
+        }
     </style>
 </head>
 <body>
 
-<div class="app-container">
-    
-    <!-- GİRİŞ EKRANI -->
-    <div id="login-screen" class="screen active">
-        <div class="login-header">
-            <h1>Baydınsal<br>OyunHizmetleri</h1>
-            <p style="color: var(--text-muted); margin-top: 10px;">Oyun dünyasına hoş geldin</p>
-        </div>
-
-        <div class="form-group">
-            <input type="email" placeholder="E-posta adresi">
-        </div>
-        <div class="form-group">
-            <input type="password" placeholder="Şifre">
-        </div>
-
-        <button class="btn btn-primary" onclick="enterSite()">Giriş Yap</button>
-        <button class="btn btn-outline" onclick="alert('Kayıt sayfası yönlendiriliyor...')">Kayıt Ol</button>
-
-        <div class="auth-links">
-            <a href="#" onclick="alert('Şifre sıfırlama bağlantısı gönderildi.')">Şifremi Unuttum</a>
-            <a href="#">KVKK Metni</a>
-        </div>
-
-        <div class="kvkk-box">
-            <strong>KVKK Aydınlatma Metni:</strong><br>
-            Kişisel verileriniz, hizmetlerimizi sunmak, güvenlik sağlamak ve yasal yükümlülükler kapsamında işlenmektedir. Verileriniz üçüncü şahıslarla paylaşılmaz. Detaylı bilgi için aydınlatma metnini okuyabilirsiniz.
-        </div>
+<header>
+    <a href="#" class="logo">🎮 Baydınsal<span>.OyunHizmetleri</span></a>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Hesap, skin veya oyun ara...">
     </div>
+    <button class="cart-btn" onclick="toggleCart()">
+        🛒 Sepetim <span class="cart-count" id="cartCount">0</span>
+    </button>
+</header>
 
-    <!-- ANA EKRAN -->
-    <div id="dashboard-screen" class="screen">
-        <div class="dashboard-header">
-            <div class="user-info">
-                <h2 id="display-name">Kullanıcı Adı Soyadı</h2>
-                <span>Oyun Hizmetleri Üyesi</span>
-            </div>
-            <div class="menu-dots" onclick="toggleMenu()">...</div>
+<div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="filter-group">
+            <h3>Kategoriler</h3>
+            <button class="filter-btn active" onclick="filterProducts('all')">Tümü</button>
+            <button class="filter-btn" onclick="filterProducts('pubg')">PUBG Mobile</button>
+            <button class="filter-btn" onclick="filterProducts('cod')">Call of Duty</button>
+            <button class="filter-btn" onclick="filterProducts('freefire')">Free Fire</button>
+            <button class="filter-btn" onclick="filterProducts('valorant')">Valorant</button>
         </div>
-
-        <!-- Açılır Menü -->
-        <div id="dropdown-menu" class="dropdown-menu">
-            <div class="dropdown-item" onclick="showModal('Kategoriler')">Kategoriler</div>
-            <div class="dropdown-item" onclick="showModal('Satın Alım Geçmişi')">Satın Alım Geçmişi</div>
-            <div class="dropdown-item" onclick="showModal('Favoriler')">Favoriler</div>
-            <div class="dropdown-item" onclick="logout()">Çıkış Yap</div>
+        
+        <div class="filter-group">
+            <h3>Fiyat Aralığı</h3>
+            <button class="filter-btn" onclick="sortPrice('asc')">Düşükten Yükseğe</button>
+            <button class="filter-btn" onclick="sortPrice('desc')">Yüksekten Düşüğe</button>
         </div>
+    </aside>
 
-        <h3 style="margin-top: 20px; margin-bottom: 15px;">Sosyal Medya İstatistikleri</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Platformu seçerek detaylı verilere ulaşabilirsin.</p>
+    <!-- Products -->
+    <main class="products-grid" id="productsContainer">
+        <!-- Ürünler JS ile buraya gelecek -->
+    </main>
+</div>
 
-        <div class="social-grid">
-            <!-- Instagram -->
-            <div class="social-card" onclick="openSocial('Instagram', 'instagram.com')">
-                <span class="social-icon" style="color: #E1306C;">📸</span>
-                <span class="social-title">Instagram</span>
-                <div class="stats-preview">
-                    Takipçi: <strong>Görüntüle</strong><br>
-                    Beğeni: <strong>Görüntüle</strong>
-                </div>
-            </div>
-
-            <!-- TikTok -->
-            <div class="social-card" onclick="openSocial('TikTok', 'tiktok.com')">
-                <span class="social-icon" style="color: #00f2ea;">🎵</span>
-                <span class="social-title">TikTok</span>
-                <div class="stats-preview">
-                    İzlenme: <strong>Görüntüle</strong><br>
-                    Yorum: <strong>Görüntüle</strong>
-                </div>
-            </div>
-
-            <!-- Telegram -->
-            <div class="social-card" onclick="openSocial('Telegram', 'telegram.org')">
-                <span class="social-icon" style="color: #0088cc;">✈️</span>
-                <span class="social-title">Telegram</span>
-                <div class="stats-preview">
-                    Abone: <strong>Görüntüle</strong><br>
-                    Görüntülenme: <strong>Görüntüle</strong>
-                </div>
-            </div>
-
-            <!-- YouTube -->
-            <div class="social-card" onclick="openSocial('YouTube', 'youtube.com')">
-                <span class="social-icon" style="color: #ff0000;">▶️</span>
-                <span class="social-title">YouTube</span>
-                <div class="stats-preview">
-                    Abone: <strong>Görüntüle</strong><br>
-                    İzlenme: <strong>Görüntüle</strong>
-                </div>
-            </div>
+<!-- Cart Modal -->
+<div id="cartModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="toggleCart()">&times;</span>
+        <h2>Sepetiniz</h2>
+        <div id="cartItems">
+            <p style="color: var(--text-muted); text-align: center; margin: 20px 0;">Sepetiniz boş.</p>
         </div>
+        <div class="cart-total">
+            Toplam: <span id="totalPrice">0 ₺</span>
+        </div>
+        <button class="checkout-btn" onclick="alert('Ödeme sayfasına yönlendiriliyorsunuz (Demo)')">Ödemeyi Tamamla</button>
     </div>
-
-    <!-- MODAL (Detay Penceresi) -->
-    <div id="info-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2 id="modal-title" style="margin-bottom: 20px;">Başlık</h2>
-            <div id="modal-body" style="text-align: left;">
-                <!-- İçerik JS ile dolacak -->
-            </div>
-        </div>
-    </div>
-
 </div>
 
 <script>
+    // Örnek Ürün Verileri
+    const products = [
+        { id: 1, title: "PUBG - Mythic Elbise + 5000 UC", category: "pubg", price: 1250, desc: "Mythic set, tüm silah skinleri ve yüksek level.", image: "🔫" },
+        { id: 2, title: "COD Mobile - Level 150 + Tüm Silahlar", category: "cod", price: 850, desc: "Max level, legendary skinler ve rank ödülleri.", image: "💀" },
+        { id: 3, title: "Valorant - Radiant Rank + Skinler", category: "valorant", price: 2100, desc: "Radiant rank, Vandal ve Phantom skinleri.", image: "⚡" },
+        { id: 4, title: "Free Fire - Max Level + Karakterler", category: "freefire", price: 450, desc: "Max karakter skilleri ve özel kostümler.", image: "🔥" },
+        { id: 5, title: "PUBG - Conqueror Sıralaması", category: "pubg", price: 3500, desc: "Conqueror rozeti, özel elbise seti.", image: "👑" },
+        { id: 6, title: "Genshin Impact - AR 60 + 5 Yıldızlılar", category: "pubg", price: 1800, desc: "AR 60, tüm karakterler ve weaponlar.", image: "✨" },
+        { id: 7, title: "LoL - Prestige Skin + Rütbe", category: "valorant", price: 950, desc: "Prestige skin koleksiyonu ve Diamond rütbe.", image: "🛡️" },
+        { id: 8, title: "PUBG - Yeni Başlayan Hesap", category: "pubg", price: 150, desc: "Temiz hesap, başlangıç için ideal.", image: "🎯" }
+    ];
+
+    let cart = ;
+    let currentFilter = 'all';
+
     // Sayfa Yüklendiğinde
     document.addEventListener('DOMContentLoaded', () => {
-        // Demo amaçlı kullanıcı adını ayarla
-        document.getElementById('display-name').innerText = "Ahmet Yılmaz";
+        renderProducts(products);
     });
 
-    // Siteye Giriş Fonksiyonu
-    function enterSite() {
-        const email = document.querySelector('input[type="email"]').value;
-        if(email) {
-            document.getElementById('login-screen').classList.remove('active');
-            document.getElementById('dashboard-screen').classList.add('active');
+    // Ürünleri Listeleme
+    function renderProducts(data) {
+        const container = document.getElementById('productsContainer');
+        container.innerHTML = '';
+
+        if (data.length === 0) {
+            container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">Ürün bulunamadı.</p>';
+            return;
+        }
+
+        data.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <div class="product-img">
+                    \${product.image}
+                    <span class="badge">Stokta Var</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">\${product.title}</h3>
+                    <p class="product-desc">\${product.desc}</p>
+                    <div class="product-meta">
+                        <span class="price">\${product.price} ₺</span>
+                        <button class="add-cart-btn" onclick="addToCart(\${product.id})">Sepete Ekle</button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    // Filtreleme
+    function filterProducts(category) {
+        currentFilter = category;
+        
+        // Aktif buton güncelleme
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        if (category === 'all') {
+            renderProducts(products);
         } else {
-            alert("Lütfen e-posta adresinizi giriniz.");
+            const filtered = products.filter(p => p.category === category);
+            renderProducts(filtered);
         }
     }
 
-    // Menü Aç/Kapa
-    function toggleMenu() {
-        const menu = document.getElementById('dropdown-menu');
-        menu.classList.toggle('show');
+    // Sıralama
+    function sortPrice(order) {
+        let sorted = [...products];
+        if (currentFilter !== 'all') {
+            sorted = sorted.filter(p => p.category === currentFilter);
+        }
+        
+        sorted.sort((a, b) => order === 'asc' ? a.price - b.price : b.price - a.price);
+        renderProducts(sorted);
     }
 
-    // Menü dışına tıklayınca kapatma
+    // Arama
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        const filtered = products.filter(p => 
+            p.title.toLowerCase().includes(term) || 
+            p.desc.toLowerCase().includes(term)
+        );
+        renderProducts(filtered);
+    });
+
+    // Sepet İşlemleri
+    function addToCart(id) {
+        const product = products.find(p => p.id === id);
+        cart.push(product);
+        updateCartUI();
+        
+        // Küçük animasyon efekti
+        const btn = event.target;
+        const originalText = btn.innerText;
+        btn.innerText = "Eklendi ✓";
+        btn.style.background = "#00b894";
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = "";
+        }, 1000);
+    }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCartUI();
+    }
+
+    function updateCartUI() {
+        document.getElementById('cartCount').innerText = cart.length;
+        
+        const cartItemsContainer = document.getElementById('cartItems');
+        const totalPriceEl = document.getElementById('totalPrice');
+        
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin: 20px 0;">Sepetiniz boş.</p>';
+            totalPriceEl.innerText = '0 ₺';
+            return;
+        }
+
+        let total = 0;
+        let html = '';
+        
+        cart.forEach((item, index) => {
+            total += item.price;
+            html += `
+                <div class="cart-item">
+                    <div>
+                        <strong>\${item.title}</strong><br>
+                        <small>\${item.price} ₺</small>
+                    </div>
+                    <button onclick="removeFromCart(\${index})" style="background:none; border:none; color:var(--danger); cursor:pointer;">Sil</button>
+                </div>
+            `;
+        });
+
+        cartItemsContainer.innerHTML = html;
+        totalPriceEl.innerText = total + ' ₺';
+    }
+
+    function toggleCart() {
+        const modal = document.getElementById('cartModal');
+        modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    // Modal dışına tıklayınca kapatma
     window.onclick = function(event) {
-        if (!event.target.matches('.menu-dots')) {
-            const menu = document.getElementById('dropdown-menu');
-            if (menu.classList.contains('show')) {
-                menu.classList.remove('show');
-            }
+        const modal = document.getElementById('cartModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
         }
-    }
-
-    // Çıkış Yap
-    function logout() {
-        document.getElementById('dashboard-screen').classList.remove('active');
-        document.getElementById('login-screen').classList.add('active');
-        document.getElementById('dropdown-menu').classList.remove('show');
-    }
-
-    // Sosyal Medya Tıklama (Yeni Sekme + Modal)
-    function openSocial(platform, url) {
-        // Yeni sekmede siteyi aç
-        window.open('https://' + url, '_blank');
-
-        // Modalı aç ve veri göster
-        const modalTitle = document.getElementById('modal-title');
-        const modalBody = document.getElementById('modal-body');
-        
-        modalTitle.innerText = platform + " Detayları";
-        
-        let statsHtml = '';
-        if(platform === 'Instagram') {
-            statsHtml = `
-                <div class="stat-row"><span>Takipçi Sayısı:</span> <span class="stat-value">12,450</span></div>
-                <div class="stat-row"><span>Ortalama Beğeni:</span> <span class="stat-value">850</span></div>
-                <div class="stat-row"><span>Yorum Sayısı:</span> <span class="stat-value">120</span></div>
-            `;
-        } else if (platform === 'TikTok') {
-            statsHtml = `
-                <div class="stat-row"><span>Toplam İzlenme:</span> <span class="stat-value">1.2M</span></div>
-                <div class="stat-row"><span>Fan Sayısı:</span> <span class="stat-value">45k</span></div>
-                <div class="stat-row"><span>Son Video Yorumu:</span> <span class="stat-value">340</span></div>
-            `;
-        } else if (platform === 'Telegram') {
-            statsHtml = `
-                <div class="stat-row"><span>Kanal Üyesi:</span> <span class="stat-value">5,600</span></div>
-                <div class="stat-row"><span>İleti Görüntüleme:</span> <span class="stat-value">12k</span></div>
-            `;
-        } else if (platform === 'YouTube') {
-            statsHtml = `
-                <div class="stat-row"><span>Abone Sayısı:</span> <span class="stat-value">89,000</span></div>
-                <div class="stat-row"><span>Toplam İzlenme:</span> <span class="stat-value">5M+</span></div>
-                <div class="stat-row"><span>Aylık Gelir Tahmini:</span> <span class="stat-value">\$450 - \$700</span></div>
-            `;
-        }
-
-        modalBody.innerHTML = statsHtml;
-        document.getElementById('info-modal').style.display = 'flex';
-    }
-
-    // Modal İşlemleri
-    function showModal(title) {
-        const modalTitle = document.getElementById('modal-title');
-        const modalBody = document.getElementById('modal-body');
-        
-        modalTitle.innerText = title;
-        
-        let content = "";
-        if(title === 'Kategoriler') {
-            content = "<ul><li>Oyun Hesapları</li><li>Hızlı Teslimat</li><li>Destek Paketleri</li></ul>";
-        } else if (title === 'Satın Alım Geçmişi') {
-            content = "<p>Henüz satın alma yapmadınız.</p>";
-        } else if (title === 'Favoriler') {
-            content = "<p>Favori listeniz boş.</p>";
-        }
-
-        modalBody.innerHTML = content;
-        document.getElementById('info-modal').style.display = 'flex';
-    }
-
-    function closeModal() {
-        document.getElementById('info-modal').style.display = 'none';
     }
 </script>
 
