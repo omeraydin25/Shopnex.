@@ -91,17 +91,12 @@
 
  /* --- Neden Biz? --- */
  .why-us { padding: 100px 0; background-color: var(--bg-light); }
- .why-us-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; }
+ .why-us-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto; }
  .why-us-content h2 { font-size: 38px; font-weight: 700; color: var(--primary-color); margin-bottom: 24px; }
  .why-us-content p { color: var(--text-muted); margin-bottom: 24px; }
  .why-us-features { display: flex; flex-direction: column; gap: 16px; }
  .feature-item { display: flex; align-items: center; gap: 12px; }
  .feature-check { color: var(--accent-color); font-weight: bold; }
- 
- /* --- İletişim Bölümü (Form Kaldırıldı) --- */
- .contact { padding: 100px 0; background-color: var(--white); text-align: center; }
- .contact h2 { font-size: 38px; font-weight: 700; color: var(--primary-color); margin-bottom: 24px; }
- .contact p { color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; }
  
  /* --- Footer --- */
  footer { background-color: var(--primary-color); color: var(--white); padding: 60px 0 30px; }
@@ -109,7 +104,6 @@
  .footer-col h4 { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: var(--white); }
  .footer-col p, .footer-col a { color: #94a3b8; font-size: 15px; line-height: 1.8; display: block; margin-bottom: 12px; }
  .footer-col a:hover { color: var(--accent-color); }
- .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #334155; color: #94a3b8; font-size: 14px; }
 
  /* Responsive */
  @media (max-width: 768px) {
@@ -122,121 +116,102 @@
 <body>
  <!-- Header -->
  <header>
-   <div class="container">
-     <nav>
-       <div class="logo">Shop<span>nex</span></div>
-       <div class="nav-links">
-         <a href="#services">Hizmetler</a>
-         <a href="#why-us">Neden Biz?</a>
-         <a href="#contact">İletişim</a>
-       </div>
-       <div class="online-counter">
-         <div class="pulse-dot"></div>
-         Çevrimiçi
-       </div>
-     </nav>
-   </div>
+ <div class="container">
+ <nav>
+ <div class="logo">Shop<span>nex</span></div>
+ <div class="nav-links">
+ <a href="#services">Hizmetler</a>
+ <a href="#why-us">Neden Biz?</a>
+ </div>
+ <div class="online-counter">
+ <div class="pulse-dot"></div>
+ Çevrimiçi
+ </div>
+ </nav>
+ </div>
  </header>
 
  <!-- Hero Section -->
  <section class="hero">
-   <div class="container">
-     <h1>Kurumsal Web Çözümleri</h1>
-     <p>İşinizi dijital dünyada öne çıkaracak profesyonel web çözümleri sunuyoruz.</p>
-     <a href="#contact" class="cta-button">Teklif Alın</a>
-     <div class="user-handle">@shopnex_official</div>
-   </div>
+ <div class="container">
+ <h1>Kurumsal Web Çözümleri</h1>
+ <p>İşinizi dijital dünyada öne çıkaracak profesyonel web çözümleri sunuyoruz.</p>
+ <a href="#contact" class="cta-button">Teklif Alın</a>
+ <div class="user-handle">@shopnex_official</div>
+ </div>
  </section>
 
  <!-- Services Section -->
  <section id="services" class="services">
-   <div class="container">
-     <div class="section-header">
-       <h2 class="section-title">Hizmetlerimiz</h2>
-       <p class="section-subtitle">İşinizin büyümesi için ihtiyacınız olan tüm dijital çözümler</p>
-     </div>
-     <div class="services-grid">
-       <div class="service-card">
-         <div class="service-icon">W</div>
-         <h3>Web Tasarım</h3>
-         <p>Modern ve responsive web siteleri ile markanızı dijital dünyada güçlendirin.</p>
-       </div>
-       <div class="service-card">
-         <div class="service-icon">E</div>
-         <h3>E-Ticaret</h3>
-         <p>Güvenli ve kullanıcı dostu e-ticaret platformları ile satışlarınızı artırın.</p>
-       </div>
-       <div class="service-card">
-         <div class="service-icon">S</div>
-         <h3>Dijital Pazarlama</h3>
-         <p>Hedef kitlenize ulaşmak için stratejik dijital pazarlama çözümleri.</p>
-       </div>
-     </div>
-   </div>
+ <div class="container">
+ <div class="section-header">
+ <h2 class="section-title">Hizmetlerimiz</h2>
+ <p class="section-subtitle">İşinizin büyümesi için ihtiyacınız olan tüm dijital çözümler</p>
+ </div>
+ <div class="services-grid">
+ <div class="service-card">
+ <div class="service-icon">W</div>
+ <h3>Web Tasarım</h3>
+ <p>Modern ve responsive web siteleri ile markanızı dijital dünyada güçlendirin.</p>
+ </div>
+ <div class="service-card">
+ <div class="service-icon">E</div>
+ <h3>E-Ticaret</h3>
+ <p>Güvenli ve kullanıcı dostu e-ticaret platformları ile satışlarınızı artırın.</p>
+ </div>
+ <div class="service-card">
+ <div class="service-icon">S</div>
+ <h3>Dijital Pazarlama</h3>
+ <p>Hedef kitlenize ulaşmak için stratejik dijital pazarlama çözümleri.</p>
+ </div>
+ </div>
+ </div>
  </section>
 
  <!-- Why Us Section -->
  <section id="why-us" class="why-us">
-   <div class="container">
-     <div class="why-us-grid">
-       <div class="why-us-content">
-         <h2>Neden Bizi Seçmelisiniz?</h2>
-         <p>Yılların verdiği tecrübe ve uzman ekibimizle işinizi bir üst seviyeye taşıyoruz.</p>
-         <div class="why-us-features">
-           <div class="feature-item">
-             <span class="feature-check">✓</span>
-             <span>Profesyonel Ekip</span>
-           </div>
-           <div class="feature-item">
-             <span class="feature-check">✓</span>
-             <span>Zamanında Teslimat</span>
-           </div>
-           <div class="feature-item">
-             <span class="feature-check">✓</span>
-             <span>Müşteri Memnuniyeti</span>
-           </div>
-         </div>
-       </div>
-       <div class="why-us-image">
-         <!-- Buraya görsel eklenebilir -->
-       </div>
-     </div>
-   </div>
- </section>
-
- <!-- Contact Section (Form Kaldırıldı) -->
- <section id="contact" class="contact">
-   <div class="container">
-     <h2>Bize Ulaşın</h2>
-     <p>Projeniz hakkında konuşmak için bizimle iletişime geçin.</p>
-     <a href="mailto:info@shopnex.com" class="cta-button">info@shopnex.com</a>
-   </div>
+ <div class="container">
+ <div class="why-us-grid">
+ <div class="why-us-content">
+ <h2>Neden Bizi Seçmelisiniz?</h2>
+ <p>Yılların verdiği tecrübe ve uzman ekibimizle işinizi bir üst seviyeye taşıyoruz.</p>
+ <div class="why-us-features">
+ <div class="feature-item">
+ <span class="feature-check">✓</span>
+ <span>Profesyonel Ekip</span>
+ </div>
+ <div class="feature-item">
+ <span class="feature-check">✓</span>
+ <span>Zamanında Teslimat</span>
+ </div>
+ <div class="feature-item">
+ <span class="feature-check">✓</span>
+ <span>Müşteri Memnuniyeti</span>
+ </div>
+ </div>
+ </div>
+ <div class="why-us-image">
+ <!-- Buraya görsel eklenebilir -->
+ </div>
+ </div>
+ </div>
  </section>
 
  <!-- Footer -->
  <footer>
-   <div class="container">
-     <div class="footer-grid">
-       <div class="footer-col">
-         <h4>Shopnex</h4>
-         <p>Kurumsal web çözümleri ve dijital dönüşüm partneriniz.</p>
-       </div>
-       <div class="footer-col">
-         <h4>Hızlı Linkler</h4>
-         <a href="#services">Hizmetler</a>
-         <a href="#why-us">Neden Biz?</a>
-         <a href="#contact">İletişim</a>
-       </div>
-       <div class="footer-col">
-         <h4>İletişim</h4>
-         <p>info@shopnex.com</p>
-         <p>+90 212 123 45 67</p>
-       </div>
-     </div>
-     <div class="footer-bottom">
-       <p>&copy; 2024 Shopnex. Tüm hakları saklıdır.</p>
-     </div>
-   </div>
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-col">
+ <h4>Shopnex</h4>
+ <p>Kurumsal web çözümleri ve dijital dönüşüm partneriniz.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Hızlı Linkler</h4>
+ <a href="#services">Hizmetler</a>
+ <a href="#why-us">Neden Biz?</a>
+ </div>
+ </div>
+ </div>
  </footer>
 </body>
 </html>
