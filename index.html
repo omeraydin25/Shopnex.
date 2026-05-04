@@ -1,184 +1,234 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRO Web Site</title>
-
-<style>
-:root {
- --primary: #6366f1;
- --bg: #0f172a;
- --text: #fff;
-}
-
-body.light {
- --bg: #f1f5f9;
- --text: #000;
-}
-
-body {
- margin:0;
- font-family: Arial;
- background: var(--bg);
- color: var(--text);
- transition: 0.4s;
-}
-
-/* NAVBAR */
-nav {
- display:flex;
- justify-content:space-between;
- padding:15px 30px;
- background: rgba(0,0,0,0.5);
- position: sticky;
- top:0;
-}
-
-nav a {
- color:white;
- text-decoration:none;
- margin:0 10px;
-}
-
-/* HERO */
-.hero {
- text-align:center;
- padding:100px 20px;
-}
-
-.hero h1 {
- font-size:50px;
-}
-
-.btn {
- background:var(--primary);
- padding:15px 30px;
- border:none;
- border-radius:30px;
- color:white;
- cursor:pointer;
- transition:0.3s;
-}
-
-.btn:hover {
- transform:scale(1.1);
-}
-
-/* CARDS */
-.cards {
- display:grid;
- grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
- gap:20px;
- padding:50px;
-}
-
-.card {
- background:rgba(255,255,255,0.1);
- padding:20px;
- border-radius:15px;
- transition:0.3s;
-}
-
-.card:hover {
- transform:translateY(-10px);
-}
-
-/* COUNTER */
-.counter {
- text-align:center;
- font-size:40px;
- margin:50px;
-}
-
-/* POPUP */
-.popup {
- position:fixed;
- top:50%;
- left:50%;
- transform:translate(-50%,-50%) scale(0);
- background:white;
- color:black;
- padding:30px;
- border-radius:15px;
- transition:0.3s;
-}
-
-.popup.active {
- transform:translate(-50%,-50%) scale(1);
-}
-
-/* FOOTER */
-footer {
- text-align:center;
- padding:20px;
- background:black;
-}
-
-</style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Baydınsal.OyunHizmetleri | Profesyonel Hesap Pazarı</title>
+ <!-- Bootstrap 5 -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ <!-- Font Awesome -->
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+ <!-- Google Fonts -->
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+ <!-- Custom CSS -->
+ <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-<nav>
- <h2>Shopnex</h2>
- <div>
-  <a href="#">Ana Sayfa</a>
-  <a href="#">Hakkında</a>
-  <a href="#">İletişim</a>
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg fixed-top">
+ <div class="container">
+ <a class="navbar-brand" href="#">
+ <i class="fas fa-gamepad me-2 text-primary"></i>Baydınsal.OyunHizmetleri
+ </a>
+ <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+ <span class="fa-solid fa-bars" style="color: white;"></span>
+ </button>
+ <div class="collapse navbar-collapse" id="navbarNav">
+ <ul class="navbar-nav ms-auto align-items-center">
+ <li class="nav-item"><a class="nav-link active" href="#home">Ana Sayfa</a></li>
+ <li class="nav-item"><a class="nav-link" href="#products">Ürünler</a></li>
+ <li class="nav-item"><a class="nav-link" href="#social">Sosyal Medya</a></li>
+ <li class="nav-item ms-lg-3">
+ <a href="#" class="btn btn-outline-light btn-sm rounded-pill px-3" onclick="toggleLoginModal()">Giriş Yap</a>
+ </li>
+ <li class="nav-item ms-2">
+ <a href="#" class="btn btn-primary-custom btn-sm rounded-pill px-3" id="cart-btn">
+ <i class="fas fa-shopping-cart me-2"></i>Sepet (<span id="cart-count">0</span>)
+ </a>
+ </li>
+ </ul>
  </div>
- <button onclick="toggleMode()">🌙</button>
-</nav>
+ </div>
+ </nav>
 
-<section class="hero">
- <h1>PRO WEB SİTESİ</h1>
- <p>En gelişmiş siteyi yaptın</p>
- <button class="btn" onclick="openPopup()">Başla</button>
-</section>
+ <!-- Hero Section -->
+ <section id="home" class="hero-section mt-5">
+ <div class="container">
+ <div class="row align-items-center">
+ <div class="col-lg-6">
+ <h1 class="hero-title">Hayalindeki Hesaplara <br>Bir Adım Uzaklıktasın</h1>
+ <p class="lead text-muted mb-4">PUBG Mobile, Call of Duty ve daha fazlası için güvenli, hızlı ve profesyonel hesap alım satım platformu.</p>
+ <div class="d-flex gap-3">
+ <a href="#products" class="btn btn-primary-custom btn-lg">Hemen Keşfet</a>
+ <a href="#" class="btn btn-outline-light btn-lg rounded-pill">Nasıl Çalışır?</a>
+ </div>
+ <div class="mt-4 d-flex gap-4 text-muted small">
+ <span><i class="fas fa-shield-alt me-2 text-success"></i>Güvenli Ödeme</span>
+ <span><i class="fas fa-bolt me-2 text-warning"></i>Anında Teslimat</span>
+ <span><i class="fas fa-headset me-2 text-info"></i>7/24 Destek</span>
+ </div>
+ </div>
+ <div class="col-lg-6 text-center">
+ <img src="https://via.placeholder.com/600x400/1e293b/ffffff?text=Gaming+Dashboard+Preview" alt="Gaming Dashboard" class="img-fluid rounded-4 shadow-lg">
+ </div>
+ </div>
+ </div>
+ </section>
 
-<section class="cards">
- <div class="card">🚀 Hızlı</div>
- <div class="card">💎 Kaliteli</div>
- <div class="card">🔥 Modern</div>
-</section>
+ <!-- Products Section -->
+ <section id="products" class="py-5">
+ <div class="container">
+ <div class="row mb-4">
+ <div class="col-md-12">
+ <div class="d-flex flex-wrap justify-content-between align-items-center bg-card p-3 rounded-3" style="background-color: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);">
+ <h3 class="h5 mb-0"><i class="fas fa-layer-group me-2"></i>Kategoriler</h3>
+ <div class="d-flex gap-2">
+ <select class="form-select form-select-sm w-auto bg-dark text-light border-secondary" id="categoryFilter">
+ <option value="all">Tüm Kategoriler</option>
+ <option value="pubg">PUBG Mobile</option>
+ <option value="cod">Call of Duty Mobile</option>
+ <option value="valorant">Valorant</option>
+ </select>
+ <select class="form-select form-select-sm w-auto bg-dark text-light border-secondary" id="sortOrder">
+ <option value="newest">En Yeni</option>
+ <option value="priceAsc">Fiyat: Düşükten Yükseğe</option>
+ <option value="priceDesc">Fiyat: Yüksekten Düşüğe</option>
+ </select>
+ </div>
+ </div>
+ </div>
+ </div>
 
-<div class="counter" id="counter">0</div>
+ <div class="row g-4" id="product-grid">
+ <!-- Ürünler JavaScript ile buraya yüklenecek -->
+ </div>
+ 
+ <div class="text-center mt-5">
+ <button class="btn btn-outline-light px-5 py-2 rounded-pill">Daha Fazla Ürün Gör</button>
+ </div>
+ </div>
+ </section>
 
-<div class="popup" id="popup">
- <h2>Hoşgeldin!</h2>
- <button onclick="closePopup()">Kapat</button>
-</div>
+ <!-- Social Media Section -->
+ <section id="social" class="py-5 bg-dark">
+ <div class="container">
+ <div class="text-center mb-5">
+ <h2 class="fw-bold">Topluluğumuza Katılın</h2>
+ <p class="text-muted">Binlerce oyuncunun takip ettiği sosyal medya hesaplarımızdan güncel haberleri öğrenin.</p>
+ </div>
+ <div class="row g-4 justify-content-center">
+ <div class="col-md-3 col-sm-6">
+ <div class="social-stat-card">
+ <i class="fab fa-instagram social-icon instagram-icon"></i>
+ <h5 class="fw-bold">Instagram</h5>
+ <p class="mb-0 text-muted">Takipçi: 12,450</p>
+ <small class="text-primary">Günlük Çekilişler</small>
+ </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+ <div class="social-stat-card">
+ <i class="fab fa-tiktok social-icon tiktok-icon"></i>
+ <h5 class="fw-bold">TikTok</h5>
+ <p class="mb-0 text-muted">İzlenme: 1.2M</p>
+ <small class="text-primary">Viral İçerikler</small>
+ </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+ <div class="social-stat-card">
+ <i class="fab fa-telegram social-icon telegram-icon"></i>
+ <h5 class="fw-bold">Telegram</h5>
+ <p class="mb-0 text-muted">Üye: 5,600</p>
+ <small class="text-primary">Anlık Fırsatlar</small>
+ </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+ <div class="social-stat-card">
+ <i class="fab fa-youtube social-icon youtube-icon"></i>
+ <h5 class="fw-bold">YouTube</h5>
+ <p class="mb-0 text-muted">Abone: 89,000</p>
+ <small class="text-primary">İnceleme Videoları</small>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
 
-<footer>
- © 2026 Tüm haklar saklı
-</footer>
+ <!-- Login Modal -->
+ <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered">
+ <div class="modal-content bg-dark text-light border-secondary">
+ <div class="modal-header border-bottom border-secondary">
+ <h5 class="modal-title fw-bold">Hesabınıza Giriş Yapın</h5>
+ <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+ </div>
+ <div class="modal-body">
+ <form id="loginForm">
+ <div class="mb-3">
+ <label class="form-label text-muted">E-posta Adresi</label>
+ <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="ornek@email.com" required>
+ </div>
+ <div class="mb-3">
+ <label class="form-label text-muted">Şifre</label>
+ <input type="password" class="form-control bg-dark text-light border-secondary" placeholder="••••••••" required>
+ </div>
+ <div class="d-flex justify-content-between align-items-center mb-4">
+ <div class="form-check">
+ <input class="form-check-input bg-dark border-secondary" type="checkbox" id="rememberMe">
+ <label class="form-check-label text-muted small" for="rememberMe">Beni Hatırla</label>
+ </div>
+ <a href="#" class="text-decoration-none small text-primary">Şifremi Unuttum?</a>
+ </div>
+ <button type="submit" class="btn btn-primary-custom w-100">Giriş Yap</button>
+ <div class="text-center mt-3">
+ <span class="text-muted small">veya devam edin</span>
+ <div class="d-flex justify-content-center gap-2 mt-2">
+ <button type="button" class="btn btn-sm btn-outline-light rounded-circle"><i class="fab fa-google"></i></button>
+ <button type="button" class="btn btn-sm btn-outline-light rounded-circle"><i class="fab fa-discord"></i></button>
+ </div>
+ </div>
+ </form>
+ </div>
+ </div>
+ </div>
+ </div>
 
-<script>
+ <!-- Footer -->
+ <footer>
+ <div class="container">
+ <div class="row">
+ <div class="col-lg-4 mb-4">
+ <h5 class="fw-bold mb-3">Baydınsal.OyunHizmetleri</h5>
+ <p class="text-muted small">Oyun dünyasının en güvenilir adresi. Profesyonel ekip, hızlı teslimat ve %100 müşteri memnuniyeti garantisi.</p>
+ <div class="d-flex gap-3 mt-3">
+ <a href="#" class="text-muted"><i class="fab fa-instagram fa-lg"></i></a>
+ <a href="#" class="text-muted"><i class="fab fa-twitter fa-lg"></i></a>
+ <a href="#" class="text-muted"><i class="fab fa-discord fa-lg"></i></a>
+ <a href="#" class="text-muted"><i class="fab fa-youtube fa-lg"></i></a>
+ </div>
+ </div>
+ <div class="col-lg-2 col-6 mb-4">
+ <h6 class="fw-bold mb-3">Kurumsal</h6>
+ <ul class="list-unstyled text-muted small">
+ <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Hakkımızda</a></li>
+ <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Kariyer</a></li>
+ <li class="mb-2"><a href="#" class="text-decoration-none text-muted">İletişim</a></li>
+ </ul>
+ </div>
+ <div class="col-lg-2 col-6 mb-4">
+ <h6 class="fw-bold mb-3">Yardım</h6>
+ <ul class="list-unstyled text-muted small">
+ <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Sıkça Sorulan Sorular</a></li>
+ <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Teslimat Süreleri</a></li>
+ <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Gizlilik Politikası</a></li>
+ </ul>
+ </div>
+ <div class="col-lg-4 mb-4">
+ <h6 class="fw-bold mb-3">KVKK Aydınlatma Metni</h6>
+ <div class="kvkk-box">
+ Kişisel verileriniz, hizmetlerin sunulması, sipariş takibi ve yasal yükümlülüklerin yerine getirilmesi amacıyla 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında işlenmektedir. Verileriniz üçüncü şahıslarla paylaşılmamakta ve yalnızca gerekli güvenlik önlemleri alınarak saklanmaktadır. Detaylı bilgi için Gizlilik Politikamızı inceleyebilirsiniz.
+ </div>
+ </div>
+ </div>
+ <div class="border-top border-secondary pt-4 mt-4 text-center text-muted small">
+ <p>&copy; 2026 Baydınsal.OyunHizmetleri. Tüm hakları saklıdır.</p>
+ </div>
+ </div>
+ </footer>
 
-/* DARK MODE */
-function toggleMode(){
- document.body.classList.toggle("light")
-}
-
-/* COUNTER */
-let count = 0;
-let counter = document.getElementById("counter");
-
-setInterval(()=>{
- count++;
- counter.innerText = count;
-},50);
-
-/* POPUP */
-function openPopup(){
- document.getElementById("popup").classList.add("active")
-}
-
-function closePopup(){
- document.getElementById("popup").classList.remove("active")
-}
-
-</script>
-
+ <!-- Bootstrap JS Bundle -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ <!-- Custom JS -->
+ <script src="js/main.js"></script>
 </body>
 </html>
