@@ -1,180 +1,184 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Kendi Web Siteni Yap</title>
- <style>
- :root {
- --primary-color: #6366f1;
- --secondary-color: #a855f7;
- --text-color: #ffffff;
- --bg-overlay: rgba(0, 0, 0, 0.7);
- }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO Web Site</title>
 
- * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- }
+<style>
+:root {
+ --primary: #6366f1;
+ --bg: #0f172a;
+ --text: #fff;
+}
 
- body {
- color: var(--text-color);
- min-height: 100vh;
- display: flex;
- flex-direction: column;
- overflow-x: hidden;
- background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
- background-size: 400% 400%;
- animation: gradientBG 15s ease infinite;
- }
+body.light {
+ --bg: #f1f5f9;
+ --text: #000;
+}
 
- @keyframes gradientBG {
- 0% { background-position: 0% 50%; }
- 50% { background-position: 100% 50%; }
- 100% { background-position: 0% 50%; }
- }
+body {
+ margin:0;
+ font-family: Arial;
+ background: var(--bg);
+ color: var(--text);
+ transition: 0.4s;
+}
 
- .container {
- max-width: 1200px;
- margin: 0 auto;
- padding: 2rem;
- flex: 1;
- position: relative;
- z-index: 1;
- }
+/* NAVBAR */
+nav {
+ display:flex;
+ justify-content:space-between;
+ padding:15px 30px;
+ background: rgba(0,0,0,0.5);
+ position: sticky;
+ top:0;
+}
 
- header {
- text-align: center;
- padding: 4rem 0;
- animation: fadeInDown 1s ease-out;
- }
+nav a {
+ color:white;
+ text-decoration:none;
+ margin:0 10px;
+}
 
- h1 {
- font-size: 3.5rem;
- font-weight: 800;
- margin-bottom: 1rem;
- text-shadow: 0 4px 6px rgba(0,0,0,0.3);
- background: linear-gradient(to right, #fff, #e0e7ff);
- -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;
- }
+/* HERO */
+.hero {
+ text-align:center;
+ padding:100px 20px;
+}
 
- .subtitle {
- font-size: 1.25rem;
- opacity: 0.9;
- max-width: 600px;
- margin: 0 auto;
- line-height: 1.6;
- }
+.hero h1 {
+ font-size:50px;
+}
 
- .features-section {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
- gap: 2rem;
- margin-top: 3rem;
- }
+.btn {
+ background:var(--primary);
+ padding:15px 30px;
+ border:none;
+ border-radius:30px;
+ color:white;
+ cursor:pointer;
+ transition:0.3s;
+}
 
- .card {
- background: rgba(255, 255, 255, 0.1);
- backdrop-filter: blur(10px);
- border: 1px solid rgba(255, 255, 255, 0.2);
- border-radius: 16px;
- padding: 2rem;
- transition: transform 0.3s ease, box-shadow 0.3s ease;
- animation: fadeInUp 1s ease-out backwards;
- }
+.btn:hover {
+ transform:scale(1.1);
+}
 
- .card:hover {
- transform: translateY(-10px);
- box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
- background: rgba(255, 255, 255, 0.15);
- }
+/* CARDS */
+.cards {
+ display:grid;
+ grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+ gap:20px;
+ padding:50px;
+}
 
- .card h3 {
- font-size: 1.5rem;
- margin-bottom: 1rem;
- color: #fff;
- }
+.card {
+ background:rgba(255,255,255,0.1);
+ padding:20px;
+ border-radius:15px;
+ transition:0.3s;
+}
 
- .card p {
- line-height: 1.6;
- opacity: 0.9;
- }
+.card:hover {
+ transform:translateY(-10px);
+}
 
- .cta-section {
- text-align: center;
- margin-top: 4rem;
- padding: 3rem;
- background: rgba(0, 0, 0, 0.3);
- border-radius: 20px;
- backdrop-filter: blur(5px);
- animation: zoomIn 1s ease-out;
- }
+/* COUNTER */
+.counter {
+ text-align:center;
+ font-size:40px;
+ margin:50px;
+}
 
- .offer-badge {
- display: inline-block;
- background: linear-gradient(135deg, #fbbf24, #f59e0b);
- color: #fff;
- padding: 0.5rem 1.5rem;
- border-radius: 50px;
- font-weight: bold;
- font-size: 1.1rem;
- margin-bottom: 1rem;
- box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
- }
+/* POPUP */
+.popup {
+ position:fixed;
+ top:50%;
+ left:50%;
+ transform:translate(-50%,-50%) scale(0);
+ background:white;
+ color:black;
+ padding:30px;
+ border-radius:15px;
+ transition:0.3s;
+}
 
- .btn {
- display: inline-block;
- background: white;
- color: var(--primary-color);
- padding: 1rem 2.5rem;
- border-radius: 50px;
- text-decoration: none;
- font-weight: bold;
- font-size: 1.1rem;
- margin-top: 1.5rem;
- transition: all 0.3s ease;
- box-shadow: 0 4px 6px rgba(0,0,0,0.1);
- }
+.popup.active {
+ transform:translate(-50%,-50%) scale(1);
+}
 
- .btn:hover {
- transform: scale(1.05);
- box-shadow: 0 10px 15px rgba(0,0,0,0.2);
- }
+/* FOOTER */
+footer {
+ text-align:center;
+ padding:20px;
+ background:black;
+}
 
- footer {
- text-align: center;
- padding: 2rem;
- background: rgba(0, 0, 0, 0.5);
- font-size: 0.9rem;
- opacity: 0.8;
- }
-
- @keyframes fadeInDown {
- from { opacity: 0; transform: translateY(-20px); }
- to { opacity: 1; transform: translateY(0); }
- }
-
- @keyframes fadeInUp {
- from { opacity: 0; transform: translateY(20px); }
- to { opacity: 1; transform: translateY(0); }
- }
-
- @keyframes zoomIn {
- from { opacity: 0; transform: scale(0.9); }
- to { opacity: 1; transform: scale(1); }
- }
-
- /* Staggered animation delays for cards */
- .card:nth-child(1) { animation-delay: 0.2s; }
- .card:nth-child(2) { animation-delay: 0.4s; }
- .card:nth-child(3) { animation-delay: 0.6s; }
- </style>
+</style>
 </head>
+
 <body>
 
- <div class="container">
- <header>
- <h1>Kendi Web
+<nav>
+ <h2>Shopnex</h2>
+ <div>
+  <a href="#">Ana Sayfa</a>
+  <a href="#">Hakkında</a>
+  <a href="#">İletişim</a>
+ </div>
+ <button onclick="toggleMode()">🌙</button>
+</nav>
+
+<section class="hero">
+ <h1>PRO WEB SİTESİ</h1>
+ <p>En gelişmiş siteyi yaptın</p>
+ <button class="btn" onclick="openPopup()">Başla</button>
+</section>
+
+<section class="cards">
+ <div class="card">🚀 Hızlı</div>
+ <div class="card">💎 Kaliteli</div>
+ <div class="card">🔥 Modern</div>
+</section>
+
+<div class="counter" id="counter">0</div>
+
+<div class="popup" id="popup">
+ <h2>Hoşgeldin!</h2>
+ <button onclick="closePopup()">Kapat</button>
+</div>
+
+<footer>
+ © 2026 Tüm haklar saklı
+</footer>
+
+<script>
+
+/* DARK MODE */
+function toggleMode(){
+ document.body.classList.toggle("light")
+}
+
+/* COUNTER */
+let count = 0;
+let counter = document.getElementById("counter");
+
+setInterval(()=>{
+ count++;
+ counter.innerText = count;
+},50);
+
+/* POPUP */
+function openPopup(){
+ document.getElementById("popup").classList.add("active")
+}
+
+function closePopup(){
+ document.getElementById("popup").classList.remove("active")
+}
+
+</script>
+
+</body>
+</html>
