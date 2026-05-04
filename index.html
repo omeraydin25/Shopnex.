@@ -41,16 +41,16 @@
  width: 100%;
  height: 100%;
  background: 
- radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
- radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
- radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+ radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+ radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+ radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.04) 0%, transparent 70%);
  z-index: -1;
  animation: bgPulse 20s ease-in-out infinite;
  }
 
  @keyframes bgPulse {
- 0%, 100% { opacity: 0.5; transform: scale(1); }
- 50% { opacity: 1; transform: scale(1.1); }
+ 0%, 100% { opacity: 0.4; transform: scale(1); }
+ 50% { opacity: 0.8; transform: scale(1.05); }
  }
 
  a { text-decoration: none; color: inherit; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -74,9 +74,9 @@
  background: rgba(255, 255, 255, 0.98);
  }
  .container { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
- nav { display: flex; justify-content: space-between; align-items: center; height: 90px; }
+ nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
  .logo { 
- font-size: 36px; 
+ font-size: 32px; 
  font-weight: 900; 
  color: var(--primary-color); 
  letter-spacing: -1px;
@@ -93,23 +93,23 @@
  .logo::after {
  content: '';
  position: absolute;
- bottom: -10px;
+ bottom: -8px;
  left: 0;
  width: 0;
- height: 4px;
+ height: 3px;
  background: linear-gradient(90deg, var(--accent-color), #60a5fa, transparent);
  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
  border-radius: 2px;
  }
  .logo:hover::after { width: 100%; }
 
- .nav-links { display: flex; gap: 40px; align-items: center; }
+ .nav-links { display: flex; gap: 32px; align-items: center; }
  .nav-links a { 
- font-size: 16px; 
+ font-size: 15px; 
  font-weight: 700; 
  color: var(--secondary-color); 
  position: relative;
- padding: 10px 0;
+ padding: 8px 0;
  letter-spacing: 0.5px;
  }
  .nav-links a:hover { color: var(--accent-color); }
@@ -117,7 +117,7 @@
  content: ''; 
  position: absolute; 
  width: 0; 
- height: 3px; 
+ height: 2px; 
  bottom: 0; 
  left: 0; 
  background: linear-gradient(90deg, var(--accent-color), #60a5fa);
@@ -126,47 +126,47 @@
  }
  .nav-links a:hover::after { width: 100%; }
 
- /* Online Sayaç */
+ /* Online Sayaç - CANLI */
  .online-counter {
  background: linear-gradient(135deg, #f0fdf4, #dcfce7); 
  color: #166534; 
- padding: 10px 20px; 
+ padding: 8px 16px; 
  border-radius: 999px;
- font-size: 14px; 
+ font-size: 13px; 
  font-weight: 800; 
  display: flex; 
  align-items: center; 
- gap: 10px;
+ gap: 8px;
  border: 2px solid #bbf7d0;
- box-shadow: 0 0 15px rgba(22, 163, 74, 0.3);
+ box-shadow: 0 0 12px rgba(22, 163, 74, 0.3);
  animation: pulseBorder 2s ease-in-out infinite, float 3s ease-in-out infinite;
  }
  @keyframes pulseBorder {
- 0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
- 50% { box-shadow: 0 0 0 8px rgba(22, 163, 74, 0); }
+ 0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.3); }
+ 50% { box-shadow: 0 0 0 6px rgba(22, 163, 74, 0); }
  }
  @keyframes float {
  0%, 100% { transform: translateY(0); }
- 50% { transform: translateY(-3px); }
+ 50% { transform: translateY(-2px); }
  }
  .pulse-dot { 
- width: 10px; 
- height: 10px; 
+ width: 8px; 
+ height: 8px; 
  background-color: #16a34a; 
  border-radius: 50%; 
  animation: pulseDot 1.5s infinite; 
- box-shadow: 0 0 10px #16a34a;
+ box-shadow: 0 0 8px #16a34a;
  }
  @keyframes pulseDot { 
  0% { transform: scale(0.9); opacity: 0.7; } 
- 50% { transform: scale(1.3); opacity: 1; } 
+ 50% { transform: scale(1.2); opacity: 1; } 
  100% { transform: scale(0.9); opacity: 0.7; } 
  }
 
- /* --- Hero Section (Dünya ile) --- */
+ /* --- Hero Section (Küçültülmüş Dünya ile) --- */
  .hero {
- padding-top: 200px; 
- padding-bottom: 160px; 
+ padding-top: 160px; 
+ padding-bottom: 120px; 
  text-align: center;
  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 50%, #e0e7ff 100%); 
  position: relative;
@@ -184,8 +184,8 @@
  width: 200%;
  height: 200%;
  background: 
- radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 60%),
- radial-gradient(circle, rgba(96, 165, 250, 0.05) 0%, transparent 50%);
+ radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 60%),
+ radial-gradient(circle, rgba(96, 165, 250, 0.04) 0%, transparent 50%);
  animation: rotateBg 30s linear infinite;
 }
 @keyframes rotateBg {
@@ -193,16 +193,16 @@
  to { transform: rotate(360deg); }
 }
 
-/* Dünya Animasyonu */
+/* Dünya Animasyonu - KÜÇÜLTÜLMÜŞ */
 .earth-container {
  position: absolute;
- top: -100px;
+ top: -60px;
  left: 50%;
  transform: translateX(-50%);
- width: 600px;
- height: 600px;
+ width: 400px; /* ÖNCEKİDEN DAHA KÜÇÜK */
+ height: 400px;
  z-index: 0;
- opacity: 0.8;
+ opacity: 0.85;
  pointer-events: none;
 }
 .earth-3d {
@@ -211,7 +211,7 @@
  border-radius: 50%;
  background: url('https://img.freepik.com/free-photo/view-earth-from-space-with-blue-atmosphere_144627-5686.jpg?w=1380&t=st=1734567890~exp=1734568490~hmac=abc123') no-repeat center center;
  background-size: cover;
- box-shadow: 0 0 100px rgba(37, 99, 235, 0.5);
+ box-shadow: 0 0 80px rgba(37, 99, 235, 0.4);
  animation: earthRotate 60s linear infinite;
 }
 @keyframes earthRotate {
@@ -219,23 +219,23 @@
  to { transform: rotate(360deg); }
 }
 
-.hero-content { position: relative; z-index: 1; text-align: center; max-width: 800px; margin: 0 auto; padding-top: 300px; }
+.hero-content { position: relative; z-index: 1; text-align: center; max-width: 800px; margin: 0 auto; padding-top: 220px; }
 .hero h1 { 
- font-size: 72px; 
+ font-size: 64px; 
  font-weight: 900; 
  color: var(--primary-color); 
- margin-bottom: 32px; 
+ margin-bottom: 28px; 
  line-height: 1.05; 
  letter-spacing: -2px;
  animation: fadeInUp 1s ease-out;
  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 .hero p { 
- font-size: 24px; 
+ font-size: 22px; 
  color: var(--text-muted); 
- max-width: 800px; 
- margin: 0 auto 56px; 
- line-height: 1.9;
+ max-width: 750px; 
+ margin: 0 auto 48px; 
+ line-height: 1.8;
  animation: fadeInUp 1s ease-out 0.2s backwards;
 }
 
@@ -244,10 +244,10 @@
  display: inline-block; 
  background: linear-gradient(135deg, var(--accent-color), #60a5fa, var(--accent-hover));
  color: white;
- padding: 22px 64px; 
- border-radius: 16px; 
+ padding: 20px 56px; 
+ border-radius: 14px; 
  font-weight: 700; 
- font-size: 20px;
+ font-size: 19px;
  box-shadow: var(--shadow-lg), var(--accent-glow-lg); 
  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
  position: relative;
@@ -266,19 +266,19 @@
 }
 .cta-button:hover::before { left: 100%; }
 .cta-button:hover { 
- transform: translateY(-6px) scale(1.05); 
+ transform: translateY(-5px) scale(1.04); 
  box-shadow: var(--shadow-xl), var(--accent-glow-lg); 
 }
 
 /* Kullanıcı Adı Alanı (Minimalist) */
 .user-handle {
- margin-top: 40px; 
+ margin-top: 36px; 
  display: inline-block;
  background: white; 
  border: 2px solid var(--border-color);
- padding: 12px 32px; 
+ padding: 10px 28px; 
  border-radius: 50px; 
- font-size: 16px; 
+ font-size: 15px; 
  font-weight: 700; 
  color: var(--text-muted);
  box-shadow: var(--shadow-sm);
@@ -286,43 +286,43 @@
  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .user-handle:hover {
- transform: translateY(-4px) scale(1.05);
+ transform: translateY(-3px) scale(1.04);
  box-shadow: var(--shadow-lg), var(--accent-glow);
  border-color: var(--accent-color);
 }
 .user-handle span { color: var(--accent-color); font-family: 'Courier New', monospace; font-weight: 800; }
 
 /* --- Hizmetler --- */
-.services { padding: 140px 0; background-color: var(--white); }
-.section-header { text-align: center; margin-bottom: 120px; }
+.services { padding: 120px 0; background-color: var(--white); }
+.section-header { text-align: center; margin-bottom: 100px; }
 .section-title { 
- font-size: 52px; 
+ font-size: 48px; 
  font-weight: 900; 
  color: var(--primary-color); 
- margin-bottom: 24px; 
+ margin-bottom: 22px; 
  letter-spacing: -1.5px;
  animation: fadeInUp 1s ease-out;
  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 .section-subtitle { 
- font-size: 22px; 
+ font-size: 20px; 
  color: var(--text-muted); 
- max-width: 750px; 
+ max-width: 700px; 
  margin: 0 auto; 
- line-height: 1.9;
+ line-height: 1.8;
  animation: fadeInUp 1s ease-out 0.2s backwards;
 }
 .services-grid { 
  display: grid; 
- grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
- gap: 60px; 
+ grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); 
+ gap: 50px; 
  max-width: 1400px;
  margin: 0 auto;
 }
 .service-card {
  background: white; 
- padding: 60px 48px; 
- border-radius: 24px; 
+ padding: 50px 40px; 
+ border-radius: 20px; 
  border: 2px solid var(--border-color);
  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); 
  position: relative; 
@@ -333,7 +333,7 @@
 .service-card:nth-child(2) { animation-delay: 0.2s; }
 .service-card:nth-child(3) { animation-delay: 0.3s; }
 .service-card:hover { 
- transform: translateY(-16px) scale(1.03); 
+ transform: translateY(-14px) scale(1.02); 
  box-shadow: var(--shadow-xl), var(--accent-glow-lg); 
  border-color: var(--accent-color); 
 }
@@ -343,13 +343,13 @@
  top: 0;
  left: 0;
  width: 100%;
- height: 6px;
+ height: 5px;
  background: linear-gradient(90deg, var(--accent-color), #60a5fa, var(--accent-color));
  background-size: 200% 100%;
  transform: scaleX(0);
  transform-origin: left;
  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
- border-radius: 6px 6px 0 0;
+ border-radius: 5px 5px 0 0;
 }
 .service-card:hover::before { 
  transform: scaleX(1);
@@ -360,16 +360,16 @@
  100% { background-position: 200% 50%; }
 }
 .service-icon { 
- width: 80px; 
- height: 80px; 
+ width: 70px; 
+ height: 70px; 
  background: linear-gradient(135deg, #eff6ff, #dbeafe); 
- border-radius: 20px; 
+ border-radius: 18px; 
  display: flex; 
  align-items: center; 
  justify-content: center; 
- margin-bottom: 40px; 
+ margin-bottom: 36px; 
  color: var(--accent-color); 
- font-size: 36px; 
+ font-size: 32px; 
  font-weight: bold;
  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
  box-shadow: var(--shadow-md);
@@ -381,52 +381,52 @@
  box-shadow: var(--shadow-lg), var(--accent-glow);
 }
 .service-card h3 { 
- font-size: 32px; 
+ font-size: 28px; 
  font-weight: 800; 
- margin-bottom: 20px; 
+ margin-bottom: 18px; 
  color: var(--primary-color); 
  letter-spacing: -0.5px;
 }
 .service-card p { 
  color: var(--text-muted); 
- font-size: 18px; 
- line-height: 2; 
+ font-size: 17px; 
+ line-height: 1.9; 
 }
 
 /* --- Neden Biz? --- */
-.why-us { padding: 140px 0; background: linear-gradient(180deg, var(--bg-light), #e0e7ff); }
+.why-us { padding: 120px 0; background: linear-gradient(180deg, var(--bg-light), #e0e7ff); }
 .why-us-grid { 
  display: grid; 
  grid-template-columns: 1fr 1fr; 
- gap: 100px; 
+ gap: 80px; 
  align-items: center; 
  max-width: 1400px; 
  margin: 0 auto; 
 }
 .why-us-content h2 { 
- font-size: 52px; 
+ font-size: 48px; 
  font-weight: 900; 
  color: var(--primary-color); 
- margin-bottom: 32px; 
+ margin-bottom: 28px; 
  letter-spacing: -1.5px;
  animation: fadeInLeft 1s ease-out;
  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 .why-us-content p { 
  color: var(--text-muted); 
- margin-bottom: 40px; 
- font-size: 20px;
- line-height: 2;
+ margin-bottom: 36px; 
+ font-size: 19px;
+ line-height: 1.9;
  animation: fadeInLeft 1s ease-out 0.2s backwards;
 }
-.why-us-features { display: flex; flex-direction: column; gap: 24px; }
+.why-us-features { display: flex; flex-direction: column; gap: 20px; }
 .feature-item { 
  display: flex; 
  align-items: center; 
- gap: 20px;
- padding: 28px 32px;
+ gap: 18px;
+ padding: 24px 28px;
  background: white;
- border-radius: 16px;
+ border-radius: 14px;
  border: 2px solid var(--border-color);
  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
  animation: fadeInRight 1s ease-out backwards;
@@ -436,17 +436,17 @@
 .feature-item:nth-child(2) { animation-delay: 0.2s; }
 .feature-item:nth-child(3) { animation-delay: 0.3s; }
 .feature-item:hover {
- transform: translateX(16px) scale(1.02);
+ transform: translateX(14px) scale(1.02);
  box-shadow: var(--shadow-lg), var(--accent-glow);
  border-color: var(--accent-color);
 }
 .feature-check { 
  color: var(--accent-color); 
  font-weight: 900;
- font-size: 28px;
+ font-size: 26px;
  background: linear-gradient(135deg, #eff6ff, #dbeafe);
- width: 56px;
- height: 56px;
+ width: 50px;
+ height: 50px;
  border-radius: 50%;
  display: flex;
  align-items: center;
@@ -455,184 +455,23 @@
  box-shadow: var(--shadow-md);
 }
 .feature-item:hover .feature-check {
- transform: scale(1.2) rotate(360deg);
+ transform: scale(1.15) rotate(360deg);
  background: linear-gradient(135deg, var(--accent-color), #60a5fa);
  color: white;
  box-shadow: var(--shadow-lg), var(--accent-glow);
 }
 .feature-text {
- font-size: 22px;
+ font-size: 20px;
  font-weight: 700;
  color: var(--primary-color);
  letter-spacing: 0.5px;
 }
-
-/* --- Yardım ve Destek Bölümü --- */
-.help-section { 
- padding: 140px 0; 
- background: linear-gradient(135deg, #f8fafc, #e0e7ff); 
- position: relative;
- overflow: hidden;
-}
-.help-section::before {
- content: '';
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
- opacity: 0.5;
-}
-.help-content { 
- max-width: 1200px; 
- margin: 0 auto; 
- text-align: center; 
- position: relative;
- z-index: 1;
-}
-.help-title { 
- font-size: 52px; 
- font-weight: 900; 
- color: var(--primary-color); 
- margin-bottom: 40px; 
- letter-spacing: -1.5px;
- animation: fadeInUp 1s ease-out;
-}
-.help-description { 
- font-size: 22px; 
- color: var(--text-muted); 
- max-width: 800px; 
- margin: 0 auto 60px; 
- line-height: 1.9;
- animation: fadeInUp 1s ease-out 0.2s backwards;
-}
-.instagram-section {
- background: white;
- border-radius: 24px;
- padding: 60px 48px;
- border: 2px solid var(--border-color);
- box-shadow: var(--shadow-lg);
- transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
- animation: fadeInUp 1s ease-out 0.4s backwards;
-}
-.instagram-section:hover {
- transform: translateY(-8px) scale(1.02);
- box-shadow: var(--shadow-xl), var(--accent-glow-lg);
- border-color: var(--accent-color);
-}
-.instagram-icon {
- font-size: 64px;
- margin-bottom: 24px;
- background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
- -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;
- background-clip: text;
-}
-.instagram-link {
- display: inline-flex;
- align-items: center;
- gap: 12px;
- color: var(--accent-color);
- font-size: 24px;
- font-weight: 700;
- padding: 16px 32px;
- border-radius: 12px;
- background: linear-gradient(135deg, #eff6ff, #dbeafe);
- transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.instagram-link:hover {
- background: linear-gradient(135deg, var(--accent-color), #60a5fa);
- color: white;
- transform: scale(1.05);
- box-shadow: var(--shadow-lg), var(--accent-glow);
-}
-
-/* --- Reklam Geliri Bölümü --- */
-.ad-revenue-section { 
- padding: 140px 0; 
- background: linear-gradient(180deg, #e0e7ff, #f8fafc); 
- position: relative;
- overflow: hidden;
-}
-.ad-revenue-section::before {
- content: '';
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background: radial-gradient(circle at 50% 100%, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
- opacity: 0.5;
-}
-.ad-revenue-content { 
- max-width: 1200px; 
- margin: 0 auto; 
- text-align: center; 
- position: relative;
- z-index: 1;
-}
-.ad-revenue-title { 
- font-size: 52px; 
- font-weight: 900; 
- color: var(--primary-color); 
- margin-bottom: 40px; 
- letter-spacing: -1.5px;
- animation: fadeInUp 1s ease-out;
-}
-.ad-revenue-description { 
- font-size: 22px; 
- color: var(--text-muted); 
- max-width: 800px; 
- margin: 0 auto 60px; 
- line-height: 1.9;
- animation: fadeInUp 1s ease-out 0.2s backwards;
-}
-.ad-revenue-cards {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
- gap: 40px;
- max-width: 1200px;
- margin: 0 auto;
-}
-.ad-card {
- background: white;
- border-radius: 24px;
- padding: 48px 40px;
- border: 2px solid var(--border-color);
- box-shadow: var(--shadow-md);
- transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
- animation: fadeInUp 1s ease-out backwards;
-}
-.ad-card:nth-child(1) { animation-delay: 0.1s; }
-.ad-card:nth-child(2) { animation-delay: 0.2s; }
-.ad-card:hover {
- transform: translateY(-8px) scale(1.02);
- box-shadow: var(--shadow-xl), var(--accent-glow-lg);
- border-color: var(--accent-color);
-}
-.ad-icon {
- font-size: 64px;
- margin-bottom: 24px;
-}
-.ad-card h3 {
- font-size: 28px;
- font-weight: 800;
- color: var(--primary-color);
- margin-bottom: 16px;
- letter-spacing: -0.5px;
-}
-.ad-card p {
- color: var(--text-muted);
- font-size: 18px;
- line-height: 1.8;
-}
-
-/* --- Footer --- */
+ 
+ /* --- Footer --- */
 footer { 
  background: linear-gradient(135deg, var(--primary-color), #1e293b, #0f172a); 
  color: var(--white); 
- padding: 100px 0 50px; 
+ padding: 80px 0 40px; 
  position: relative;
  overflow: hidden;
 }
@@ -649,24 +488,24 @@ footer::before {
 .footer-grid { 
  display: grid; 
  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
- gap: 80px; 
- margin-bottom: 80px; 
+ gap: 60px; 
+ margin-bottom: 60px; 
  position: relative;
  z-index: 1;
 }
 .footer-col h4 { 
- font-size: 26px; 
+ font-size: 24px; 
  font-weight: 800; 
- margin-bottom: 28px; 
+ margin-bottom: 24px; 
  color: var(--white); 
  letter-spacing: -0.5px;
 }
 .footer-col p, .footer-col a { 
  color: #94a3b8; 
- font-size: 17px; 
- line-height: 2.2; 
+ font-size: 16px; 
+ line-height: 2; 
  display: block; 
- margin-bottom: 18px; 
+ margin-bottom: 16px; 
  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-col a:hover { 
@@ -676,10 +515,10 @@ footer::before {
 }
 .footer-bottom { 
  text-align: center; 
- padding-top: 50px; 
+ padding-top: 40px; 
  border-top: 2px solid #334155; 
  color: #64748b; 
- font-size: 16px; 
+ font-size: 15px; 
  position: relative;
  z-index: 1;
 }
@@ -688,7 +527,7 @@ footer::before {
 @keyframes fadeInUp {
  from {
  opacity: 0;
- transform: translateY(50px);
+ transform: translateY(40px);
  }
  to {
  opacity: 1;
@@ -698,7 +537,7 @@ footer::before {
 @keyframes fadeInLeft {
  from {
  opacity: 0;
- transform: translateX(-50px);
+ transform: translateX(-40px);
  }
  to {
  opacity: 1;
@@ -708,7 +547,7 @@ footer::before {
 @keyframes fadeInRight {
  from {
  opacity: 0;
- transform: translateX(50px);
+ transform: translateX(40px);
  }
  to {
  opacity: 1;
@@ -718,23 +557,22 @@ footer::before {
 
 /* Responsive */
 @media (max-width: 1100px) {
- .hero h1 { font-size: 56px; }
- .why-us-grid { grid-template-columns: 1fr; gap: 60px; }
+ .hero h1 { font-size: 52px; }
+ .why-us-grid { grid-template-columns: 1fr; gap: 50px; }
  .services-grid { grid-template-columns: 1fr; }
  .nav-links { display: none; }
- .earth-container { width: 400px; height: 400px; }
+ .earth-container { width: 300px; height: 300px; }
 }
 @media (max-width: 768px) {
- .hero h1 { font-size: 42px; }
- .hero p { font-size: 20px; }
- .cta-button { padding: 18px 40px; font-size: 18px; }
- .section-title { font-size: 38px; }
- .section-subtitle { font-size: 20px; }
- .service-card { padding: 40px 32px; }
- .why-us-content h2 { font-size: 38px; }
- .help-title, .ad-revenue-title { font-size: 38px; }
- .earth-container { width: 300px; height: 300px; }
- .hero-content { padding-top: 200px; }
+ .hero h1 { font-size: 38px; }
+ .hero p { font-size: 19px; }
+ .cta-button { padding: 16px 36px; font-size: 17px; }
+ .section-title { font-size: 34px; }
+ .section-subtitle { font-size: 18px; }
+ .service-card { padding: 36px 30px; }
+ .why-us-content h2 { font-size: 34px; }
+ .earth-container { width: 250px; height: 250px; }
+ .hero-content { padding-top: 180px; }
 }
  </style>
 </head>
@@ -747,17 +585,16 @@ footer::before {
  <div class="nav-links">
  <a href="#services">Hizmetler</a>
  <a href="#why-us">Neden Biz?</a>
- <a href="#help">Yardım</a>
  </div>
  <div class="online-counter">
  <div class="pulse-dot"></div>
- Çevrimiçi
+ <span id="online-count">1,247</span> Çevrimiçi
  </div>
  </nav>
  </div>
  </header>
 
- <!-- Hero Section (Dünya ile) -->
+ <!-- Hero Section (Küçültülmüş Dünya ile) -->
  <section class="hero">
  <div class="earth-container">
  <div class="earth-3d"></div>
@@ -822,49 +659,14 @@ footer::before {
  </div>
  </div>
  <div class="why-us-image">
- <div style="background: linear-gradient(135deg, var(--accent-color), #60a5fa, var(--accent-hover)); width: 100%; height: 500px; border-radius: 24px; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; font-weight: bold; box-shadow: var(--shadow-xl), var(--accent-glow-lg); position: relative; overflow: hidden;">
+ <div style="background: linear-gradient(135deg, var(--accent-color), #60a5fa, var(--accent-hover)); width: 100%; height: 450px; border-radius: 22px; display: flex; align-items: center; justify-content: center; color: white; font-size: 30px; font-weight: bold; box-shadow: var(--shadow-xl), var(--accent-glow-lg); position: relative; overflow: hidden;">
  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);"></div>
  <div style="text-align: center; position: relative; z-index: 1;">
- <div style="font-size: 96px; margin-bottom: 24px; animation: float 3s ease-in-out infinite;">🚀</div>
- <div style="font-size: 36px; font-weight: 900; margin-bottom: 16px; letter-spacing: -1px;">İnovasyon<br>Sınırları<br>Aşın</div>
- <div style="font-size: 18px; opacity: 0.9; margin-top: 16px;">Geleceği Bugün İnşa Edin</div>
+ <div style="font-size: 88px; margin-bottom: 20px; animation: float 3s ease-in-out infinite;">🚀</div>
+ <div style="font-size: 32px; font-weight: 900; margin-bottom: 14px; letter-spacing: -1px;">İnovasyon<br>Sınırları<br>Aşın</div>
+ <div style="font-size: 17px; opacity: 0.9; margin-top: 14px;">Geleceği Bugün İnşa Edin</div>
  </div>
  </div>
- </div>
- </div>
- </div>
- </section>
-
- <!-- Yardım ve Destek Bölümü -->
- <section id="help" class="help-section">
- <div class="help-content">
- <h2 class="help-title">Yardım ve Destek</h2>
- <p class="help-description">Herhangi bir sorunuz mu var? Bize Instagram üzerinden ulaşarak hızlıca destek alabilirsiniz. Profesyonel ekibimiz size en kısa sürede yardımcı olacak.</p>
- <div class="instagram-section">
- <div class="instagram-icon">📸</div>
- <a href="https://instagram.com/shopnex_official" target="_blank" class="instagram-link">
- <span>Instagram</span>
- <span>@shopnex_official</span>
- </a>
- </div>
- </div>
- </section>
-
- <!-- Reklam Geliri Bölümü -->
- <section class="ad-revenue-section">
- <div class="ad-revenue-content">
- <h2 class="ad-revenue-title">Gelir Modelimiz</h2>
- <p class="ad-revenue-description">Sitemizde Google AdSense ve diğer reklam ağları aracılığıyla elde edilen gelirler, hizmet kalitemizi artırmak ve size daha iyi destek sunmak için kullanılmaktadır.</p>
- <div class="ad-revenue-cards">
- <div class="ad-card">
- <div class="ad-icon">🔍</div>
- <h3>Google'da Yapışkan</h3>
- <p>Sitemiz Google arama sonuçlarında üst sıralarda yer alarak organik trafik kazanır ve reklam gelirimizi artırır.</p>
- </div>
- <div class="ad-card">
- <div class="ad-icon">💰</div>
- <h3>Reklam Gelirleri</h3>
- <p>Google AdSense ve partner ağları ile entegre reklam sistemlerimizden elde edilen gelirler, hizmet kalitemizi sürdürmemizi sağlar.</p>
  </div>
  </div>
  </div>
@@ -882,16 +684,9 @@ footer::before {
  <h4>Hızlı Linkler</h4>
  <a href="#services">Hizmetler</a>
  <a href="#why-us">Neden Biz?</a>
- <a href="#help">Yardım</a>
  <a href="#">Portföy</a>
  <a href="#">Blog</a>
  <a href="#">Kariyer</a>
- </div>
- <div class="footer-col">
- <h4>İletişim</h4>
- <p>info@shopnex.com</p>
- <p>+90 212 123 45 67</p>
- <p>İstanbul, Türkiye</p>
  </div>
  </div>
  <div class="footer-bottom">
@@ -917,6 +712,28 @@ footer::before {
  const hero = document.querySelector('.hero');
  hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
  });
+
+ // CANLI SAYAÇ EFEKTİ
+ const counterElement = document.getElementById('online-count');
+ let count = 1247;
+ 
+ setInterval(() => {
+ // Rastgele +1 veya -1 ekle/çıkar
+ const change = Math.random() > 0.5 ? 1 : -1;
+ // Nadiren +2 veya -2 de olabilir
+ if (Math.random() > 0.8) {
+ count += change * Math.floor(Math.random() * 2) + 1;
+ } else {
+ count += change;
+ }
+ 
+ // Sınır kontrolü (çok düşmesin veya çok artmasın)
+ if (count < 1000) count = 1000;
+ if (count > 2000) count = 2000;
+ 
+ // Formatla (virgülle)
+ counterElement.textContent = count.toLocaleString('tr-TR');
+ }, 2500); // Her 2.5 saniyede bir değişir
  </script>
 </body>
 </html>
