@@ -193,13 +193,13 @@
  to { transform: rotate(360deg); }
 }
 
-/* Dünya Animasyonu - KÜÇÜLTÜLMÜŞ */
+/* Dünya Animasyonu (Arkaplan) */
 .earth-container {
  position: absolute;
  top: -60px;
  left: 50%;
  transform: translateX(-50%);
- width: 400px; /* ÖNCEKİDEN DAHA KÜÇÜK */
+ width: 400px;
  height: 400px;
  z-index: 0;
  opacity: 0.85;
@@ -220,6 +220,8 @@
 }
 
 .hero-content { position: relative; z-index: 1; text-align: center; max-width: 800px; margin: 0 auto; padding-top: 220px; }
+
+/* Başlık İçinde Dünya Görseli */
 .hero h1 { 
  font-size: 64px; 
  font-weight: 900; 
@@ -229,7 +231,25 @@
  letter-spacing: -2px;
  animation: fadeInUp 1s ease-out;
  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 20px;
+ flex-wrap: wrap;
 }
+
+/* Başlık içindeki Dünya Görseli Stili */
+.hero-title-earth {
+ width: 60px;
+ height: 60px;
+ border-radius: 50%;
+ background: url('https://img.freepik.com/free-photo/view-earth-from-space-with-blue-atmosphere_144627-5686.jpg?w=1380&t=st=1734567890~exp=1734568490~hmac=abc123') no-repeat center center;
+ background-size: cover;
+ box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
+ animation: earthRotate 30s linear infinite;
+ flex-shrink: 0;
+}
+
 .hero p { 
  font-size: 22px; 
  color: var(--text-muted); 
@@ -572,6 +592,7 @@ footer::before {
  .service-card { padding: 36px 30px; }
  .why-us-content h2 { font-size: 34px; }
  .earth-container { width: 250px; height: 250px; }
+ .hero-title-earth { width: 40px; height: 40px; }
  .hero-content { padding-top: 180px; }
 }
  </style>
@@ -601,7 +622,10 @@ footer::before {
  </div>
  <div class="container">
  <div class="hero-content">
- <h1>Kurumsal Web Çözümleri</h1>
+ <h1>
+   <div class="hero-title-earth"></div>
+   Kurumsal Web Çözümleri
+ </h1>
  <p>İşinizi dijital dünyada öne çıkaracak, modern ve profesyonel web çözümleri sunuyoruz. Markanızı bir üst seviyeye taşıyalım.</p>
  <a href="#services" class="cta-button">Hizmetleri Keşfet</a>
  <div class="user-handle">@shopnex_official</div>
