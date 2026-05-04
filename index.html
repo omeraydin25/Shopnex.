@@ -3,9 +3,9 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Shopnex - Dijital Çözümler Platformu</title>
+ <title>Shopnex - Profesyonel Web Tasarım</title>
  <style>
- /* Temel Ayarlar ve Değişkenler */
+ /* --- Temel Ayarlar ve Renk Paleti --- */
  :root {
  --primary-color: #0f172a; /* Koyu Lacivert */
  --accent-color: #3b82f6; /* Canlı Mavi */
@@ -30,17 +30,10 @@
  overflow-x: hidden;
  }
 
- a {
- text-decoration: none;
- color: inherit;
- transition: all 0.3s ease;
- }
+ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+ ul { list-style: none; }
 
- ul {
- list-style: none;
- }
-
- /* Header & Navigasyon */
+ /* --- Header & Navigasyon --- */
  header {
  background-color: rgba(255, 255, 255, 0.95);
  backdrop-filter: blur(10px);
@@ -52,38 +45,19 @@
  border-bottom: 1px solid var(--border-color);
  }
 
- .container {
- max-width: 1200px;
- margin: 0 auto;
- padding: 0 24px;
- }
+ .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
- nav {
- display: flex;
- justify-content: space-between;
- align-items: center;
- height: 80px;
- }
+ nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
 
  .logo {
  font-size: 26px;
  font-weight: 800;
  color: var(--primary-color);
  letter-spacing: -0.5px;
- display: flex;
- align-items: center;
- gap: 8px;
  }
+ .logo span { color: var(--accent-color); }
 
- .logo span {
- color: var(--accent-color);
- }
-
- .nav-links {
- display: flex;
- gap: 32px;
- }
-
+ .nav-links { display: flex; gap: 32px; }
  .nav-links a {
  font-size: 15px;
  font-weight: 500;
@@ -91,27 +65,14 @@
  position: relative;
  padding: 8px 0;
  }
-
- .nav-links a:hover {
- color: var(--accent-color);
- }
-
+ .nav-links a:hover { color: var(--accent-color); }
  .nav-links a::after {
- content: '';
- position: absolute;
- width: 0;
- height: 2px;
- bottom: 0;
- left: 0;
- background-color: var(--accent-color);
- transition: width 0.3s ease;
+ content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
+ background-color: var(--accent-color); transition: width 0.3s ease;
  }
+ .nav-links a:hover::after { width: 100%; }
 
- .nav-links a:hover::after {
- width: 100%;
- }
-
- /* Online Sayaç */
+ /* --- Online Sayaç --- */
  .online-counter {
  background-color: #f0fdf4;
  color: #15803d;
@@ -119,123 +80,44 @@
  border-radius: 9999px;
  font-size: 13px;
  font-weight: 600;
- display: flex;
- align-items: center;
- gap: 8px;
+ display: flex; align-items: center; gap: 8px;
  border: 1px solid #bbf7d0;
  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
  }
-
  .pulse-dot {
- width: 8px;
- height: 8px;
+ width: 8px; height: 8px;
  background-color: #22c55e;
  border-radius: 50%;
  animation: pulse 1.5s infinite;
  }
-
  @keyframes pulse {
  0% { transform: scale(0.95); opacity: 0.7; }
  50% { transform: scale(1.1); opacity: 1; }
  100% { transform: scale(0.95); opacity: 0.7; }
  }
 
- /* Hero Bölümü */
+ /* --- Hero Bölümü --- */
  .hero {
- padding-top: 180px;
- padding-bottom: 120px;
+ padding-top: 180px; padding-bottom: 120px;
  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
- text-align: center;
- position: relative;
- overflow: hidden;
+ text-align: center; position: relative; overflow: hidden;
  }
-
  .hero::before {
- content: '';
- position: absolute;
- top: -50%;
- left: -50%;
- width: 200%;
- height: 200%;
+ content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
  background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
  z-index: 0;
  }
-
- .hero-content {
- position: relative;
- z-index: 1;
- max-width: 800px;
- margin: 0 auto;
- }
-
+ .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
  .hero h1 {
- font-size: 52px;
- font-weight: 800;
- margin-bottom: 24px;
- color: var(--primary-color);
- line-height: 1.2;
- letter-spacing: -1px;
+ font-size: 52px; font-weight: 800; margin-bottom: 24px;
+ color: var(--primary-color); line-height: 1.2; letter-spacing: -1px;
  }
-
  .hero p {
- font-size: 20px;
- color: var(--text-light);
- margin-bottom: 40px;
- max-width: 600px;
- margin-left: auto;
- margin-right: auto;
+ font-size: 20px; color: var(--text-light); margin-bottom: 40px;
+ max-width: 600px; margin-left: auto; margin-right: auto;
  }
 
- /* Hizmetler Bölümü */
- .services {
- padding: 100px 0;
- background-color: var(--white);
- }
-
- .section-header {
- text-align: center;
- margin-bottom: 70px;
- }
-
- .section-title {
- font-size: 36px;
- font-weight: 700;
- color: var(--primary-color);
- margin-bottom: 16px;
- }
-
- .section-subtitle {
- font-size: 18px;
- color: var(--text-light);
- max-width: 600px;
- margin: 0 auto;
- }
-
- .services-grid {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
- gap: 40px;
- }
-
- .service-card {
- background: var(--white);
- padding: 40px 32px;
- border-radius: 16px;
- border: 1px solid var(--border-color);
- text-align: left;
- transition: all 0.3s ease;
- position: relative;
- overflow: hidden;
- }
-
- .service-card::before {
- content: '';
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 4px;
- background: linear-gradient(90deg, var(--accent-color), transparent);
- transform: scaleX(0);
- transform-origin: left;
- transition: transform
+ /* --- Hizmetler Bölümü --- */
+ .services { padding: 100px 0; background-color: var(--white); }
+ .section-header { text-align: center; margin-bottom: 70px; }
+ .section-title { font-size: 36px; font-weight:
