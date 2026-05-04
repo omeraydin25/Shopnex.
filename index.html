@@ -1,552 +1,180 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baydınsal.OyunHizmetleri | Profesyonel Hesap Pazarı</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-color: #6366f1;
-            --secondary-color: #4f46e5;
-            --accent-color: #ec4899;
-            --dark-bg: #0f172a;
-            --card-bg: #1e293b;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Kendi Web Siteni Yap</title>
+ <style>
+ :root {
+ --primary-color: #6366f1;
+ --secondary-color: #a855f7;
+ --text-color: #ffffff;
+ --bg-overlay: rgba(0, 0, 0, 0.7);
+ }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            overflow-x: hidden;
-        }
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
 
-        /* Navbar Styles */
-        .navbar {
-            background-color: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+ body {
+ color: var(--text-color);
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+ overflow-x: hidden;
+ background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+ background-size: 400% 400%;
+ animation: gradientBG 15s ease infinite;
+ }
 
-        .navbar-brand {
-            font-weight: 700;
-            color: var(--text-light) !important;
-            font-size: 1.5rem;
-        }
+ @keyframes gradientBG {
+ 0% { background-position: 0% 50%; }
+ 50% { background-position: 100% 50%; }
+ 100% { background-position: 0% 50%; }
+ }
 
-        .nav-link {
-            color: var(--text-muted) !important;
-            transition: all 0.3s ease;
-        }
+ .container {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 2rem;
+ flex: 1;
+ position: relative;
+ z-index: 1;
+ }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-color) !important;
-        }
+ header {
+ text-align: center;
+ padding: 4rem 0;
+ animation: fadeInDown 1s ease-out;
+ }
 
-        .btn-primary-custom {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border: none;
-            color: white;
-            padding: 10px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+ h1 {
+ font-size: 3.5rem;
+ font-weight: 800;
+ margin-bottom: 1rem;
+ text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+ background: linear-gradient(to right, #fff, #e0e7ff);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ }
 
-        .btn-primary-custom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-            color: white;
-        }
+ .subtitle {
+ font-size: 1.25rem;
+ opacity: 0.9;
+ max-width: 600px;
+ margin: 0 auto;
+ line-height: 1.6;
+ }
 
-        /* Hero Section */
-        .hero-section {
-            padding: 80px 0;
-            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent 40%);
-        }
+ .features-section {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 2rem;
+ margin-top: 3rem;
+ }
 
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+ .card {
+ background: rgba(255, 255, 255, 0.1);
+ backdrop-filter: blur(10px);
+ border: 1px solid rgba(255, 255, 255, 0.2);
+ border-radius: 16px;
+ padding: 2rem;
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
+ animation: fadeInUp 1s ease-out backwards;
+ }
 
-        /* Product Cards */
-        .product-card {
-            background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            height: 100%;
-        }
+ .card:hover {
+ transform: translateY(-10px);
+ box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+ background: rgba(255, 255, 255, 0.15);
+ }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--primary-color);
-        }
+ .card h3 {
+ font-size: 1.5rem;
+ margin-bottom: 1rem;
+ color: #fff;
+ }
 
-        .product-image-wrapper {
-            position: relative;
-            height: 200px;
-            overflow: hidden;
-        }
+ .card p {
+ line-height: 1.6;
+ opacity: 0.9;
+ }
 
-        .product-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+ .cta-section {
+ text-align: center;
+ margin-top: 4rem;
+ padding: 3rem;
+ background: rgba(0, 0, 0, 0.3);
+ border-radius: 20px;
+ backdrop-filter: blur(5px);
+ animation: zoomIn 1s ease-out;
+ }
 
-        .product-card:hover .product-image {
-            transform: scale(1.05);
-        }
+ .offer-badge {
+ display: inline-block;
+ background: linear-gradient(135deg, #fbbf24, #f59e0b);
+ color: #fff;
+ padding: 0.5rem 1.5rem;
+ border-radius: 50px;
+ font-weight: bold;
+ font-size: 1.1rem;
+ margin-bottom: 1rem;
+ box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+ }
 
-        .badge-game {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
+ .btn {
+ display: inline-block;
+ background: white;
+ color: var(--primary-color);
+ padding: 1rem 2.5rem;
+ border-radius: 50px;
+ text-decoration: none;
+ font-weight: bold;
+ font-size: 1.1rem;
+ margin-top: 1.5rem;
+ transition: all 0.3s ease;
+ box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+ }
 
-        .card-body {
-            padding: 20px;
-        }
+ .btn:hover {
+ transform: scale(1.05);
+ box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+ }
 
-        .price-tag {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--accent-color);
-        }
+ footer {
+ text-align: center;
+ padding: 2rem;
+ background: rgba(0, 0, 0, 0.5);
+ font-size: 0.9rem;
+ opacity: 0.8;
+ }
 
-        .old-price {
-            text-decoration: line-through;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-left: 8px;
-        }
+ @keyframes fadeInDown {
+ from { opacity: 0; transform: translateY(-20px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
 
-        /* Social Media Stats */
-        .social-stat-card {
-            background: linear-gradient(145deg, #1e293b, #0f172a);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
+ @keyframes fadeInUp {
+ from { opacity: 0; transform: translateY(20px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
 
-        .social-stat-card:hover {
-            transform: scale(1.02);
-        }
+ @keyframes zoomIn {
+ from { opacity: 0; transform: scale(0.9); }
+ to { opacity: 1; transform: scale(1); }
+ }
 
-        .social-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .instagram-icon { color: #E1306C; }
-        .tiktok-icon { color: #00f2ea; }
-        .telegram-icon { color: #0088cc; }
-        .youtube-icon { color: #FF0000; }
-
-        /* Footer */
-        footer {
-            background-color: #020617;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 60px;
-            padding-bottom: 30px;
-        }
-
-        .kvkk-box {
-            background-color: rgba(255, 255, 255, 0.03);
-            border-left: 4px solid var(--primary-color);
-            padding: 15px;
-            margin-top: 20px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* Loading Animation */
-        .spinner-custom {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            border-left-color: var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
+ /* Staggered animation delays for cards */
+ .card:nth-child(1) { animation-delay: 0.2s; }
+ .card:nth-child(2) { animation-delay: 0.4s; }
+ .card:nth-child(3) { animation-delay: 0.6s; }
+ </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-gamepad me-2 text-primary"></i>Baydınsal.OyunHizmetleri
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="fa-solid fa-bars" style="color: white;"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link active" href="#">Ana Sayfa</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#products">Ürünler</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#social">Sosyal Medya</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#support">Destek</a></li>
-                    <li class="nav-item ms-lg-3">
-                        <a href="#" class="btn btn-outline-light btn-sm rounded-pill px-3">Giriş Yap</a>
-                    </li>
-                    <li class="nav-item ms-2">
-                        <a href="#" class="btn btn-primary-custom btn-sm rounded-pill px-3">
-                            <i class="fas fa-shopping-cart me-2"></i>Sepet (0)
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-section mt-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="hero-title">Hayalindeki Hesaplara <br>Bir Adım Uzaklıktasın</h1>
-                    <p class="lead text-muted mb-4">PUBG Mobile, Call of Duty ve daha fazlası için güvenli, hızlı ve profesyonel hesap alım satım platformu.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#products" class="btn btn-primary-custom btn-lg">Hemen Keşfet</a>
-                        <a href="#" class="btn btn-outline-light btn-lg rounded-pill">Nasıl Çalışır?</a>
-                    </div>
-                    <div class="mt-4 d-flex gap-4 text-muted small">
-                        <span><i class="fas fa-shield-alt me-2 text-success"></i>Güvenli Ödeme</span>
-                        <span><i class="fas fa-bolt me-2 text-warning"></i>Anında Teslimat</span>
-                        <span><i class="fas fa-headset me-2 text-info"></i>7/24 Destek</span>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <img src="https://via.placeholder.com/600x400/1e293b/ffffff?text=Gaming+Dashboard+Preview" alt="Gaming Dashboard" class="img-fluid rounded-4 shadow-lg">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Filters & Products -->
-    <section id="products" class="py-5">
-        <div class="container">
-            <div class="row mb-4">
-                <div class="col-md-12">
-                    <div class="d-flex flex-wrap justify-content-between align-items-center bg-card p-3 rounded-3" style="background-color: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);">
-                        <h3 class="h5 mb-0"><i class="fas fa-layer-group me-2"></i>Kategoriler</h3>
-                        <div class="d-flex gap-2">
-                            <select class="form-select form-select-sm w-auto bg-dark text-light border-secondary">
-                                <option>Tüm Kategoriler</option>
-                                <option>PUBG Mobile</option>
-                                <option>Call of Duty Mobile</option>
-                                <option>Free Fire</option>
-                                <option>Valorant</option>
-                            </select>
-                            <select class="form-select form-select-sm w-auto bg-dark text-light border-secondary">
-                                <option>Fiyat: Düşükten Yükseğe</option>
-                                <option>Fiyat: Yüksekten Düşüğe</option>
-                                <option>En Çok Satanlar</option>
-                                <option>En Yeni</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row g-4">
-                <!-- Product 1 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="product-card">
-                        <div class="product-image-wrapper">
-                            <span class="badge-game">PUBG Mobile</span>
-                            <img src="https://via.placeholder.com/400x200/2d3748/ffffff?text=Mythic+Elbise" alt="PUBG Account" class="product-image">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold mb-2">Mythic Elbise + 5000 UC</h5>
-                            <p class="text-muted small mb-3">Seviye 70, Tüm Efsanevi Skinler, İsim Değiştirme Kartı Dahil.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="price-tag">₺2.450</span>
-                                    <span class="old-price">₺3.200</span>
-                                </div>
-                                <button class="btn btn-sm btn-primary-custom rounded-circle">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="product-card">
-                        <div class="product-image-wrapper">
-                            <span class="badge-game">COD Mobile</span>
-                            <img src="https://via.placeholder.com/400x200/2d3748/ffffff?text=Level+150" alt="COD Account" class="product-image">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold mb-2">Level 150 + Tüm Silahlar</h5>
-                            <p class="text-muted small mb-3">Max Level, Prestige Master, Tüm EPIC/Legendary Silahlar.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="price-tag">₺1.850</span>
-                                </div>
-                                <button class="btn btn-sm btn-primary-custom rounded-circle">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="product-card">
-                        <div class="product-image-wrapper">
-                            <span class="badge-game">Valorant</span>
-                            <img src="https://via.placeholder.com/400x200/2d3748/ffffff?text=Rank+Ascendant" alt="Valorant Account" class="product-image">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold mb-2">Ascendant 3 + Vandal Skin</h5>
-                            <p class="text-muted small mb-3">Rank Garantili, 10+ Premium Skin, İlk Kayıt Tarihli.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="price-tag">₺3.100</span>
-                                    <span class="old-price">₺3.500</span>
-                                </div>
-                                <button class="btn btn-sm btn-primary-custom rounded-circle">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="product-card">
-                        <div class="product-image-wrapper">
-                            <span class="badge-game">Free Fire</span>
-                            <img src="https://via.placeholder.com/400x200/2d3748/ffffff?text=Lvl+70+Booyah" alt="FF Account" class="product-image">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold mb-2">Lvl 70 Booyah Paketi</h5>
-                            <p class="text-muted small mb-3">Efsanevi Karakterler, Max Level Silahlar, Özel Emote'lar.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="price-tag">₺950</span>
-                                </div>
-                                <button class="btn btn-sm btn-primary-custom rounded-circle">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-5">
-                <button class="btn btn-outline-light px-5 py-2 rounded-pill">Daha Fazla Ürün Gör</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Media & Trust Section -->
-    <section id="social" class="py-5 bg-dark">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">Topluluğumuza Katılın</h2>
-                <p class="text-muted">Binlerce oyuncunun takip ettiği sosyal medya hesaplarımızdan güncel haberleri öğrenin.</p>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-3 col-sm-6">
-                    <div class="social-stat-card">
-                        <i class="fab fa-instagram social-icon instagram-icon"></i>
-                        <h5 class="fw-bold">Instagram</h5>
-                        <p class="mb-0 text-muted">Takipçi: 12,450</p>
-                        <small class="text-primary">Günlük Çekilişler</small>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="social-stat-card">
-                        <i class="fab fa-tiktok social-icon tiktok-icon"></i>
-                        <h5 class="fw-bold">TikTok</h5>
-                        <p class="mb-0 text-muted">İzlenme: 1.2M</p>
-                        <small class="text-primary">Viral İçerikler</small>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="social-stat-card">
-                        <i class="fab fa-telegram social-icon telegram-icon"></i>
-                        <h5 class="fw-bold">Telegram</h5>
-                        <p class="mb-0 text-muted">Üye: 5,600</p>
-                        <small class="text-primary">Anlık Fırsatlar</small>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="social-stat-card">
-                        <i class="fab fa-youtube social-icon youtube-icon"></i>
-                        <h5 class="fw-bold">YouTube</h5>
-                        <p class="mb-0 text-muted">Abone: 89,000</p>
-                        <small class="text-primary">İnceleme Videoları</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- User Dashboard Preview (Login Modal Trigger) -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <div class="card bg-dark border-secondary p-4">
-                        <h4 class="fw-bold mb-3">Hesabınıza Giriş Yapın</h4>
-                        <form>
-                            <div class="mb-3">
-                                <label class="form-label text-muted">E-posta Adresi</label>
-                                <input type="email" class="form-control bg-dark text-light border-secondary" placeholder="ornek@email.com">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label text-muted">Şifre</label>
-                                <input type="password" class="form-control bg-dark text-light border-secondary" placeholder="••••••••">
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mb-4">
-                                <div class="form-check">
-                                    <input class="form-check-input bg-dark border-secondary" type="checkbox" id="rememberMe">
-                                    <label class="form-check-label text-muted small" for="rememberMe">Beni Hatırla</label>
-                                </div>
-                                <a href="#" class="text-decoration-none small text-primary">Şifremi Unuttum?</a>
-                            </div>
-                            <button type="submit" class="btn btn-primary-custom w-100">Giriş Yap</button>
-                            <div class="text-center mt-3">
-                                <span class="text-muted small">veya devam edin</span>
-                                <div class="d-flex justify-content-center gap-2 mt-2">
-                                    <button class="btn btn-sm btn-outline-light rounded-circle"><i class="fab fa-google"></i></button>
-                                    <button class="btn btn-sm btn-outline-light rounded-circle"><i class="fab fa-discord"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-7 ps-lg-5">
-                    <h2 class="fw-bold mb-3">Kullanıcı Panelinizle Her Şey Kontrolünüzde</h2>
-                    <p class="text-muted mb-4">Satın alma geçmişinizi görüntüleyin, favorilerinizi yönetin ve hesabınızın güvenliğini tek tıkla kontrol edin.</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Detaylı Satın Alma Geçmişi</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Favori Listeleri ve Fiyat Alarmı</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Güvenli Şifre Değiştirme</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> 7/24 Canlı Destek Hattına Doğrudan Erişim</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5 class="fw-bold mb-3">Baydınsal.OyunHizmetleri</h5>
-                    <p class="text-muted small">Oyun dünyasının en güvenilir adresi. Profesyonel ekip, hızlı teslimat ve %100 müşteri memnuniyeti garantisi.</p>
-                    <div class="d-flex gap-3 mt-3">
-                        <a href="#" class="text-muted"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-muted"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="text-muted"><i class="fab fa-discord fa-lg"></i></a>
-                        <a href="#" class="text-muted"><i class="fab fa-youtube fa-lg"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-6 mb-4">
-                    <h6 class="fw-bold mb-3">Kurumsal</h6>
-                    <ul class="list-unstyled text-muted small">
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Hakkımızda</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Kariyer</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">İletişim</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6 mb-4">
-                    <h6 class="fw-bold mb-3">Yardım</h6>
-                    <ul class="list-unstyled text-muted small">
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Sıkça Sorulan Sorular</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Teslimat Süreleri</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Gizlilik Politikası</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <h6 class="fw-bold mb-3">KVKK Aydınlatma Metni</h6>
-                    <div class="kvkk-box">
-                        Kişisel verileriniz, hizmetlerin sunulması, sipariş takibi ve yasal yükümlülüklerin yerine getirilmesi amacıyla 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında işlenmektedir. Verileriniz üçüncü şahıslarla paylaşılmamakta ve yalnızca gerekli güvenlik önlemleri alınarak saklanmaktadır. Detaylı bilgi için Gizlilik Politikamızı inceleyebilirsiniz.
-                    </div>
-                </div>
-            </div>
-            <div class="border-top border-secondary pt-4 mt-4 text-center text-muted small">
-                <p>&copy; 2026 Baydınsal.OyunHizmetleri. Tüm hakları saklıdır.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Basit Sepet Simülasyonu
-        const addToCartButtons = document.querySelectorAll('.btn-primary-custom.rounded-circle');
-        const cartCountElement = document.querySelector('.fa-shopping-cart').parentElement;
-        let cartCount = 0;
-
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                cartCount++;
-                cartCountElement.innerHTML = `<i class="fas fa-shopping-cart me-2"></i>Sepet (\${cartCount})`;
-                
-                // Buton animasyonu
-                this.classList.add('btn-success');
-                this.innerHTML = '<i class="fas fa-check"></i>';
-                setTimeout(() => {
-                    this.classList.remove('btn-success');
-                    this.innerHTML = '<i class="fas fa-plus"></i>';
-                }, 1000);
-            });
-        });
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+ <div class="container">
+ <header>
+ <h1>Kendi Web
