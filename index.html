@@ -1,503 +1,864 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopnex - Kurumsal Web Çözümleri</title>
-    <meta name="description" content="Shopnex ile güvenli, hızlı ve profesyonel e-ticaret çözümleri. SSL korumalı, 7/24 destek.">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        /* --- Temel Ayarlar & Değişkenler --- */
-        :root {
-            --primary-color: #0f172a;
-            --secondary-color: #1e293b;
-            --accent-color: #2563eb;
-            --accent-hover: #1d4ed8;
-            --accent-glow: rgba(37, 99, 235, 0.6);
-            --text-main: #334155;
-            --text-muted: #64748b;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-            --border-color: #e2e8f0;
-            --success: #16a34a;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+<title>Shopnex - Premium Web Çözümleri</title>
 
-        [data-theme="dark"] {
-            --primary-color: #f8fafc;
-            --secondary-color: #e2e8f0;
-            --text-main: #f1f5f9;
-            --text-muted: #cbd5e1;
-            --bg-light: #0f172a;
-            --white: #1e293b;
-            --border-color: #334155;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
-        }
+<meta name="description" content="Shopnex ile güvenli, hızlı ve premium web çözümleri.">
+<meta name="theme-color" content="#020617">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, sans-serif; scroll-behavior: smooth; }
-        
-        body { 
-            line-height: 1.6; 
-            color: var(--text-main); 
-            background-color: var(--bg-light); 
-            overflow-x: hidden; 
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-        /* Arkaplan Animasyonu */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.04) 0%, transparent 70%);
-            z-index: -1;
-            animation: bgPulse 20s ease-in-out infinite;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-        @keyframes bgPulse {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-        }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        a { text-decoration: none; color: inherit; transition: var(--transition); }
-        ul { list-style: none; }
+<style>
 
-        /* --- Header & Navigasyon --- */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: var(--shadow-sm);
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-            transition: var(--transition);
-        }
-        [data-theme="dark"] header { background: rgba(15, 23, 42, 0.95); }
-        
-        header.scrolled {
-            box-shadow: var(--shadow-md), var(--accent-glow);
-            padding: 5px 0;
-            background: rgba(255, 255, 255, 0.98);
-        }
-        [data-theme="dark"] header.scrolled { background: rgba(15, 23, 42, 0.98); }
+:root{
+--primary:#020617;
+--secondary:#0f172a;
+--accent:#2563eb;
+--accent2:#7c3aed;
+--text:#e2e8f0;
+--muted:#94a3b8;
+--border:rgba(255,255,255,.08);
+--card:rgba(255,255,255,.04);
+--success:#22c55e;
+}
 
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
-        nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
-        
-        .logo { 
-            font-size: 32px; 
-            font-weight: 900; 
-            color: var(--primary-color); 
-            letter-spacing: -1px;
-            position: relative;
-            cursor: pointer;
-        }
-        .logo span { 
-            color: var(--accent-color);
-            background: linear-gradient(135deg, var(--accent-color), #60a5fa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-color), #60a5fa, transparent);
-            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 2px;
-        }
-        .logo:hover::after {
-            width: 100%;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Inter',sans-serif;
+}
 
-        .nav-links { display: flex; gap: 32px; align-items: center; }
-        .nav-links a {
-            font-weight: 600;
-            color: var(--text-main);
-            position: relative;
-            padding: 8px 0;
-        }
-        .nav-links a:hover { color: var(--accent-color); }
-        
-        .online-counter-badge {
-            background: rgba(22, 163, 74, 0.1);
-            color: var(--success);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid rgba(22, 163, 74, 0.2);
-        }
-        
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--success);
-            border-radius: 50%;
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
+body{
+background:var(--primary);
+color:white;
+overflow-x:hidden;
+}
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
-            70% { box-shadow: 0 0 0 6px rgba(22, 163, 74, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
-        }
+body::before{
+content:"";
+position:fixed;
+width:700px;
+height:700px;
+background:#2563eb22;
+filter:blur(150px);
+top:-250px;
+left:-250px;
+z-index:-1;
+animation:bg1 10s ease-in-out infinite;
+}
 
-        /* --- Hero Bölümü --- */
-        .hero {
-            padding: 160px 0 100px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .hero h1 {
-            font-size: 64px;
-            font-weight: 900;
-            margin-bottom: 24px;
-            line-height: 1.1;
-            color: var(--primary-color);
-        }
-        
-        .hero h1 span {
-            color: var(--accent-color);
-            background: linear-gradient(135deg, var(--accent-color), #60a5fa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero p {
-            font-size: 20px;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
+body::after{
+content:"";
+position:fixed;
+width:600px;
+height:600px;
+background:#7c3aed22;
+filter:blur(150px);
+bottom:-250px;
+right:-250px;
+z-index:-1;
+animation:bg2 10s ease-in-out infinite;
+}
 
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+@keyframes bg1{
+50%{transform:translate(50px,50px);}
+}
 
-        .btn {
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 16px;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
+@keyframes bg2{
+50%{transform:translate(-50px,-50px);}
+}
 
-        .btn-primary {
-            background: var(--accent-color);
-            color: white;
-            box-shadow: 0 10px 20px -5px var(--accent-glow);
-        }
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(2,6,23,.75);
+backdrop-filter:blur(20px);
+border-bottom:1px solid var(--border);
+z-index:999;
+transition:.4s;
+}
 
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 15px 25px -5px var(--accent-glow);
-        }
+header.scrolled{
+padding:16px 8%;
+background:#020617;
+box-shadow:0 10px 40px rgba(0,0,0,.4);
+}
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--border-color);
-            color: var(--text-main);
-        }
+.logo{
+font-size:32px;
+font-weight:900;
+letter-spacing:1px;
+background:linear-gradient(90deg,#60a5fa,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-        .btn-outline:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-            background: rgba(37, 99, 235, 0.05);
-        }
+nav{
+display:flex;
+align-items:center;
+gap:35px;
+}
 
-        /* --- Yorumlar Bölümü --- */
-        .testimonials {
-            padding: 100px 0;
-            background: var(--white);
-        }
+nav a{
+color:#cbd5e1;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+nav a:hover{
+color:white;
+}
 
-        .section-title h2 {
-            font-size: 40px;
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: 16px;
-        }
+.online-box{
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px 16px;
+border-radius:50px;
+background:rgba(34,197,94,.1);
+border:1px solid rgba(34,197,94,.2);
+color:#4ade80;
+font-size:14px;
+font-weight:600;
+}
 
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 18px;
-        }
+.dot{
+width:10px;
+height:10px;
+background:#22c55e;
+border-radius:50%;
+animation:pulse 2s infinite;
+}
 
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(34,197,94,.7);}
+70%{box-shadow:0 0 0 10px rgba(34,197,94,0);}
+100%{box-shadow:0 0 0 0 rgba(34,197,94,0);}
+}
 
-        .testimonial-card {
-            background: var(--bg-light);
-            padding: 32px;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
-            position: relative;
-        }
+.header-btn{
+padding:14px 26px;
+border:none;
+border-radius:16px;
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+color:white;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 0 40px rgba(37,99,235,.4);
+transition:.4s;
+}
 
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent-color);
-        }
+.header-btn:hover{
+transform:translateY(-4px);
+}
 
-        .user-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:160px 20px 100px;
+}
 
-        /* Fotoğraf kaldırıldı, sadece isim ve ikon */
-        .user-name {
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .user-name i {
-            color: var(--accent-color);
-            font-size: 20px;
-        }
+.hero-content{
+max-width:1100px;
+}
 
-        .user-role {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
+.badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:12px 20px;
+border-radius:50px;
+background:rgba(255,255,255,.04);
+border:1px solid var(--border);
+margin-bottom:35px;
+color:#93c5fd;
+font-size:14px;
+}
 
-        .comment-text {
-            color: var(--text-main);
-            font-style: italic;
-            line-height: 1.7;
-        }
+.hero h1{
+font-size:88px;
+font-weight:900;
+line-height:1;
+margin-bottom:30px;
+background:linear-gradient(to right,#fff,#94a3b8);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-        .quote-icon {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            font-size: 40px;
-            color: var(--border-color);
-            opacity: 0.5;
-        }
+.hero h1 span{
+background:linear-gradient(135deg,#60a5fa,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-        /* --- Footer --- */
-        footer {
-            background: var(--secondary-color);
-            color: var(--text-muted);
-            padding: 60px 0 30px;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-        }
+.hero p{
+max-width:850px;
+margin:auto;
+font-size:20px;
+line-height:1.8;
+color:var(--muted);
+}
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+.hero-buttons{
+margin-top:45px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
 
-        .footer-logo {
-            font-size: 24px;
-            font-weight: 900;
-            color: var(--white);
-            margin-bottom: 20px;
-            display: inline-block;
-        }
+.primary-btn,
+.secondary-btn{
+padding:18px 34px;
+border-radius:18px;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+transition:.4s;
+}
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
+.primary-btn{
+border:none;
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+color:white;
+box-shadow:0 0 45px rgba(37,99,235,.4);
+}
 
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
+.primary-btn:hover{
+transform:translateY(-5px) scale(1.03);
+}
 
-        .copyright {
-            font-size: 14px;
-            opacity: 0.8;
-        }
+.secondary-btn{
+background:rgba(255,255,255,.03);
+border:1px solid var(--border);
+color:white;
+}
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 42px; }
-            .nav-links { display: none; }
-            .cta-buttons { flex-direction: column; }
-        }
-    </style>
+.secondary-btn:hover{
+background:rgba(255,255,255,.07);
+}
+
+.stats{
+margin-top:90px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.stat-box{
+background:var(--card);
+border:1px solid var(--border);
+padding:40px;
+border-radius:28px;
+backdrop-filter:blur(10px);
+transition:.4s;
+}
+
+.stat-box:hover{
+transform:translateY(-10px);
+border-color:#2563eb;
+}
+
+.stat-box h2{
+font-size:52px;
+margin-bottom:10px;
+background:linear-gradient(135deg,#60a5fa,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.stat-box span{
+color:var(--muted);
+}
+
+.section{
+padding:120px 8%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:70px;
+}
+
+.section-title h2{
+font-size:55px;
+font-weight:900;
+margin-bottom:20px;
+}
+
+.section-title p{
+font-size:18px;
+color:var(--muted);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+padding:40px;
+border-radius:30px;
+transition:.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+width:220px;
+height:220px;
+background:#2563eb22;
+border-radius:50%;
+top:-120px;
+right:-120px;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#2563eb;
+}
+
+.card i{
+font-size:42px;
+margin-bottom:25px;
+background:linear-gradient(135deg,#60a5fa,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.card h3{
+font-size:28px;
+margin-bottom:18px;
+}
+
+.card p{
+color:var(--muted);
+line-height:1.8;
+}
+
+.portfolio{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+}
+
+.project{
+height:280px;
+border-radius:30px;
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+position:relative;
+overflow:hidden;
+transition:.5s;
+cursor:pointer;
+}
+
+.project:hover{
+transform:scale(1.03);
+}
+
+.project::before{
+content:"SHOPNEX PROJECT";
+position:absolute;
+left:30px;
+bottom:30px;
+font-size:24px;
+font-weight:800;
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.testimonial-card{
+background:var(--card);
+border:1px solid var(--border);
+padding:35px;
+border-radius:28px;
+position:relative;
+transition:.4s;
+}
+
+.testimonial-card:hover{
+transform:translateY(-8px);
+border-color:#2563eb;
+}
+
+.quote{
+position:absolute;
+right:25px;
+top:20px;
+font-size:40px;
+color:rgba(255,255,255,.08);
+}
+
+.user{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:20px;
+}
+
+.user i{
+font-size:34px;
+color:#60a5fa;
+}
+
+.user h4{
+font-size:20px;
+}
+
+.testimonial-card p{
+color:var(--muted);
+line-height:1.8;
+font-style:italic;
+}
+
+.faq{
+display:flex;
+flex-direction:column;
+gap:25px;
+max-width:1000px;
+margin:auto;
+}
+
+.faq-item{
+background:var(--card);
+padding:30px;
+border-radius:24px;
+border:1px solid var(--border);
+}
+
+.faq-item h3{
+margin-bottom:15px;
+font-size:24px;
+}
+
+.faq-item p{
+color:var(--muted);
+line-height:1.8;
+}
+
+.contact-box{
+margin-top:70px;
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+padding:80px;
+border-radius:40px;
+text-align:center;
+}
+
+.contact-box h2{
+font-size:55px;
+margin-bottom:20px;
+}
+
+.contact-box p{
+font-size:20px;
+margin-bottom:35px;
+color:#e2e8f0;
+}
+
+footer{
+padding:70px 20px;
+text-align:center;
+border-top:1px solid var(--border);
+margin-top:100px;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin:25px 0;
+}
+
+.footer-links a{
+color:#94a3b8;
+}
+
+.footer-links a:hover{
+color:white;
+}
+
+.whatsapp{
+position:fixed;
+right:25px;
+bottom:25px;
+width:70px;
+height:70px;
+border-radius:50%;
+background:#22c55e;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+color:white;
+text-decoration:none;
+box-shadow:0 0 40px rgba(34,197,94,.5);
+z-index:999;
+transition:.4s;
+}
+
+.whatsapp:hover{
+transform:scale(1.1);
+}
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:55px;
+}
+
+.section-title h2{
+font-size:40px;
+}
+
+nav{
+display:none;
+}
+
+.contact-box{
+padding:50px 30px;
+}
+
+.contact-box h2{
+font-size:38px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <nav>
-                <div class="logo">Shop<span>nex</span></div>
-                <ul class="nav-links">
-                    <li><a href="#home">Ana Sayfa</a></li>
-                    <li><a href="#features">Özellikler</a></li>
-                    <li><a href="#testimonials">Yorumlar</a></li>
-                    <li><a href="#contact">İletişim</a></li>
-                    <li>
-                        <div class="online-counter-badge" id="onlineCounter">
-                            <span class="pulse-dot"></span>
-                            <span id="counterValue">0</span> Online Kullanıcı
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<header id="header">
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Geleceğin Teknolojisi<br><span>Bugünden Başlıyor</span></h1>
-            <p>Shopnex ile güvenli, hızlı ve ölçeklenebilir e-ticaret çözümlerine sahip olun. Modern tasarım ve güçlü altyapı bir arada.</p>
-            <div class="cta-buttons">
-                <button class="btn btn-primary">
-                    Hemen Başla <i class="fas fa-arrow-right"></i>
-                </button>
-                <button class="btn btn-outline">
-                    Demo İzle <i class="fas fa-play-circle"></i>
-                </button>
-            </div>
-        </div>
-    </section>
+<div class="logo">
+SHOPNEX
+</div>
 
-    <!-- Yorumlar Bölümü -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Müşterilerimiz Ne Diyor?</h2>
-                <p>Binlerce işletme Shopnex'in güvenilirliğiyle işlerini büyüttü.</p>
-            </div>
-            
-            <div class="testimonial-grid">
-                <!-- Yorum 1 -->
-                <div class="testimonial-card">
-                    <i class="fas fa-quote-right quote-icon"></i>
-                    <div class="user-info">
-                        <div class="user-name">
-                            <i class="fas fa-user-circle"></i> Ahmet Yılmaz
-                        </div>
-                    </div>
-                    <p class="comment-text">"Kurulum süreci inanılmaz hızlıydı. Müşteri desteği her an yanımızda ve sistem hiç kesinti yaşamadı."</p>
-                </div>
+<nav>
 
-                <!-- Yorum 2 -->
-                <div class="testimonial-card">
-                    <i class="fas fa-quote-right quote-icon"></i>
-                    <div class="user-info">
-                        <div class="user-name">
-                            <i class="fas fa-user-circle"></i> Elif Demir
-                        </div>
-                    </div>
-                    <p class="comment-text">"Tasarım seçenekleri harika ve mobil uyumluluk tam istediğimiz gibi. Satışlarımız %40 arttı."</p>
-                </div>
+<a href="#">Ana Sayfa</a>
+<a href="#services">Hizmetler</a>
+<a href="#projects">Projeler</a>
+<a href="#testimonials">Yorumlar</a>
+<a href="#faq">SSS</a>
 
-                <!-- Yorum 3 -->
-                <div class="testimonial-card">
-                    <i class="fas fa-quote-right quote-icon"></i>
-                    <div class="user-info">
-                        <div class="user-name">
-                            <i class="fas fa-user-circle"></i> Mehmet Kaya
-                        </div>
-                    </div>
-                    <p class="comment-text">"Güvenlik önlemleri sayesinde müşterilerim rahat alışveriş yapıyor. Kesinlikle tavsiye ederim."</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="online-box">
+<div class="dot"></div>
+<span id="onlineCount">18</span> Online
+</div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">Shopnex</div>
-            <div class="footer-links">
-                <a href="#">Gizlilik Politikası</a>
-                <a href="#">Kullanım Şartları</a>
-                <a href="#">Destek</a>
-                <a href="#">Hakkımızda</a>
-            </div>
-            <p class="copyright">&copy; 2026 Shopnex. Tüm hakları saklıdır.</p>
-        </div>
-    </footer>
+<button class="header-btn">
+Teklif Al
+</button>
 
-    <script>
-        // Header Scroll Efekti
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+</nav>
 
-        // Gerçekçi Online Kullanıcı Sayacı (Düşük Sayılar)
-        function updateOnlineCounter() {
-            const counterElement = document.getElementById('counterValue');
-            // 10 ile 45 arasında rastgele sayı üretir (daha gerçekçi ve düşük)
-            let count = Math.floor(Math.random() * (45 - 10 + 1)) + 10;
-            
-            // Hafif dalgalanma efekti için bazen sabit tutabiliriz
-            if (Math.random() > 0.7) {
-                count = parseInt(counterElement.innerText);
-            } else {
-                counterElement.innerText = count;
-            }
-        }
+</header>
 
-        // İlk yüklemede ve her 4 saniyede bir güncelle
-        updateOnlineCounter();
-        setInterval(updateOnlineCounter, 4000);
-    </script>
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+<i class="fas fa-shield-alt"></i>
+SSL Korumalı Premium Sistem
+</div>
+
+<h1>
+Geleceğin Web
+<span>Deneyimini</span>
+Oluşturuyoruz
+</h1>
+
+<p>
+Shopnex ile ultra modern, hızlı, güvenli ve premium web çözümleri oluşturun.
+Mobil uyumlu, SEO optimize ve profesyonel sistemlerle markanızı büyütün.
+</p>
+
+<div class="hero-buttons">
+
+<button class="primary-btn">
+Hemen Başla
+</button>
+
+<button class="secondary-btn">
+Demo İzle
+</button>
+
+</div>
+
+<div class="stats">
+
+<div class="stat-box">
+<h2>250+</h2>
+<span>Mutlu Müşteri</span>
+</div>
+
+<div class="stat-box">
+<h2>99%</h2>
+<span>Memnuniyet</span>
+</div>
+
+<div class="stat-box">
+<h2>24/7</h2>
+<span>Canlı Destek</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="services">
+
+<div class="section-title">
+<h2>Hizmetlerimiz</h2>
+<p>Modern ve profesyonel çözümler sunuyoruz.</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<i class="fas fa-laptop-code"></i>
+<h3>Kurumsal Web Tasarım</h3>
+<p>
+Markanıza özel ultra modern ve premium web siteleri geliştiriyoruz.
+</p>
+</div>
+
+<div class="card">
+<i class="fas fa-cart-shopping"></i>
+<h3>E-Ticaret Sistemleri</h3>
+<p>
+Yüksek dönüşüm sağlayan profesyonel satış altyapıları oluşturuyoruz.
+</p>
+</div>
+
+<div class="card">
+<i class="fas fa-chart-line"></i>
+<h3>SEO & Performans</h3>
+<p>
+Google sıralamalarında yükselmeniz için optimize ediyoruz.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="projects">
+
+<div class="section-title">
+<h2>Projeler</h2>
+<p>Premium kaliteyle geliştirilen çalışmalarımız.</p>
+</div>
+
+<div class="portfolio">
+
+<div class="project"></div>
+<div class="project"></div>
+<div class="project"></div>
+
+</div>
+
+</section>
+
+<section class="section" id="testimonials">
+
+<div class="section-title">
+<h2>Müşteri Yorumları</h2>
+<p>Markalar Shopnex ile büyüyor.</p>
+</div>
+
+<div class="testimonial-grid">
+
+<div class="testimonial-card">
+
+<div class="quote">
+<i class="fas fa-quote-right"></i>
+</div>
+
+<div class="user">
+<i class="fas fa-user-circle"></i>
+<h4>Ahmet Yılmaz</h4>
+</div>
+
+<p>
+“Kurulum süreci inanılmaz hızlıydı ve tasarım tam istediğimiz gibi oldu.”
+</p>
+
+</div>
+
+<div class="testimonial-card">
+
+<div class="quote">
+<i class="fas fa-quote-right"></i>
+</div>
+
+<div class="user">
+<i class="fas fa-user-circle"></i>
+<h4>Elif Demir</h4>
+</div>
+
+<p>
+“Mobil uyumluluk mükemmel. Satışlarımız ciddi şekilde arttı.”
+</p>
+
+</div>
+
+<div class="testimonial-card">
+
+<div class="quote">
+<i class="fas fa-quote-right"></i>
+</div>
+
+<div class="user">
+<i class="fas fa-user-circle"></i>
+<h4>Mehmet Kaya</h4>
+</div>
+
+<p>
+“Güvenlik sistemleri sayesinde müşterilerimiz rahat alışveriş yapıyor.”
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="faq">
+
+<div class="section-title">
+<h2>Sık Sorulan Sorular</h2>
+<p>Merak edilen soruların cevapları.</p>
+</div>
+
+<div class="faq">
+
+<div class="faq-item">
+<h3>Site ne kadar sürede teslim edilir?</h3>
+<p>
+Projeye göre değişmekle birlikte ortalama 3-7 gün arasında teslim edilir.
+</p>
+</div>
+
+<div class="faq-item">
+<h3>Mobil uyumlu mu?</h3>
+<p>
+Tüm cihazlar için tamamen responsive şekilde geliştirilir.
+</p>
+</div>
+
+<div class="faq-item">
+<h3>SEO optimizasyonu yapılıyor mu?</h3>
+<p>
+Evet. Tüm projeler SEO uyumlu şekilde hazırlanır.
+</p>
+</div>
+
+</div>
+
+<div class="contact-box">
+
+<h2>
+Projeni Başlat
+</h2>
+
+<p>
+Modern, hızlı ve premium web çözümleri için bizimle iletişime geç.
+</p>
+
+<button class="primary-btn">
+Hemen Başla
+</button>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2 class="logo">
+SHOPNEX
+</h2>
+
+<div class="footer-links">
+<a href="#">Gizlilik Politikası</a>
+<a href="#">Kullanım Şartları</a>
+<a href="#">Destek</a>
+<a href="#">Hakkımızda</a>
+</div>
+
+<p style="color:#64748b;">
+© 2026 Shopnex — Tüm Hakları Saklıdır
+</p>
+
+</footer>
+
+<a href="#" class="whatsapp">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+
+window.addEventListener("scroll",function(){
+
+const header=document.getElementById("header");
+
+if(window.scrollY>50){
+header.classList.add("scrolled");
+}else{
+header.classList.remove("scrolled");
+}
+
+});
+
+function updateCounter(){
+
+const count=document.getElementById("onlineCount");
+
+let random=Math.floor(Math.random()*35)+10;
+
+count.innerText=random;
+
+}
+
+updateCounter();
+
+setInterval(updateCounter,4000);
+
+</script>
+
 </body>
 </html>
