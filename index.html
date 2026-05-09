@@ -1,143 +1,455 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Shopnex | Profesyonel E-Ticaret ve Kurumsal Çözümler</title>
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <style>
- :root{
- --primary:#0f172a;
- --accent:#2563eb;
- --muted:#64748b;
- --border:#e2e8f0;
- --shadow:0 10px 30px rgba(0,0,0,.08);
- --ai-color:#10b981;
- }
+<title>Shopnex | Profesyonel E-Ticaret</title>
 
- *{ margin:0; padding:0; box-sizing:border-box; }
- body{ font-family:'Inter',sans-serif; background:#fff; color:#0f172a; overflow-x:hidden; line-height:1.5; }
- body.dark{ background:#020617; color:white; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
- .container{ max-width:1200px; margin:auto; padding:0 24px; }
+<style>
 
- nav{ position:fixed; top:0; width:100%; z-index:999; backdrop-filter:blur(18px); background:rgba(255,255,255,.8); border-bottom:1px solid var(--border); }
- body.dark nav{ background:rgba(2,6,23,.8); border-color:#1e293b; }
+:root{
+--primary:#0f172a;
+--accent:#2563eb;
+--muted:#64748b;
+--border:#e2e8f0;
+--shadow:0 10px 30px rgba(0,0,0,.08);
+}
 
- .nav-inner{ display:flex; justify-content:space-between; align-items:center; padding:16px 0; }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
- .logo{ font-size:26px; font-weight:800; }
- .logo span{ color:var(--accent); }
+body{
+font-family:'Inter',sans-serif;
+background:#ffffff;
+color:#0f172a;
+line-height:1.6;
+overflow-x:hidden;
+transition:.3s;
+}
 
- .theme-btn,.menu-btn{ width:40px; height:40px; border:none; border-radius:10px; cursor:pointer; }
+body.dark{
+background:#020617;
+color:white;
+}
 
- .btn{ padding:12px 24px; border-radius:10px; font-weight:600; text-decoration:none; background:var(--primary); color:#fff; }
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 24px;
+}
 
- .hero{ padding-top:160px; padding-bottom:80px; text-align:center; }
+/* NAVBAR */
 
- h1{ font-size:56px; font-weight:800; margin-bottom:20px; }
+nav{
+position:fixed;
+top:0;
+width:100%;
+z-index:999;
+backdrop-filter:blur(18px);
+background:rgba(255,255,255,.85);
+border-bottom:1px solid var(--border);
+}
 
- .hero p{ max-width:750px; margin:auto; color:var(--muted); margin-bottom:32px; }
+body.dark nav{
+background:rgba(2,6,23,.85);
+border-color:#1e293b;
+}
 
- .dashboard{ margin-top:40px; background:white; border-radius:24px; padding:30px; box-shadow:var(--shadow); }
+.nav-inner{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 0;
+}
 
- body.dark .dashboard{ background:#0f172a; }
+.logo{
+font-size:28px;
+font-weight:800;
+}
 
- .dashboard-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; }
+.logo span{
+color:var(--accent);
+}
 
- .widget h3{ font-size:32px; color:var(--accent); }
+.theme-btn{
+width:42px;
+height:42px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-size:18px;
+background:#f1f5f9;
+transition:.3s;
+}
 
- section{ padding:80px 0; }
+body.dark .theme-btn{
+background:#1e293b;
+color:white;
+}
 
- .features-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
+/* HERO */
 
- .feature-card{ background:white; padding:35px; border-radius:20px; border:1px solid var(--border); }
+.hero{
+padding-top:170px;
+padding-bottom:90px;
+text-align:center;
+}
 
- body.dark .feature-card{ background:#0f172a; }
+.hero h1{
+font-size:58px;
+line-height:1.1;
+font-weight:800;
+margin-bottom:20px;
+}
 
- footer{ padding:60px 0; background:#f8fafc; border-top:1px solid var(--border); }
+body.dark .hero h1{
+color:white;
+}
 
- body.dark footer{ background:#020617; }
+.hero p{
+max-width:700px;
+margin:auto;
+font-size:18px;
+color:var(--muted);
+margin-bottom:35px;
+}
 
- .footer-content{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:40px; }
+.btn{
+display:inline-block;
+padding:14px 28px;
+background:var(--primary);
+color:white;
+text-decoration:none;
+border-radius:12px;
+font-weight:600;
+transition:.3s;
+}
 
- </style>
+.btn:hover{
+background:var(--accent);
+transform:translateY(-2px);
+}
+
+/* DASHBOARD */
+
+.dashboard{
+margin-top:50px;
+background:white;
+padding:35px;
+border-radius:24px;
+border:1px solid var(--border);
+box-shadow:var(--shadow);
+}
+
+body.dark .dashboard{
+background:#0f172a;
+border-color:#1e293b;
+}
+
+.dashboard-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.widget{
+padding:20px;
+border-radius:18px;
+background:#f8fafc;
+}
+
+body.dark .widget{
+background:#111827;
+}
+
+.widget h3{
+font-size:34px;
+font-weight:800;
+color:var(--accent);
+margin-bottom:6px;
+}
+
+.widget p{
+font-size:14px;
+color:var(--muted);
+font-weight:500;
+}
+
+/* FEATURES */
+
+section{
+padding:80px 0;
+}
+
+.section-header{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-header h2{
+font-size:38px;
+font-weight:800;
+margin-bottom:12px;
+}
+
+.section-header p{
+color:var(--muted);
+max-width:650px;
+margin:auto;
+}
+
+.features-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:24px;
+}
+
+.feature-card{
+background:white;
+padding:35px;
+border-radius:22px;
+border:1px solid var(--border);
+transition:.3s;
+}
+
+body.dark .feature-card{
+background:#0f172a;
+border-color:#1e293b;
+}
+
+.feature-card:hover{
+transform:translateY(-6px);
+border-color:var(--accent);
+box-shadow:var(--shadow);
+}
+
+.icon{
+font-size:40px;
+margin-bottom:18px;
+}
+
+.feature-card h3{
+font-size:22px;
+margin-bottom:12px;
+}
+
+.feature-card p{
+color:var(--muted);
+font-size:15px;
+}
+
+/* FOOTER */
+
+footer{
+padding:60px 0;
+background:#f8fafc;
+border-top:1px solid var(--border);
+}
+
+body.dark footer{
+background:#020617;
+}
+
+.footer-content{
+display:flex;
+justify-content:space-between;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.footer-box h4{
+margin-bottom:16px;
+font-size:17px;
+}
+
+.footer-box p{
+font-size:14px;
+color:var(--muted);
+margin-bottom:10px;
+}
+
+.copy{
+margin-top:40px;
+padding-top:20px;
+border-top:1px solid var(--border);
+text-align:center;
+font-size:13px;
+color:var(--muted);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:40px;
+}
+
+.dashboard-grid{
+grid-template-columns:1fr;
+}
+
+.features-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <nav>
- <div class="container nav-inner">
- <div class="logo">Shop<span>nex</span></div>
- <div>
- <button class="theme-btn" id="themeToggle">🌙</button>
- <button class="menu-btn" id="menuBtn">☰</button>
- </div>
- </div>
+<div class="container nav-inner">
+
+<div class="logo">
+Shop<span>nex</span>
+</div>
+
+<button class="theme-btn" id="themeToggle">
+🌙
+</button>
+
+</div>
 </nav>
 
 <div class="container">
 
 <section class="hero">
- <h1>Dijital Dünyada Güçlü Başlangıç</h1>
- <p>Modern e-ticaret altyapısı ile işletmeni büyüt.</p>
 
- <div style="display:flex; gap:15px; justify-content:center;">
- <a href="#" class="btn">Hemen Başla</a>
- </div>
+<h1>
+İşletmenizi Dijital Dünyaya Taşıyın
+</h1>
 
- <div class="dashboard">
- <div class="dashboard-grid">
- <div class="widget"><h3>99.9%</h3><p>Uptime</p></div>
- <div class="widget"><h3>Bin+</h3><p>Aktif Kullanıcı</p></div>
- <div class="widget"><h3>24/7</h3><p>Destek</p></div>
- </div>
- </div>
+<p>
+Modern ve hızlı e-ticaret altyapısıyla markanı büyüt, müşterilerine profesyonel deneyim sun.
+</p>
+
+<a href="#" class="btn">
+Hemen Başla
+</a>
+
+<div class="dashboard">
+
+<div class="dashboard-grid">
+
+<div class="widget">
+<h3>99.9%</h3>
+<p>Uptime</p>
+</div>
+
+<div class="widget">
+<h3>1 Bin+</h3>
+<p>Aktif Kullanıcı</p>
+</div>
+
+<div class="widget">
+<h3>24/7</h3>
+<p>Destek</p>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <section>
- <div class="features-grid">
- <div class="feature-card">🚀 Hızlı altyapı</div>
- <div class="feature-card">🛡️ Güvenlik</div>
- <div class="feature-card">📈 Analiz</div>
- </div>
+
+<div class="section-header">
+<h2>
+Neden Shopnex?
+</h2>
+
+<p>
+Hızlı, güvenli ve modern altyapı ile işletmeniz için profesyonel çözümler sunuyoruz.
+</p>
+</div>
+
+<div class="features-grid">
+
+<div class="feature-card">
+<div class="icon">🚀</div>
+<h3>Hızlı Altyapı</h3>
+<p>
+Yüksek performanslı sistem ile hızlı çalışan modern mağazalar oluşturun.
+</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">🛡️</div>
+<h3>Güvenlik</h3>
+<p>
+Gelişmiş koruma sistemleriyle müşteri verilerinizi güvenle koruyun.
+</p>
+</div>
+
+<div class="feature-card">
+<div class="icon">📈</div>
+<h3>Analiz Sistemi</h3>
+<p>
+Satışlarınızı ve ziyaretçilerinizi detaylı analiz araçlarıyla takip edin.
+</p>
+</div>
+
+</div>
+
 </section>
 
 </div>
 
 <footer>
- <div class="container">
- <div class="footer-content">
 
- <div>
- <h4>Shopnex</h4>
- <p>Modern e-ticaret sistemi.</p>
- </div>
+<div class="container">
 
- <div>
- <h4>Ürünler</h4>
- <p>E-Ticaret</p>
- <p>B2B Sistem</p>
- </div>
+<div class="footer-content">
 
- <div>
- <h4>Kurumsal</h4>
- <p>Hakkımızda</p>
- <p>Gizlilik Politikası</p>
- </div>
+<div class="footer-box">
+<h4>Shopnex</h4>
+<p>
+Modern e-ticaret altyapısı ile dijital dönüşümünüzü hızlandırın.
+</p>
+</div>
 
- </div>
- </div>
+<div class="footer-box">
+<h4>Kurumsal</h4>
+<p>Hakkımızda</p>
+<p>Gizlilik Politikası</p>
+</div>
+
+</div>
+
+<div class="copy">
+© 2026 Shopnex Technology. Tüm hakları saklıdır.
+</div>
+
+</div>
+
 </footer>
 
 <script>
+
 const themeBtn = document.getElementById('themeToggle');
-themeBtn.onclick = () => {
- document.body.classList.toggle('dark');
- themeBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-};
+
+themeBtn.addEventListener('click',()=>{
+
+document.body.classList.toggle('dark');
+
+themeBtn.textContent =
+document.body.classList.contains('dark')
+? '☀️'
+: '🌙';
+
+});
+
 </script>
 
 </body>
