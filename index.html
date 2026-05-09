@@ -3,410 +3,560 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shopnex | Çok Kanallı E-Ticaret Çözümleri</title>
+<title>Shopnex | Profesyonel E-Ticaret & AI Asistan</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --primary: #0f172a;
-    --accent: #2563eb;
-    --muted: #64748b;
-    --border: #e2e8f0;
-    --shadow: 0 10px 30px rgba(0,0,0,.08);
-    --success: #10b981;
+ --primary: #0f172a;
+ --accent: #2563eb;
+ --muted: #64748b;
+ --border: #e2e8f0;
+ --shadow: 0 10px 30px rgba(0,0,0,.08);
+ --success: #10b981;
+ --ai-color: #8b5cf6;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: #ffffff;
-    color: #0f172a;
-    line-height: 1.6;
-    overflow-x: hidden;
-    transition: background 0.3s, color 0.3s;
+ font-family: 'Inter', sans-serif;
+ background: #ffffff;
+ color: #0f172a;
+ line-height: 1.6;
+ overflow-x: hidden;
+ transition: background 0.3s, color 0.3s;
 }
 
 body.dark {
-    background: #020617;
-    color: #f8fafc;
+ background: #020617;
+ color: #f8fafc;
 }
 
 .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 24px;
+ max-width: 1200px;
+ margin: auto;
+ padding: 0 24px;
 }
 
 /* NAVBAR */
 nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-    backdrop-filter: blur(18px);
-    background: rgba(255, 255, 255, 0.85);
-    border-bottom: 1px solid var(--border);
-    transition: background 0.3s, border-color 0.3s;
+ position: fixed;
+ top: 0;
+ width: 100%;
+ z-index: 999;
+ backdrop-filter: blur(18px);
+ background: rgba(255, 255, 255, 0.85);
+ border-bottom: 1px solid var(--border);
+ transition: background 0.3s, border-color 0.3s;
 }
 
 body.dark nav {
-    background: rgba(2, 6, 23, 0.85);
-    border-color: #1e293b;
+ background: rgba(2, 6, 23, 0.85);
+ border-color: #1e293b;
 }
 
 .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 0;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 18px 0;
 }
 
 .logo {
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--primary);
+ font-size: 28px;
+ font-weight: 800;
+ color: var(--primary);
 }
 
 body.dark .logo {
-    color: white;
+ color: white;
 }
 
 .logo span {
-    color: var(--accent);
+ color: var(--accent);
 }
 
 .theme-btn {
-    width: 42px;
-    height: 42px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 18px;
-    background: #f1f5f9;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+ width: 42px;
+ height: 42px;
+ border: none;
+ border-radius: 12px;
+ cursor: pointer;
+ font-size: 18px;
+ background: #f1f5f9;
+ transition: all 0.3s;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 
 body.dark .theme-btn {
-    background: #1e293b;
-    color: white;
+ background: #1e293b;
+ color: white;
 }
 
 /* HERO */
 .hero {
-    padding-top: 170px;
-    padding-bottom: 90px;
-    text-align: center;
+ padding-top: 170px;
+ padding-bottom: 90px;
+ text-align: center;
 }
 
 .hero h1 {
-    font-size: 58px;
-    line-height: 1.1;
-    font-weight: 800;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+ font-size: 58px;
+ line-height: 1.1;
+ font-weight: 800;
+ margin-bottom: 20px;
+ background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
 }
 
 body.dark .hero h1 {
-    background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+ background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
 }
 
 .hero p {
-    max-width: 700px;
-    margin: auto;
-    font-size: 18px;
-    color: var(--muted);
-    margin-bottom: 35px;
+ max-width: 700px;
+ margin: auto;
+ font-size: 18px;
+ color: var(--muted);
+ margin-bottom: 35px;
 }
 
 .btn {
-    display: inline-block;
-    padding: 14px 28px;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    border-radius: 12px;
-    font-weight: 600;
-    transition: all 0.3s;
-    border: none;
-    cursor: pointer;
+ display: inline-block;
+ padding: 14px 28px;
+ background: var(--primary);
+ color: white;
+ text-decoration: none;
+ border-radius: 12px;
+ font-weight: 600;
+ transition: all 0.3s;
+ border: none;
+ cursor: pointer;
 }
 
 body.dark .btn {
-    background: var(--accent);
+ background: var(--accent);
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+ transform: translateY(-2px);
+ box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
 }
 
 /* DASHBOARD & COUNTER */
 .dashboard {
-    margin-top: 50px;
-    background: white;
-    padding: 35px;
-    border-radius: 24px;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-    position: relative;
-    overflow: hidden;
+ margin-top: 50px;
+ background: white;
+ padding: 35px;
+ border-radius: 24px;
+ border: 1px solid var(--border);
+ box-shadow: var(--shadow);
+ position: relative;
+ overflow: hidden;
 }
 
 body.dark .dashboard {
-    background: #0f172a;
-    border-color: #1e293b;
+ background: #0f172a;
+ border-color: #1e293b;
 }
 
 /* Online Counter Animation */
 .online-counter {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--success);
-    background: rgba(16, 185, 129, 0.1);
-    padding: 6px 12px;
-    border-radius: 20px;
+ position: absolute;
+ top: 20px;
+ right: 20px;
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ font-size: 14px;
+ font-weight: 600;
+ color: var(--success);
+ background: rgba(16, 185, 129, 0.1);
+ padding: 6px 12px;
+ border-radius: 20px;
 }
 
 .pulse-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--success);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
+ width: 8px;
+ height: 8px;
+ background: var(--success);
+ border-radius: 50%;
+ animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+ 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+ 70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+ 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Three Dots Animation */
+.dots {
+ display: inline-flex;
+ gap: 4px;
+ margin-left: 2px;
+}
+
+.dot {
+ width: 4px;
+ height: 4px;
+ background: var(--success);
+ border-radius: 50%;
+ animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.dot:nth-child(1) { animation-delay: -0.32s; }
+.dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+ 0%, 80%, 100% { transform: scale(0); }
+ 40% { transform: scale(1); }
 }
 
 .dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ gap: 20px;
 }
 
 .widget {
-    padding: 20px;
-    border-radius: 18px;
-    background: #f8fafc;
-    text-align: center;
+ padding: 20px;
+ border-radius: 18px;
+ background: #f8fafc;
+ text-align: center;
 }
 
 body.dark .widget {
-    background: #111827;
+ background: #111827;
 }
 
 .widget h3 {
-    font-size: 34px;
-    font-weight: 800;
-    color: var(--accent);
-    margin-bottom: 6px;
+ font-size: 34px;
+ font-weight: 800;
+ color: var(--accent);
+ margin-bottom: 6px;
 }
 
 .widget p {
-    font-size: 14px;
-    color: var(--muted);
-    font-weight: 500;
+ font-size: 14px;
+ color: var(--muted);
+ font-weight: 500;
 }
 
 /* FEATURES */
 section {
-    padding: 80px 0;
+ padding: 80px 0;
 }
 
 .section-header {
-    text-align: center;
-    margin-bottom: 50px;
+ text-align: center;
+ margin-bottom: 50px;
 }
 
 .section-header h2 {
-    font-size: 38px;
-    font-weight: 800;
-    margin-bottom: 12px;
+ font-size: 38px;
+ font-weight: 800;
+ margin-bottom: 12px;
 }
 
 .section-header p {
-    color: var(--muted);
-    max-width: 650px;
-    margin: auto;
+ color: var(--muted);
+ max-width: 650px;
+ margin: auto;
 }
 
 .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 24px;
 }
 
 .feature-card {
-    background: white;
-    padding: 35px;
-    border-radius: 22px;
-    border: 1px solid var(--border);
-    transition: all 0.3s;
+ background: white;
+ padding: 35px;
+ border-radius: 22px;
+ border: 1px solid var(--border);
+ transition: all 0.3s;
 }
 
 body.dark .feature-card {
-    background: #0f172a;
-    border-color: #1e293b;
+ background: #0f172a;
+ border-color: #1e293b;
 }
 
 .feature-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent);
-    box-shadow: var(--shadow);
+ transform: translateY(-6px);
+ border-color: var(--accent);
+ box-shadow: var(--shadow);
 }
 
 .icon {
-    font-size: 40px;
-    margin-bottom: 18px;
+ font-size: 40px;
+ margin-bottom: 18px;
 }
 
 .feature-card h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
+ font-size: 22px;
+ margin-bottom: 12px;
 }
 
 .feature-card p {
-    color: var(--muted);
-    font-size: 15px;
+ color: var(--muted);
+ font-size: 15px;
+}
+
+/* AI SECTION */
+.ai-section {
+ background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+ padding: 80px 0;
+ text-align: center;
+ border-top: 1px solid var(--border);
+ border-bottom: 1px solid var(--border);
+}
+
+body.dark .ai-section {
+ background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+ border-color: #1e293b;
+}
+
+.ai-container {
+ max-width: 800px;
+ margin: auto;
+ background: white;
+ padding: 40px;
+ border-radius: 24px;
+ box-shadow: var(--shadow);
+ position: relative;
+}
+
+body.dark .ai-container {
+ background: #1e293b;
+ border: 1px solid #334155;
+}
+
+.ai-badge {
+ position: absolute;
+ top: -15px;
+ left: 50%;
+ transform: translateX(-50%);
+ background: var(--ai-color);
+ color: white;
+ padding: 8px 20px;
+ border-radius: 20px;
+ font-weight: 700;
+ font-size: 14px;
+ box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+.ai-title {
+ font-size: 32px;
+ font-weight: 800;
+ margin-bottom: 15px;
+ color: var(--primary);
+}
+
+body.dark .ai-title {
+ color: white;
+}
+
+.ai-desc {
+ color: var(--muted);
+ margin-bottom: 30px;
+ font-size: 16px;
+}
+
+.ai-chat-mockup {
+ background: #f1f5f9;
+ border-radius: 16px;
+ padding: 20px;
+ text-align: left;
+ border: 1px solid var(--border);
+}
+
+body.dark .ai-chat-mockup {
+ background: #0f172a;
+ border-color: #334155;
+}
+
+.chat-bubble {
+ background: white;
+ padding: 12px 16px;
+ border-radius: 12px;
+ margin-bottom: 12px;
+ font-size: 14px;
+ box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+ max-width: 85%;
+}
+
+body.dark .chat-bubble {
+ background: #334155;
+ color: white;
+}
+
+.chat-bubble.user {
+ background: var(--accent);
+ color: white;
+ margin-left: auto;
+ border-bottom-right-radius: 2px;
+}
+
+.chat-bubble.ai {
+ border-bottom-left-radius: 2px;
+}
+
+.chat-input-area {
+ display: flex;
+ gap: 10px;
+ margin-top: 15px;
+}
+
+.chat-input-area input {
+ flex: 1;
+ padding: 12px;
+ border-radius: 8px;
+ border: 1px solid var(--border);
+ outline: none;
+ font-family: inherit;
+}
+
+.chat-input-area button {
+ background: var(--ai-color);
+ color: white;
+ border: none;
+ padding: 0 20px;
+ border-radius: 8px;
+ cursor: pointer;
+ font-weight: 600;
 }
 
 /* SECURITY BADGES */
 .security-section {
-    background: #f8fafc;
-    padding: 40px 0;
-    text-align: center;
+ background: #f8fafc;
+ padding: 40px 0;
+ text-align: center;
 }
 
 body.dark .security-section {
-    background: #020617;
+ background: #020617;
 }
 
 .badges {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+ display: flex;
+ justify-content: center;
+ gap: 30px;
+ flex-wrap: wrap;
+ margin-top: 20px;
 }
 
 .badge-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    color: var(--primary);
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ font-weight: 600;
+ color: var(--primary);
 }
 
 body.dark .badge-item {
-    color: #e2e8f0;
+ color: #e2e8f0;
 }
 
 /* CONTACT FORM */
 .contact-section {
-    padding: 80px 0;
-    text-align: center;
+ padding: 80px 0;
+ text-align: center;
 }
 
 .contact-form {
-    max-width: 600px;
-    margin: auto;
-    background: white;
-    padding: 40px;
-    border-radius: 24px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border);
+ max-width: 600px;
+ margin: auto;
+ background: white;
+ padding: 40px;
+ border-radius: 24px;
+ box-shadow: var(--shadow);
+ border: 1px solid var(--border);
 }
 
 body.dark .contact-form {
-    background: #0f172a;
-    border-color: #1e293b;
+ background: #0f172a;
+ border-color: #1e293b;
 }
 
 .form-group {
-    margin-bottom: 20px;
-    text-align: left;
+ margin-bottom: 20px;
+ text-align: left;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    font-size: 14px;
+ display: block;
+ margin-bottom: 8px;
+ font-weight: 500;
+ font-size: 14px;
 }
 
 .form-group input,
 .form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    background: #f8fafc;
-    font-family: inherit;
-    outline: none;
-    transition: border-color 0.3s;
+ width: 100%;
+ padding: 12px;
+ border-radius: 8px;
+ border: 1px solid var(--border);
+ background: #f8fafc;
+ font-family: inherit;
+ outline: none;
+ transition: border-color 0.3s;
 }
 
 body.dark .form-group input,
 body.dark .form-group textarea {
-    background: #1e293b;
-    border-color: #334155;
-    color: white;
+ background: #1e293b;
+ border-color: #334155;
+ color: white;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: var(--accent);
+ border-color: var(--accent);
 }
 
 /* FOOTER */
 footer {
-    padding: 60px 0;
-    background: #f8fafc;
-    border-top: 1px solid var(--border);
-    text-align: center;
+ padding: 60px 0;
+ background: #f8fafc;
+ border-top: 1px solid var(--border);
+ text-align: center;
 }
 
 body.dark footer {
-    background: #020617;
+ background: #020617;
 }
 
 .copy {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    font-size: 13px;
-    color: var(--muted);
+ margin-top: 40px;
+ padding-top: 20px;
+ border-top: 1px solid var(--border);
+ font-size: 13px;
+ color: var(--muted);
 }
 
 /* MOBILE */
 @media(max-width: 768px) {
-    .hero h1 { font-size: 40px; }
-    .dashboard-grid { grid-template-columns: 1fr; }
-    .features-grid { grid-template-columns: 1fr; }
-    .badges { flex-direction: column; gap: 15px; }
+ .hero h1 { font-size: 40px; }
+ .dashboard-grid { grid-template-columns: 1fr; }
+ .features-grid { grid-template-columns: 1fr; }
+ .badges { flex-direction: column; gap: 15px; }
+ .ai-container { padding: 20px; }
+ .chat-bubble { max-width: 95%; }
 }
 </style>
 </head>
@@ -414,167 +564,191 @@ body.dark footer {
 <body>
 
 <nav>
-    <div class="container nav-inner">
-        <div class="logo">
-            Shop<span>nex</span>
-        </div>
-        <button class="theme-btn" id="themeToggle" aria-label="Karanlık Modu Aç/Kapat">
-            🌙
-        </button>
-    </div>
+ <div class="container nav-inner">
+ <div class="logo">
+ Shop<span>nex</span>
+ </div>
+ <button class="theme-btn" id="themeToggle" aria-label="Karanlık Modu Aç/Kapat">
+ 🌙
+ </button>
+ </div>
 </nav>
 
 <div class="container">
-    <section class="hero">
-        <h1>İşletmenizi Dijital Dünyaya Taşıyın</h1>
-        <p>Modern, hızlı ve güvenli e-ticaret altyapısıyla markanızı büyütün. Çok kanallı satış, yapay zeka destekli yönetim ve mobil POS ile sınırları kaldırın.</p>
-        <a href="#iletisim" class="btn">Hemen Başla</a>
+ <section class="hero">
+ <h1>İşletmenizi Dijital Dünyaya Taşıyın</h1>
+ <p>Modern, hızlı ve güvenli e-ticaret altyapısıyla markanızı büyütün. Çok kanallı satış, yapay zeka destekli yönetim ve mobil POS ile sınırları kaldırın.</p>
+ <a href="#iletisim" class="btn">Hemen Başla</a>
 
-        <div class="dashboard">
-            <!-- Canlı Çevrimiçi Sayaç -->
-            <div class="online-counter">
-                <span class="pulse-dot"></span>
-                <span id="onlineCount">1.254</span> Çevrimiçi
-            </div>
+ <div class="dashboard">
+ <!-- Güncellenmiş Çevrimiçi Sayaç (100 + 3 nokta) -->
+ <div class="online-counter">
+ <span class="pulse-dot"></span>
+ <span id="onlineCount">100</span>
+ <div class="dots">
+ <span class="dot"></span>
+ <span class="dot"></span>
+ <span class="dot"></span>
+ </div>
+ </div>
 
-            <div class="dashboard-grid">
-                <div class="widget">
-                    <h3>99.9%</h3>
-                    <p>Sistem Uptime</p>
-                </div>
-                <div class="widget">
-                    <h3>1 Bin+</h3>
-                    <p>Aktif Mağaza</p>
-                </div>
-                <div class="widget">
-                    <h3>24/7</h3>
-                    <p>Teknik Destek</p>
-                </div>
-            </div>
-        </div>
-    </section>
+ <div class="dashboard-grid">
+ <div class="widget">
+ <h3>99.9%</h3>
+ <p>Sistem Uptime</p>
+ </div>
+ <div class="widget">
+ <h3>1 Bin+</h3>
+ <p>Aktif Mağaza</p>
+ </div>
+ <div class="widget">
+ <h3>24/7</h3>
+ <p>Teknik Destek</p>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <section>
-        <div class="section-header">
-            <h2>Neden Shopnex?</h2>
-            <p>Hızlı, güvenli ve modern altyapı ile işletmeniz için profesyonel çözümler sunuyoruz.</p>
-        </div>
+ <section>
+ <div class="section-header">
+ <h2>Neden Shopnex?</h2>
+ <p>Hızlı, güvenli ve modern altyapı ile işletmeniz için profesyonel çözümler sunuyoruz.</p>
+ </div>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="icon">🚀</div>
-                <h3>Hızlı Altyapı</h3>
-                <p>Yüksek performanslı sistemler ve CDN entegrasyonu ile anında yüklenen mağazalar.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon">📱</div>
-                <h3>Mobil POS & Uygulama</h3>
-                <p>El tipi cihazlarla çevrimdışı satış yapın, QR kod ile ödeme alın ve stokları mobilde yönetin.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon">🤖</div>
-                <h3>Yapay Zeka Destekli</h3>
-                <p>AI metin yazarı, otomatik ürün önerileri ve akıllı müşteri hizmetleri asistanı.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon">🌐</div>
-                <h3>Çok Kanallı Satış</h3>
-                <p>Web sitesi, mobil uygulama, sosyal medya ve pazaryerlerini tek panelden yönetin.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon">🛡️</div>
-                <h3>Gelişmiş Güvenlik</h3>
-                <p>SSL sertifikası, 2FA koruması ve sürekli veri yedekleme ile verileriniz güvende.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon">📊</div>
-                <h3>Detaylı Analiz</h3>
-                <p>Gerçek zamanlı satış raporları, envanter takibi ve müşteri davranış analizleri.</p>
-            </div>
-        </div>
-    </section>
+ <div class="features-grid">
+ <div class="feature-card">
+ <div class="icon">🚀</div>
+ <h3>Hızlı Altyapı</h3>
+ <p>Yüksek performanslı sistemler ve CDN entegrasyonu ile anında yüklenen mağazalar.</p>
+ </div>
+ <div class="feature-card">
+ <div class="icon">📱</div>
+ <h3>Mobil POS & Uygulama</h3>
+ <p>El tipi cihazlarla çevrimdışı satış yapın, QR kod ile ödeme alın ve stokları mobilde yönetin.</p>
+ </div>
+ <div class="feature-card">
+ <div class="icon">🤖</div>
+ <h3>Site Özel Yapay Zeka</h3>
+ <p>Sadece bu site için eğitilmiş, ürünleriniz ve stoklarınız hakkında anında bilgi veren akıllı asistan.</p>
+ </div>
+ <div class="feature-card">
+ <div class="icon">🌐</div>
+ <h3>Çok Kanallı Satış</h3>
+ <p>Web sitesi, mobil uygulama, sosyal medya ve pazaryerlerini tek panelden yönetin.</p>
+ </div>
+ <div class="feature-card">
+ <div class="icon">🛡️</div>
+ <h3>Gelişmiş Güvenlik</h3>
+ <p>SSL sertifikası, 2FA koruması ve sürekli veri yedekleme ile verileriniz güvende.</p>
+ </div>
+ <div class="feature-card">
+ <div class="icon">📊</div>
+ <h3>Detaylı Analiz</h3>
+ <p>Gerçek zamanlı satış raporları, envanter takibi ve müşteri davranış analizleri.</p>
+ </div>
+ </div>
+ </section>
 </div>
 
 <!-- Güvenlik Rozetleri -->
 <div class="security-section">
-    <div class="container">
-        <h3 style="margin-bottom: 20px;">Güvenli Alışveriş Garantisi</h3>
-        <div class="badges">
-            <div class="badge-item">🔒 %100 SSL Güvenli Ödeme</div>
-            <div class="badge-item">🛡️ Veri Gizliliği Korunur</div>
-            <div class="badge-item">🔄 7/24 Teknik Destek</div>
-            <div class="badge-item">✅ Onaylı Altyapı</div>
-        </div>
-    </div>
+ <div class="container">
+ <h3 style="margin-bottom: 20px;">Güvenli Alışveriş Garantisi</h3>
+ <div class="badges">
+ <div class="badge-item">🔒 %100 SSL Güvenli Ödeme</div>
+ <div class="badge-item">🛡️ Veri Gizliliği Korunur</div>
+ <div class="badge-item">🔄 7/24 Teknik Destek</div>
+ <div class="badge-item">✅ Onaylı Altyapı</div>
+ </div>
+ </div>
 </div>
+
+<!-- Yapay Zeka Bölümü -->
+<section class="ai-section">
+ <div class="container">
+ <div class="ai-container">
+ <div class="ai-badge">Yapay Zeka Asistanı</div>
+ <h2 class="ai-title">Sadece Bu Site İçin Eğitildi</h2>
+ <p class="ai-desc">Shopnex ürünleri, stok durumları ve sipariş süreçleri hakkında anında bilgi almak için buradayım. Başka bir site hakkında soru sormuyorum, tüm odağım sizin mağazanızda.</p>
+ 
+ <div class="ai-chat-mockup">
+ <div class="chat-bubble user">
+ Ürün stok durumu nasıl?
+ </div>
+ <div class="chat-bubble ai">
+ Şu an "Pro Paket" stokta 45 adet mevcut. En yakın kargo sevkiyatı yarın saat 14:00'te yapılacak. İsterseniz hemen sipariş oluşturabilirim.
+ </div>
+ <div class="chat-bubble ai">
+ Size nasıl yardımcı olabilirim? Sadece bu siteye ait bilgileri işliyorum.
+ </div>
+ 
+ <div class="chat-input-area">
+ <input type="text" placeholder="Shopnex hakkında sorun...">
+ <button>Gönder</button>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
 
 <!-- İletişim Formu -->
 <section class="contact-section" id="iletisim">
-    <div class="container">
-        <div class="section-header">
-            <h2>Bize Ulaşın</h2>
-            <p>Projeniz hakkında bilgi almak veya destek talebi oluşturmak için formu doldurun.</p>
-        </div>
-        
-        <form class="contact-form" action="mailto:shopnex.destek.1@gmail.com" method="post" enctype="text/plain">
-            <div class="form-group">
-                <label for="name">Adınız Soyadınız</label>
-                <input type="text" id="name" name="name" required placeholder="Adınız...">
-            </div>
-            <div class="form-group">
-                <label for="email">E-posta Adresiniz</label>
-                <input type="email" id="email" name="email" required placeholder="ornek@sirket.com">
-            </div>
-            <div class="form-group">
-                <label for="message">Mesajınız</label>
-                <textarea id="message" name="message" rows="5" required placeholder="Nasıl yardımcı olabiliriz?"></textarea>
-            </div>
-            <button type="submit" class="btn" style="width: 100%;">Gönder</button>
-        </form>
-    </div>
+ <div class="container">
+ <div class="section-header">
+ <h2>Bize Ulaşın</h2>
+ <p>Projeniz hakkında bilgi almak veya destek talebi oluşturmak için formu doldurun.</p>
+ </div>
+ 
+ <form class="contact-form" action="mailto:shopnex.destek.1@gmail.com" method="post" enctype="text/plain">
+ <div class="form-group">
+ <label for="name">Adınız Soyadınız</label>
+ <input type="text" id="name" name="name" required placeholder="Adınız...">
+ </div>
+ <div class="form-group">
+ <label for="email">E-posta Adresiniz</label>
+ <input type="email" id="email" name="email" required placeholder="ornek@sirket.com">
+ </div>
+ <div class="form-group">
+ <label for="message">Mesajınız</label>
+ <textarea id="message" name="message" rows="5" required placeholder="Nasıl yardımcı olabiliriz?"></textarea>
+ </div>
+ <button type="submit" class="btn" style="width: 100%;">Gönder</button>
+ </form>
+ </div>
 </section>
 
 <footer>
-    <div class="container">
-        <div class="logo" style="margin-bottom: 20px;">Shop<span>nex</span></div>
-        <p style="color: var(--muted);">Profesyonel E-Ticaret Çözümleri</p>
-        <div class="copy">
-            © 2026 Shopnex. Tüm hakları saklıdır.
-        </div>
-    </div>
+ <div class="container">
+ <div class="logo" style="margin-bottom: 20px;">Shop<span>nex</span></div>
+ <p style="color: var(--muted);">Profesyonel E-Ticaret Çözümleri</p>
+ <div class="copy">
+ © 2026 Shopnex. Tüm hakları saklıdır.
+ </div>
+ </div>
 </footer>
 
 <script>
-    // Dark Mode Toggle
-    const themeBtn = document.getElementById('themeToggle');
-    const body = document.body;
-    
-    // LocalStorage kontrolü
-    if(localStorage.getItem('theme') === 'dark') {
-        body.classList.add('dark');
-        themeBtn.textContent = '☀️';
-    }
+ // Dark Mode Toggle
+ const themeBtn = document.getElementById('themeToggle');
+ const body = document.body;
+ 
+ // LocalStorage kontrolü
+ if(localStorage.getItem('theme') === 'dark') {
+ body.classList.add('dark');
+ themeBtn.textContent = '☀️';
+ }
 
-    themeBtn.addEventListener('click', () => {
-        body.classList.toggle('dark');
-        const isDark = body.classList.contains('dark');
-        themeBtn.textContent = isDark ? '☀️' : '🌙';
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
+ themeBtn.addEventListener('click', () => {
+ body.classList.toggle('dark');
+ const isDark = body.classList.contains('dark');
+ themeBtn.textContent = isDark ? '☀️' : '🌙';
+ localStorage.setItem('theme', isDark ? 'dark' : 'light');
+ });
 
-    // Canli Sayaci Simulasyonu
-    const counterElement = document.getElementById('onlineCount');
-    let count = 1250;
-    
-    setInterval(() => {
-        // Rastgele artma veya azalma (+/- 3 arası)
-        const change = Math.floor(Math.random() * 7) - 3; 
-        count += change;
-        if(count < 1000) count = 1000; // Minimum sınır
-        
-        // Formatlama: 1.250 gibi gösterim
-        counterElement.textContent = count.toLocaleString('tr-TR');
-    }, 3000);
+ // Sabit Sayacı Göster (Değişim Yok)
+ const counterElement = document.getElementById('onlineCount');
+ // Değer sabit 100 olarak ayarlandı, JavaScript ile değiştirilmiyor.
+ counterElement.textContent = "100";
 </script>
 
 </body>
