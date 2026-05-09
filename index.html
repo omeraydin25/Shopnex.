@@ -3,17 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Meta Tags -->
-    <title>Shopnex | Enterprise E-Ticaret Platformu</title>
-    <meta name="description" content="Shopnex ile geleceğin e-ticaret altyapısına sahip olun. Yüksek performanslı ve güvenli kurumsal çözümler.">
-    <meta name="keywords" content="e-ticaret, shopnex, kurumsal satış, online mağaza, güvenli ödeme">
-    
-    <!-- Open Graph (Sosyal Medya Paylaşımları İçin) -->
-    <meta property="og:title" content="Shopnex | Enterprise E-Ticaret">
-    <meta property="og:description" content="Geleceğin ticaret altyapısı ile tanışın.">
-    <meta property="og:type" content="website">
-
+    <title>Shopnex | Enterprise E-Ticaret</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -24,388 +14,230 @@
             --muted:#64748b;
             --border:#e2e8f0;
             --shadow:0 10px 30px rgba(0,0,0,.08);
+            --ai-color:#10b981;
         }
 
         *{ margin:0; padding:0; box-sizing:border-box; }
-
         html{ scroll-behavior:smooth; }
-
-        body{
-            font-family:'Inter',sans-serif;
-            background:#fff;
-            color:#0f172a;
-            overflow-x:hidden;
-            transition: background 0.3s ease;
-        }
-
+        body{ font-family:'Inter',sans-serif; background:#fff; color:#0f172a; overflow-x:hidden; transition: 0.3s; }
         body.dark{ background:#020617; color:white; }
-
         .container{ max-width:1280px; margin:auto; padding:0 24px; }
 
-        .bg{
-            position:fixed;
-            inset:0;
-            z-index:-1;
-            background:
-                radial-gradient(circle at top left,rgba(59,130,246,.15),transparent 30%),
-                radial-gradient(circle at bottom right,rgba(16,185,129,.1),transparent 30%);
-        }
+        .bg{ position:fixed; inset:0; z-index:-1; background: radial-gradient(circle at top left,rgba(59,130,246,.15),transparent 30%), radial-gradient(circle at bottom right,rgba(16,185,129,.1),transparent 30%); }
 
         /* NAVBAR */
-        nav{
-            position:fixed;
-            top:0;
-            width:100%;
-            z-index:9999;
-            backdrop-filter:blur(18px);
-            background:rgba(255,255,255,.7);
-            border-bottom:1px solid rgba(0,0,0,.05);
-        }
-
-        body.dark nav{ background:rgba(2,6,23,.7); border-bottom:1px solid rgba(255,255,255,.1); }
-
+        nav{ position:fixed; top:0; width:100%; z-index:999; backdrop-filter:blur(18px); background:rgba(255,255,255,.7); border-bottom:1px solid var(--border); }
+        body.dark nav{ background:rgba(2,6,23,.7); border-color: #1e293b; }
         .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:18px 0; }
-
-        .logo{ font-size:30px; font-weight:900; cursor: pointer; }
+        .logo{ font-size:30px; font-weight:900; }
         .logo span{ color:var(--accent); }
 
         .right-nav{ display:flex; gap:12px; align-items:center; }
+        .theme-btn, .menu-btn{ width:46px; height:46px; border:none; border-radius:12px; cursor:pointer; font-size:20px; background:#f1f5f9; }
+        body.dark .theme-btn, body.dark .menu-btn{ background: #1e293b; color: white; }
 
-        .theme-btn, .menu-btn{
-            width:46px; height:46px; border:none; border-radius:12px; cursor:pointer;
-            font-size:20px; background:#f1f5f9; display: flex; align-items: center; justify-content: center;
-        }
-        body.dark .theme-btn, body.dark .menu-btn { background: #1e293b; color: white; }
-
-        .btn{
-            padding:14px 24px; border:none; border-radius:12px; font-weight:700;
-            cursor:pointer; text-decoration:none; display:inline-block;
-            background:var(--accent); color:white; transition:.3s;
-        }
-        .btn:hover{ transform:translateY(-3px); box-shadow: 0 10px 20px rgba(37,99,235,0.2); }
+        .btn{ padding:14px 24px; border:none; border-radius:12px; font-weight:700; cursor:pointer; text-decoration:none; display:inline-block; background:#0f172a; color:white; transition:.3s; }
+        .btn:hover{ transform:translateY(-3px); background: var(--accent); }
 
         /* HERO */
-        .hero{ padding-top:170px; padding-bottom:120px; text-align:center; }
-        .badge{
-            display:inline-flex; padding:10px 18px; border-radius:999px;
-            background:#dbeafe; color:#2563eb; font-weight:700; margin-bottom:26px; font-size:14px;
-        }
-        h1{
-            font-size:72px; line-height:1.1; font-weight:900; letter-spacing:-3px;
-            margin-bottom:28px; background:linear-gradient(135deg,#0f172a,#2563eb);
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-        }
-        body.dark h1 { background:linear-gradient(135deg,#fff,#2563eb); -webkit-background-clip:text; }
-
-        .hero p{ max-width:760px; margin:auto; font-size:20px; color:var(--muted); margin-bottom:40px; }
-
-        .online{
-            margin-top:34px; display:inline-flex; align-items:center; gap:10px;
-            padding:12px 18px; border-radius:999px; background:#f8fafc; font-weight:600;
-        }
-        body.dark .online { background: #1e293b; }
-
-        .dot{ width:10px; height:10px; border-radius:50%; background:#10b981; animation:pulse 1.5s infinite; }
-
-        @keyframes pulse{ 0%{transform:scale(1);} 50%{transform:scale(1.4); opacity: 0.7;} 100%{transform:scale(1);} }
+        .hero{ padding-top:170px; padding-bottom:80px; text-align:center; }
+        h1{ font-size:72px; font-weight:900; margin-bottom:28px; background:linear-gradient(135deg,#0f172a,#2563eb); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        body.dark h1{ background:linear-gradient(135deg,#fff,#2563eb); -webkit-background-clip:text; }
+        .hero p{ max-width:700px; margin:auto; font-size:18px; color:var(--muted); margin-bottom:40px; }
 
         /* DASHBOARD */
-        .dashboard{
-            margin-top:70px; background:white; border-radius:30px; padding:30px;
-            box-shadow:var(--shadow); border:1px solid var(--border);
-        }
+        .dashboard{ margin-top:50px; background:white; border-radius:30px; padding:30px; box-shadow:var(--shadow); border:1px solid var(--border); }
         body.dark .dashboard{ background:#0f172a; border-color:#1e293b; }
         .dashboard-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
-        .widget{ padding:30px; border-radius:20px; background:#f8fafc; }
-        body.dark .widget{ background:#111827; }
-        .widget h3{ font-size:40px; margin-bottom:8px; color: var(--accent); }
-
-        /* SECTIONS */
-        .section{ padding:110px 0; }
-        .section-title{ text-align:center; font-size:52px; font-weight:900; margin-bottom:20px; }
-        .section-desc{ text-align:center; color:var(--muted); max-width:700px; margin:auto; margin-bottom:70px; }
-
-        .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:24px; }
-        .card, .testimonial{
-            padding:40px; border-radius:24px; background:white; border:1px solid var(--border);
-            box-shadow:var(--shadow); transition:.4s;
-        }
-        body.dark .card, body.dark .testimonial{ background:#0f172a; border-color:#1e293b; }
-        .card:hover, .testimonial:hover{ transform:translateY(-8px); }
-
-        /* FAQ */
-        .faq{ max-width:900px; margin:auto; }
-        details{ padding:24px; border-radius:20px; background:white; margin-bottom:18px; border:1px solid var(--border); cursor: pointer; }
-        body.dark details{ background:#0f172a; border-color:#1e293b; }
-        summary{ font-weight:700; font-size:18px; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-        summary::after { content: '＋'; color: var(--accent); }
-        details[open] summary::after { content: '－'; }
-
-        /* FOOTER */
-        footer{ padding:80px 0; border-top: 1px solid var(--border); text-align:center; }
-        body.dark footer { border-top: 1px solid #1e293b; }
+        .widget h3{ font-size:36px; color: var(--accent); margin-bottom:5px; }
 
         /* SIDE MENU */
-        .side-menu{
-            position:fixed; top:0; right:-420px; width:400px; max-width:100%; height:100vh;
-            background:white; z-index:99999; padding:28px; transition:.4s; overflow-y:auto;
-            box-shadow:-10px 0 40px rgba(0,0,0,.1);
-        }
+        .side-menu{ position:fixed; top:0; right:-420px; width:380px; max-width:100%; height:100vh; background:white; z-index:9999; padding:30px; transition:.4s; box-shadow:-10px 0 40px rgba(0,0,0,.1); }
         body.dark .side-menu{ background:#020617; color:white; }
         .side-menu.active{ right:0; }
-        .menu-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:40px; }
-        .close-btn{ border:none; background:none; font-size:28px; cursor:pointer; color:inherit; }
+        .menu-links{ display:flex; flex-direction:column; gap:20px; margin: 40px 0; }
+        .menu-links a{ text-decoration:none; color:inherit; font-weight:700; font-size:18px; }
 
-        .menu-links{ display:flex; flex-direction:column; gap:18px; margin-bottom:40px; }
-        .menu-links a{ text-decoration:none; color:inherit; font-weight:700; font-size:18px; transition: 0.2s; }
-        .menu-links a:hover { color: var(--accent); padding-left: 5px; }
+        /* ÖZEL DESTEK MAIL ALANI */
+        .special-support{ background: #f1f5f9; padding: 20px; border-radius: 15px; border-left: 5px solid var(--accent); margin-top: 20px; }
+        body.dark .special-support{ background: #1e293b; }
+        .special-support h4{ margin-bottom: 8px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); }
+        .special-support a{ color: inherit; text-decoration: none; font-weight: 800; font-size: 16px; display: flex; align-items: center; gap: 8px; }
 
-        /* WHATSAPP */
-        .whatsapp{
-            position:fixed; bottom:24px; right:24px; width:60px; height:60px;
-            border-radius:50%; background:#25d366; display:flex; align-items:center;
-            justify-content:center; font-size:30px; color:white; text-decoration:none;
-            box-shadow:0 10px 20px rgba(37,211,102,0.3); z-index:999; transition: 0.3s;
+        /* AI FLOATING BUTTON (FOTOĞRAFTAKİ TARZDA) */
+        .ai-trigger{ 
+            position:fixed; bottom:24px; right:24px; width:70px; height:70px; 
+            border-radius:50%; background: var(--ai-color); 
+            display:flex; align-items:center; justify-content:center; 
+            cursor:pointer; box-shadow:0 10px 25px rgba(16,185,129,0.4); 
+            z-index:1000; transition: 0.3s; border: none;
         }
-        .whatsapp:hover { transform: scale(1.1); }
+        .ai-trigger:hover{ transform: scale(1.1); }
+        .ai-trigger svg{ width: 35px; height: 35px; fill: white; }
 
         /* AI CHAT BOX */
-        .ai-box{ background:#f8fafc; padding:18px; border-radius:20px; border: 1px solid var(--border); }
-        body.dark .ai-box{ background:#0f172a; border-color: #1e293b; }
-        .ai-messages{ height:200px; overflow-y:auto; margin-bottom:18px; display:flex; flex-direction:column; gap:12px; padding-right: 5px; }
-        .ai-message{ padding:12px 16px; border-radius:14px; max-width:85%; font-size:14px; line-height:1.5; }
-        .bot{ background:#e2e8f0; color: #0f172a; align-self:flex-start; }
-        .user{ background:#2563eb; color:white; align-self:flex-end; }
-
-        /* REVEAL ANIMATION */
-        .reveal{ opacity:0; transform:translateY(30px); transition: 1s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
-        .reveal.active{ opacity:1; transform:translateY(0); }
-
-        @media(max-width:768px){
-            h1{ font-size:42px; }
-            .section-title{ font-size:32px; }
-            .side-menu { width: 100%; }
+        .ai-modal{ 
+            position: fixed; bottom: 105px; right: 24px; width: 350px; height: 450px; 
+            background: white; border-radius: 20px; box-shadow: var(--shadow); 
+            z-index: 1001; display: none; flex-direction: column; overflow: hidden;
+            border: 1px solid var(--border);
         }
+        body.dark .ai-modal{ background: #0f172a; border-color: #1e293b; }
+        .ai-modal.active{ display: flex; }
+        .ai-header{ background: var(--ai-color); color: white; padding: 20px; font-weight: 700; display: flex; justify-content: space-between; }
+        .ai-messages{ flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .msg{ padding: 10px 14px; border-radius: 12px; font-size: 14px; max-width: 80%; line-height: 1.4; }
+        .msg.bot{ background: #f1f5f9; align-self: flex-start; }
+        body.dark .msg.bot{ background: #1e293b; }
+        .msg.user{ background: var(--ai-color); color: white; align-self: flex-end; }
+        .ai-input-wrapper{ padding: 15px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
+        .ai-input-wrapper input{ flex: 1; padding: 10px; border: 1px solid var(--border); border-radius: 8px; outline: none; }
+        body.dark .ai-input-wrapper input{ background: #111827; border-color: #1e293b; color: white; }
+
+        .reveal{ opacity:0; transform:translateY(30px); transition:1s; }
+        .reveal.active{ opacity:1; transform:translateY(0); }
     </style>
 </head>
 <body>
 
-    <div class="bg"></div>
+<div class="bg"></div>
 
-    <nav>
-        <div class="container nav-inner">
-            <div class="logo" onclick="window.scrollTo(0,0)">Shop<span>nex</span></div>
-            <div class="right-nav">
-                <button class="theme-btn" id="themeToggle" title="Tema Değiştir">🌙</button>
-                <button class="menu-btn" id="menuBtn">☰</button>
-                <a href="#features" class="btn">Başlayın</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- SIDE MENU -->
-    <div class="side-menu" id="sideMenu">
-        <div class="menu-top">
-            <h2>Menü</h2>
-            <button class="close-btn" id="closeMenu">✕</button>
-        </div>
-        <div class="menu-links">
-            <a href="#" onclick="toggleMenu()">Ana Sayfa</a>
-            <a href="#features" onclick="toggleMenu()">Özellikler</a>
-            <a href="#testimonials" onclick="toggleMenu()">Referanslar</a>
-            <a href="#faq" onclick="toggleMenu()">SSS</a>
-        </div>
-
-        <div class="menu-section">
-            <h3>Yapay Zeka Destek</h3>
-            <div class="ai-box">
-                <div class="ai-messages" id="aiMessages">
-                    <div class="ai-message bot">Merhaba! Size Shopnex hakkında nasıl yardımcı olabilirim?</div>
-                </div>
-                <div class="ai-input-area" style="display:flex; gap:8px;">
-                    <input type="text" id="aiInput" placeholder="Soru sorun..." style="flex:1; padding:12px; border-radius:10px; border:1px solid #ddd; outline:none;">
-                    <button id="sendAi" style="padding:0 15px; background:var(--accent); color:white; border:none; border-radius:10px; cursor:pointer;">➔</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="menu-section">
-            <a class="support-mail" href="mailto:shopnex.destek.1@gmail.com" style="display:block; text-align:center; padding:16px; background:#2563eb; color:white; text-decoration:none; border-radius:12px; font-weight:700;">
-                Bize E-posta Gönder
-            </a>
+<nav>
+    <div class="container nav-inner">
+        <div class="logo">Shop<span>nex</span></div>
+        <div class="right-nav">
+            <button class="theme-btn" id="themeToggle">🌙</button>
+            <button class="menu-btn" id="openMenu">☰</button>
         </div>
     </div>
+</nav>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container">
-            <div class="badge">Enterprise Seviye Güvenlik</div>
-            <h1 class="reveal">Geleceğin <br> E-Ticaret Platformu</h1>
-            <p class="reveal">Shopnex yüksek performanslı, ultra güvenli ve modern altyapısı ile kurumsal markaların satışlarını büyütür.</p>
-            <div class="reveal">
-                <a href="#features" class="btn">Ücretsiz Başla</a>
+<!-- SIDE MENU -->
+<div class="side-menu" id="sideMenu">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h3>Navigasyon</h3>
+        <button id="closeMenu" style="background:none; border:none; font-size:24px; cursor:pointer; color:inherit;">✕</button>
+    </div>
+    <div class="menu-links">
+        <a href="#">Ana Sayfa</a>
+        <a href="#">Hizmetler</a>
+        <a href="#">Referanslar</a>
+    </div>
+
+    <!-- FARKLI TASARLANMIŞ DESTEK ALANI -->
+    <div class="special-support">
+        <h4>Destek Hattı</h4>
+        <a href="mailto:shopnex.destek.1@gmail.com">
+            📩 shopnex.destek.1@gmail.com
+        </a>
+        <p style="font-size: 12px; margin-top: 10px; color: var(--muted);">7/24 Teknik destek ekibimize ulaşabilirsiniz.</p>
+    </div>
+</div>
+
+<section class="hero">
+    <div class="container">
+        <h1 class="reveal">Geleceğin <br> E-Ticaret Platformu</h1>
+        <p class="reveal">Shopnex, kurumsal markalar için geliştirilmiş en hızlı e-ticaret altyapısıdır.</p>
+        
+        <div class="dashboard reveal">
+            <div class="dashboard-grid">
+                <div class="widget">
+                    <h3>1.000+</h3> <!-- İSTEĞİN ÜZERİNE GÜNCELLENDİ -->
+                    <p>Aylık Sipariş</p>
+                </div>
+                <div class="widget">
+                    <h3>99.9%</h3>
+                    <p>Güvenlik Oranı</p>
+                </div>
+                <div class="widget">
+                    <h3>24/7</h3>
+                    <p>Aktif Destek</p>
+                </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- YAPAY ZEKA MODAL -->
+<div class="ai-modal" id="aiModal">
+    <div class="ai-header">
+        <span>Shopnex AI Asistan</span>
+        <span style="cursor:pointer" id="closeAi">✕</span>
+    </div>
+    <div class="ai-messages" id="aiBox">
+        <div class="msg bot">Merhaba! Ben Shopnex AI. Size nasıl yardımcı olabilirim? (Fiyat, Kurulum veya Güvenlik hakkında sorabilirsiniz)</div>
+    </div>
+    <div class="ai-input-wrapper">
+        <input type="text" id="aiInput" placeholder="Mesajınızı yazın...">
+        <button id="aiSend" style="background:var(--ai-color); color:white; border:none; padding:8px 12px; border-radius:8px; cursor:pointer;">➤</button>
+    </div>
+</div>
+
+<!-- YAPAY ZEKA TETİKLEYİCİ (FOTOĞRAFTAKİ YEŞİL BUTON) -->
+<button class="ai-trigger" id="aiTrigger">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.435 5.17L2 22l4.83-1.435C8.34 21.476 10.109 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.63 0-3.156-.448-4.463-1.223l-.32-.19-2.92.868.868-2.92-.19-.32A7.954 7.954 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+</button>
+
+<script>
+    /* TEMA */
+    const themeBtn = document.getElementById('themeToggle');
+    themeBtn.onclick = () => {
+        document.body.classList.toggle('dark');
+        themeBtn.innerHTML = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    };
+
+    /* MENÜ */
+    const sideMenu = document.getElementById('sideMenu');
+    document.getElementById('openMenu').onclick = () => sideMenu.classList.add('active');
+    document.getElementById('closeMenu').onclick = () => sideMenu.classList.remove('active');
+
+    /* YAPAY ZEKA SOHBET MANTIĞI */
+    const aiModal = document.getElementById('aiModal');
+    const aiTrigger = document.getElementById('aiTrigger');
+    const aiInput = document.getElementById('aiInput');
+    const aiBox = document.getElementById('aiBox');
+
+    aiTrigger.onclick = () => aiModal.classList.toggle('active');
+    document.getElementById('closeAi').onclick = () => aiModal.classList.remove('active');
+
+    function chat() {
+        let uText = aiInput.value.trim().toLowerCase();
+        if(!uText) return;
+
+        // Kullanıcı mesajını ekle
+        let uDiv = document.createElement('div');
+        uDiv.className = 'msg user';
+        uDiv.innerText = aiInput.value;
+        aiBox.appendChild(uDiv);
+        aiInput.value = '';
+
+        // Bot cevabı
+        setTimeout(() => {
+            let bDiv = document.createElement('div');
+            bDiv.className = 'msg bot';
             
-            <div class="online reveal">
-                <div class="dot"></div> Şu anda 128 kişi aktif
-            </div>
+            if(uText.includes("fiyat")) bText = "Shopnex paketleri her bütçeye uygundur. Detaylar için mail atabilirsiniz.";
+            else if(uText.includes("kurulum")) bText = "Kurulum sürecimiz sadece 24 saat sürmektedir.";
+            else if(uText.includes("güvenlik")) bText = "Sistemimiz 256-bit SSL ve özel firewall ile korunmaktadır.";
+            else bText = "Anladım. Size bu konuda destek ekibimiz daha detaylı bilgi verebilir. Başka bir sorunuz var mı?";
 
-            <div class="dashboard reveal">
-                <div class="dashboard-grid">
-                    <div class="widget"><h3>12.4M+</h3><p>Aylık Sipariş</p></div>
-                    <div class="widget"><h3>99.99%</h3><p>Uptime Garantisi</p></div>
-                    <div class="widget"><h3>340+</h3><p>Kurumsal Marka</p></div>
-                    <div class="widget"><h3>4.9/5</h3><p>Memnuniyet</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
+            bDiv.innerText = bText;
+            aiBox.appendChild(bDiv);
+            aiBox.scrollTop = aiBox.scrollHeight;
+        }, 600);
+    }
 
-    <!-- FEATURES -->
-    <section class="section" id="features">
-        <div class="container">
-            <h2 class="section-title reveal">Neden Shopnex?</h2>
-            <p class="section-desc reveal">Modern teknolojilerle geliştirilen ultra hızlı e-ticaret deneyimi.</p>
-            <div class="grid">
-                <div class="card reveal">
-                    <h3>Ultra Hızlı Altyapı</h3>
-                    <p>Edge caching ve optimize edilmiş sistem sayesinde siteler milisaniyeler içinde açılır.</p>
-                </div>
-                <div class="card reveal">
-                    <h3>Gelişmiş Güvenlik</h3>
-                    <p>AES-256 şifreleme, firewall koruması ve gerçek zamanlı tehdit analizi.</p>
-                </div>
-                <div class="card reveal">
-                    <h3>Mobil Optimizasyon</h3>
-                    <p>Tüm cihazlarda kusursuz responsive yapı ve yüksek dönüşüm oranı.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    document.getElementById('aiSend').onclick = chat;
+    aiInput.onkeypress = (e) => { if(e.key === 'Enter') chat(); };
 
-    <!-- TESTIMONIALS -->
-    <section class="section" id="testimonials">
-        <div class="container">
-            <h2 class="section-title reveal">Müşteri Yorumları</h2>
-            <div class="grid">
-                <div class="testimonial reveal">
-                    <div class="stars">★★★★★</div>
-                    <p>“Shopnex sayesinde satışlarımız 4 ay içinde %240 arttı. Kesinlikle tavsiye ediyoruz.”</p>
-                </div>
-                <div class="testimonial reveal">
-                    <div class="stars">★★★★★</div>
-                    <p>“Türkiye’de kullandığımız en hızlı altyapı oldu. Teknik destek harika.”</p>
-                </div>
-                <div class="testimonial reveal">
-                    <div class="stars">★★★★★</div>
-                    <p>“Gerçekten premium hissiyat veren bir sistem. Dashborad kullanımı çok kolay.”</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    /* REVEAL */
+    window.addEventListener('scroll', () => {
+        document.querySelectorAll('.reveal').forEach(el => {
+            if(el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
+        });
+    });
+    window.onload = () => document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+</script>
 
-    <!-- FAQ -->
-    <section class="section" id="faq">
-        <div class="container">
-            <h2 class="section-title reveal">Sık Sorulan Sorular</h2>
-            <div class="faq">
-                <details class="reveal">
-                    <summary>Shopnex güvenli mi?</summary>
-                    <p style="padding-top:15px; color:var(--muted);">Evet. AES-256 şifreleme ve gelişmiş DDoS koruma sistemleri standart olarak sunulur.</p>
-                </details>
-                <details class="reveal">
-                    <summary>Mevcut sitemi taşıyabilir miyim?</summary>
-                    <p style="padding-top:15px; color:var(--muted);">Evet, uzman ekibimiz tüm verilerinizi 24 saat içinde eksiksiz şekilde Shopnex'e taşır.</p>
-                </details>
-                <details class="reveal">
-                    <summary>Fiyatlandırma nasıl?</summary>
-                    <p style="padding-top:15px; color:var(--muted);">İhtiyaçlarınıza göre özelleştirilmiş yıllık ve aylık paketlerimiz mevcuttur. Detaylar için iletişime geçin.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <h2 style="font-size:32px; font-weight:900;">Shop<span>nex</span></h2>
-            <p style="color:var(--muted); margin-top:10px;">Geleceğin ticaret altyapısı.</p>
-            <div style="margin-top:30px; display:flex; justify-content:center; gap:20px;">
-                <a href="#" style="color:var(--muted); text-decoration:none;">Gizlilik</a>
-                <a href="#" style="color:var(--muted); text-decoration:none;">Kullanım Şartları</a>
-            </div>
-            <p style="color:var(--muted); margin-top:30px; font-size:14px;">© 2026 Shopnex Teknoloji A.Ş. Tüm hakları saklıdır.</p>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/905000000000" class="whatsapp" target="_blank" title="WhatsApp Destek">✆</a>
-
-    <script>
-        /* DARK MODE */
-        const themeToggle = document.getElementById('themeToggle');
-        const setDark = (isDark) => {
-            if(isDark) {
-                document.body.classList.add('dark');
-                themeToggle.innerHTML = '☀️';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.body.classList.remove('dark');
-                themeToggle.innerHTML = '🌙';
-                localStorage.setItem('theme', 'light');
-            }
-        };
-
-        themeToggle.onclick = () => setDark(!document.body.classList.contains('dark'));
-        if(localStorage.getItem('theme') === 'dark') setDark(true);
-
-        /* MENU LOGIC */
-        const sideMenu = document.getElementById('sideMenu');
-        const toggleMenu = () => sideMenu.classList.toggle('active');
-        document.getElementById('menuBtn').onclick = toggleMenu;
-        document.getElementById('closeMenu').onclick = toggleMenu;
-
-        /* AI CHAT */
-        const aiInput = document.getElementById('aiInput');
-        const sendAi = document.getElementById('sendAi');
-        const aiMessages = document.getElementById('aiMessages');
-
-        function sendMessage() {
-            const text = aiInput.value.trim();
-            if(!text) return;
-
-            const userMsg = document.createElement('div');
-            userMsg.className = 'ai-message user';
-            userMsg.textContent = text;
-            aiMessages.appendChild(userMsg);
-            aiInput.value = '';
-
-            aiMessages.scrollTop = aiMessages.scrollHeight;
-
-            setTimeout(() => {
-                const botMsg = document.createElement('div');
-                botMsg.className = 'ai-message bot';
-                botMsg.innerHTML = "Talebiniz analiz ediliyor... 🚀 <br> Shopnex uzmanları sizinle e-posta üzerinden iletişime geçecektir.";
-                aiMessages.appendChild(botMsg);
-                aiMessages.scrollTop = aiMessages.scrollHeight;
-            }, 800);
-        }
-
-        sendAi.onclick = sendMessage;
-        aiInput.onkeypress = (e) => { if(e.key === 'Enter') sendMessage(); };
-
-        /* REVEAL ON SCROLL */
-        const reveal = () => {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(el => {
-                const windowHeight = window.innerHeight;
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 50) {
-                    el.classList.add('active');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', reveal);
-        window.addEventListener('load', reveal); // İlk yüklemede çalıştır
-    </script>
 </body>
 </html>
