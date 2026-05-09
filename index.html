@@ -16,7 +16,7 @@
  --border: #e2e8f0;
  --shadow: 0 10px 30px rgba(0,0,0,.08);
  --success: #10b981;
- --ai-color: #8b5cf6;
+ --ai-color: #10b981; /* Yeşil renk */
 }
 
 * {
@@ -100,6 +100,151 @@ body.dark .logo {
 body.dark .theme-btn {
  background: #1e293b;
  color: white;
+}
+
+/* Hamburger Menu Button */
+.hamburger-menu {
+ position: relative;
+ width: 30px;
+ height: 24px;
+ cursor: pointer;
+ z-index: 1000;
+}
+
+.hamburger-line {
+ position: absolute;
+ left: 0;
+ width: 100%;
+ height: 3px;
+ background-color: var(--primary);
+ border-radius: 2px;
+ transition: all 0.3s ease;
+}
+
+body.dark .hamburger-line {
+ background-color: white;
+}
+
+.hamburger-line:nth-child(1) { top: 0; }
+.hamburger-line:nth-child(2) { top: 10px; }
+.hamburger-line:nth-child(3) { top: 20px; }
+
+/* Hamburger Animation */
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+ transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+ opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+ transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+ position: fixed;
+ top: 0;
+ left: -100%;
+ width: 280px;
+ height: 100vh;
+ background: white;
+ box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+ padding: 80px 30px;
+ transition: left 0.3s ease;
+ z-index: 999;
+}
+
+body.dark .mobile-menu {
+ background: #0f172a;
+}
+
+.mobile-menu.active {
+ left: 0;
+}
+
+.mobile-menu ul {
+ list-style: none;
+}
+
+.mobile-menu li {
+ margin-bottom: 20px;
+}
+
+.mobile-menu a {
+ text-decoration: none;
+ color: var(--primary);
+ font-weight: 600;
+ font-size: 18px;
+ transition: color 0.3s;
+}
+
+body.dark .mobile-menu a {
+ color: white;
+}
+
+.mobile-menu a:hover {
+ color: var(--accent);
+}
+
+/* Language Selector */
+.language-selector {
+ position: relative;
+}
+
+.lang-btn {
+ background: none;
+ border: 1px solid var(--border);
+ padding: 8px 12px;
+ border-radius: 8px;
+ cursor: pointer;
+ font-weight: 600;
+ color: var(--primary);
+ display: flex;
+ align-items: center;
+ gap: 5px;
+}
+
+body.dark .lang-btn {
+ border-color: #334155;
+ color: white;
+}
+
+.lang-dropdown {
+ position: absolute;
+ top: 120%;
+ right: 0;
+ background: white;
+ border: 1px solid var(--border);
+ border-radius: 8px;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+ min-width: 120px;
+ display: none;
+ z-index: 1001;
+}
+
+body.dark .lang-dropdown {
+ background: #1e293b;
+ border-color: #334155;
+}
+
+.lang-dropdown.show {
+ display: block;
+}
+
+.lang-option {
+ padding: 10px 15px;
+ cursor: pointer;
+ transition: background 0.2s;
+}
+
+.lang-option:hover {
+ background: #f1f5f9;
+}
+
+body.dark .lang-option:hover {
+ background: #334155;
 }
 
 /* HERO */
@@ -357,7 +502,7 @@ body.dark .ai-container {
  border-radius: 20px;
  font-weight: 700;
  font-size: 14px;
- box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+ box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
 }
 
 .ai-title {
@@ -549,7 +694,134 @@ body.dark footer {
  color: var(--muted);
 }
 
-/* MOBILE */
+/* MOBILE MENU OVERLAY */
+.menu-overlay {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0,0,0,0.5);
+ opacity: 0;
+ visibility: hidden;
+ transition: all 0.3s ease;
+ z-index: 998;
+}
+
+.menu-overlay.active {
+ opacity: 1;
+ visibility: visible;
+}
+
+/* AI CHAT BUTTON */
+.ai-chat-button {
+ position: fixed;
+ bottom: 30px;
+ right: 30px;
+ width: 60px;
+ height: 60px;
+ background: var(--ai-color);
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+ z-index: 1000;
+ transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.ai-chat-button:hover {
+ transform: scale(1.1);
+ box-shadow: 0 6px 16px rgba(16, 185, 129, 0.6);
+}
+
+.ai-chat-icon {
+ font-size: 30px;
+ color: white;
+}
+
+/* AI CHAT WINDOW */
+.ai-chat-window {
+ position: fixed;
+ bottom: 100px;
+ right: 30px;
+ width: 350px;
+ height: 500px;
+ background: white;
+ border-radius: 20px;
+ box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+ display: none;
+ flex-direction: column;
+ overflow: hidden;
+ z-index: 1001;
+}
+
+body.dark .ai-chat-window {
+ background: #1e293b;
+}
+
+.ai-chat-header {
+ background: var(--ai-color);
+ color: white;
+ padding: 15px 20px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.ai-chat-title {
+ font-weight: 700;
+ font-size: 16px;
+}
+
+.ai-chat-close {
+ background: none;
+ border: none;
+ color: white;
+ font-size: 24px;
+ cursor: pointer;
+ line-height: 1;
+}
+
+.ai-chat-body {
+ flex: 1;
+ padding: 20px;
+ overflow-y: auto;
+ background: #f8fafc;
+}
+
+body.dark .ai-chat-body {
+ background: #0f172a;
+}
+
+.ai-chat-footer {
+ padding: 15px;
+ border-top: 1px solid var(--border);
+ background: white;
+}
+
+body.dark .ai-chat-footer {
+ background: #0f172a;
+ border-color: #334155;
+}
+
+.ai-chat-input {
+ width: 100%;
+ padding: 10px 15px;
+ border: 1px solid var(--border);
+ border-radius: 20px;
+ outline: none;
+ font-family: inherit;
+}
+
+body.dark .ai-chat-input {
+ background: #1e293b;
+ border-color: #334155;
+ color: white;
+}
+
+/* MOBILE RESPONSIVE */
 @media(max-width: 768px) {
  .hero h1 { font-size: 40px; }
  .dashboard-grid { grid-template-columns: 1fr; }
@@ -557,6 +829,12 @@ body.dark footer {
  .badges { flex-direction: column; gap: 15px; }
  .ai-container { padding: 20px; }
  .chat-bubble { max-width: 95%; }
+ .ai-chat-window { 
+   width: calc(100% - 60px);
+   right: 30px;
+   bottom: 100px;
+   height: 60vh;
+ }
 }
 </style>
 </head>
@@ -565,20 +843,53 @@ body.dark footer {
 
 <nav>
  <div class="container nav-inner">
+ <!-- Hamburger Menu -->
+ <div class="hamburger-menu" id="hamburgerMenu">
+ <div class="hamburger-line"></div>
+ <div class="hamburger-line"></div>
+ <div class="hamburger-line"></div>
+ </div>
+ 
  <div class="logo">
  Shop<span>nex</span>
  </div>
+ 
+ <!-- Dil Seçici -->
+ <div class="language-selector">
+ <button class="lang-btn" id="langBtn">
+ 🌐 TR
+ <span style="font-size: 12px;">▼</span>
+ </button>
+ <div class="lang-dropdown" id="langDropdown">
+ <div class="lang-option" data-lang="tr">🇹🇷 Türkçe</div>
+ <div class="lang-option" data-lang="en">🇬🇧 English</div>
+ </div>
+ </div>
+
  <button class="theme-btn" id="themeToggle" aria-label="Karanlık Modu Aç/Kapat">
  🌙
  </button>
  </div>
 </nav>
 
+<!-- Mobile Menu Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+ <ul>
+ <li><a href="#hero" data-key="home">Ana Sayfa</a></li>
+ <li><a href="#features" data-key="features">Özellikler</a></li>
+ <li><a href="#ai" data-key="ai">Yapay Zeka</a></li>
+ <li><a href="#contact" data-key="contact">İletişim</a></li>
+ </ul>
+</div>
+
 <div class="container">
- <section class="hero">
- <h1>İşletmenizi Dijital Dünyaya Taşıyın</h1>
- <p>Modern, hızlı ve güvenli e-ticaret altyapısıyla markanızı büyütün. Çok kanallı satış, yapay zeka destekli yönetim ve mobil POS ile sınırları kaldırın.</p>
- <a href="#iletisim" class="btn">Hemen Başla</a>
+ <section class="hero" id="hero">
+ <h1 data-key="heroTitle">İşletmenizi Dijital Dünyaya Taşıyın</h1>
+ <p data-key="heroDesc">Modern, hızlı ve güvenli e-ticaret altyapısıyla markanızı büyütün. Çok kanallı satış, yapay zeka destekli yönetim ve mobil POS ile sınırları kaldırın.</p>
+ <a href="#contact" class="btn" data-key="ctaButton">Hemen Başla</a>
 
  <div class="dashboard">
  <!-- Güncellenmiş Çevrimiçi Sayaç (100 + 3 nokta) -->
@@ -595,56 +906,56 @@ body.dark footer {
  <div class="dashboard-grid">
  <div class="widget">
  <h3>99.9%</h3>
- <p>Sistem Uptime</p>
+ <p data-key="uptime">Sistem Uptime</p>
  </div>
  <div class="widget">
  <h3>1 Bin+</h3>
- <p>Aktif Mağaza</p>
+ <p data-key="activeStores">Aktif Mağaza</p>
  </div>
  <div class="widget">
  <h3>24/7</h3>
- <p>Teknik Destek</p>
+ <p data-key="support">Teknik Destek</p>
  </div>
  </div>
  </div>
  </section>
 
- <section>
+ <section id="features">
  <div class="section-header">
- <h2>Neden Shopnex?</h2>
- <p>Hızlı, güvenli ve modern altyapı ile işletmeniz için profesyonel çözümler sunuyoruz.</p>
+ <h2 data-key="whyShopnex">Neden Shopnex?</h2>
+ <p data-key="whyShopnexDesc">Hızlı, güvenli ve modern altyapı ile işletmeniz için profesyonel çözümler sunuyoruz.</p>
  </div>
 
  <div class="features-grid">
  <div class="feature-card">
  <div class="icon">🚀</div>
- <h3>Hızlı Altyapı</h3>
- <p>Yüksek performanslı sistemler ve CDN entegrasyonu ile anında yüklenen mağazalar.</p>
+ <h3 data-key="fastInfra">Hızlı Altyapı</h3>
+ <p data-key="fastInfraDesc">Yüksek performanslı sistemler ve CDN entegrasyonu ile anında yüklenen mağazalar.</p>
  </div>
  <div class="feature-card">
  <div class="icon">📱</div>
- <h3>Mobil POS & Uygulama</h3>
- <p>El tipi cihazlarla çevrimdışı satış yapın, QR kod ile ödeme alın ve stokları mobilde yönetin.</p>
+ <h3 data-key="mobilePOS">Mobil POS & Uygulama</h3>
+ <p data-key="mobilePOSDesc">El tipi cihazlarla çevrimdışı satış yapın, QR kod ile ödeme alın ve stokları mobilde yönetin.</p>
  </div>
  <div class="feature-card">
  <div class="icon">🤖</div>
- <h3>Site Özel Yapay Zeka</h3>
- <p>Sadece bu site için eğitilmiş, ürünleriniz ve stoklarınız hakkında anında bilgi veren akıllı asistan.</p>
+ <h3 data-key="siteAI">Site Özel Yapay Zeka</h3>
+ <p data-key="siteAIDesc">Sadece bu site için eğitilmiş, ürünleriniz ve stoklarınız hakkında anında bilgi veren akıllı asistan.</p>
  </div>
  <div class="feature-card">
  <div class="icon">🌐</div>
- <h3>Çok Kanallı Satış</h3>
- <p>Web sitesi, mobil uygulama, sosyal medya ve pazaryerlerini tek panelden yönetin.</p>
+ <h3 data-key="multiChannel">Çok Kanallı Satış</h3>
+ <p data-key="multiChannelDesc">Web sitesi, mobil uygulama, sosyal medya ve pazaryerlerini tek panelden yönetin.</p>
  </div>
  <div class="feature-card">
  <div class="icon">🛡️</div>
- <h3>Gelişmiş Güvenlik</h3>
- <p>SSL sertifikası, 2FA koruması ve sürekli veri yedekleme ile verileriniz güvende.</p>
+ <h3 data-key="security">Gelişmiş Güvenlik</h3>
+ <p data-key="securityDesc">SSL sertifikası, 2FA koruması ve sürekli veri yedekleme ile verileriniz güvende.</p>
  </div>
  <div class="feature-card">
  <div class="icon">📊</div>
- <h3>Detaylı Analiz</h3>
- <p>Gerçek zamanlı satış raporları, envanter takibi ve müşteri davranış analizleri.</p>
+ <h3 data-key="analytics">Detaylı Analiz</h3>
+ <p data-key="analyticsDesc">Gerçek zamanlı satış raporları, envanter takibi ve müşteri davranış analizleri.</p>
  </div>
  </div>
  </section>
@@ -653,7 +964,7 @@ body.dark footer {
 <!-- Güvenlik Rozetleri -->
 <div class="security-section">
  <div class="container">
- <h3 style="margin-bottom: 20px;">Güvenli Alışveriş Garantisi</h3>
+ <h3 style="margin-bottom: 20px;" data-key="secureShopping">Güvenli Alışveriş Garantisi</h3>
  <div class="badges">
  <div class="badge-item">🔒 %100 SSL Güvenli Ödeme</div>
  <div class="badge-item">🛡️ Veri Gizliliği Korunur</div>
@@ -664,12 +975,12 @@ body.dark footer {
 </div>
 
 <!-- Yapay Zeka Bölümü -->
-<section class="ai-section">
+<section class="ai-section" id="ai">
  <div class="container">
  <div class="ai-container">
  <div class="ai-badge">Yapay Zeka Asistanı</div>
- <h2 class="ai-title">Sadece Bu Site İçin Eğitildi</h2>
- <p class="ai-desc">Shopnex ürünleri, stok durumları ve sipariş süreçleri hakkında anında bilgi almak için buradayım. Başka bir site hakkında soru sormuyorum, tüm odağım sizin mağazanızda.</p>
+ <h2 class="ai-title" data-key="aiAssistantTitle">Sadece Bu Site İçin Eğitildi</h2>
+ <p class="ai-desc" data-key="aiAssistantDesc">Shopnex ürünleri, stok durumları ve sipariş süreçleri hakkında anında bilgi almak için buradayım. Başka bir site hakkında soru sormuyorum, tüm odağım sizin mağazanızda.</p>
  
  <div class="ai-chat-mockup">
  <div class="chat-bubble user">
@@ -692,27 +1003,27 @@ body.dark footer {
 </section>
 
 <!-- İletişim Formu -->
-<section class="contact-section" id="iletisim">
+<section class="contact-section" id="contact">
  <div class="container">
  <div class="section-header">
- <h2>Bize Ulaşın</h2>
- <p>Projeniz hakkında bilgi almak veya destek talebi oluşturmak için formu doldurun.</p>
+ <h2 data-key="contactUs">Bize Ulaşın</h2>
+ <p data-key="contactDesc">Projeniz hakkında bilgi almak veya destek talebi oluşturmak için formu doldurun.</p>
  </div>
  
  <form class="contact-form" action="mailto:shopnex.destek.1@gmail.com" method="post" enctype="text/plain">
  <div class="form-group">
- <label for="name">Adınız Soyadınız</label>
+ <label for="name" data-key="yourName">Adınız Soyadınız</label>
  <input type="text" id="name" name="name" required placeholder="Adınız...">
  </div>
  <div class="form-group">
- <label for="email">E-posta Adresiniz</label>
+ <label for="email" data-key="yourEmail">E-posta Adresiniz</label>
  <input type="email" id="email" name="email" required placeholder="ornek@sirket.com">
  </div>
  <div class="form-group">
- <label for="message">Mesajınız</label>
+ <label for="message" data-key="yourMessage">Mesajınız</label>
  <textarea id="message" name="message" rows="5" required placeholder="Nasıl yardımcı olabiliriz?"></textarea>
  </div>
- <button type="submit" class="btn" style="width: 100%;">Gönder</button>
+ <button type="submit" class="btn" style="width: 100%;" data-key="sendMessage">Gönder</button>
  </form>
  </div>
 </section>
@@ -720,12 +1031,33 @@ body.dark footer {
 <footer>
  <div class="container">
  <div class="logo" style="margin-bottom: 20px;">Shop<span>nex</span></div>
- <p style="color: var(--muted);">Profesyonel E-Ticaret Çözümleri</p>
+ <p style="color: var(--muted);" data-key="footerText">Profesyonel E-Ticaret Çözümleri</p>
  <div class="copy">
  © 2026 Shopnex. Tüm hakları saklıdır.
  </div>
  </div>
 </footer>
+
+<!-- AI Chat Button -->
+<div class="ai-chat-button" id="aiChatButton">
+ <div class="ai-chat-icon">💬</div>
+</div>
+
+<!-- AI Chat Window -->
+<div class="ai-chat-window" id="aiChatWindow">
+ <div class="ai-chat-header">
+ <div class="ai-chat-title" data-key="aiChatTitle">Yapay Zeka Asistanı</div>
+ <button class="ai-chat-close" id="aiChatClose">&times;</button>
+ </div>
+ <div class="ai-chat-body" id="aiChatBody">
+ <div class="chat-bubble ai">
+ Merhaba! Ben Shopnex'in yapay zeka asistanıyım. Sadece bu siteyle ilgili sorularınızı cevaplayabilirim. Size nasıl yardımcı olabilirim?
+ </div>
+ </div>
+ <div class="ai-chat-footer">
+ <input type="text" class="ai-chat-input" id="aiChatInput" placeholder="Sorunuzu yazın...">
+ </div>
+</div>
 
 <script>
  // Dark Mode Toggle
@@ -745,9 +1077,200 @@ body.dark footer {
  localStorage.setItem('theme', isDark ? 'dark' : 'light');
  });
 
+ // Hamburger Menu Toggle
+ const hamburgerMenu = document.getElementById('hamburgerMenu');
+ const mobileMenu = document.getElementById('mobileMenu');
+ const menuOverlay = document.getElementById('menuOverlay');
+
+ function toggleMenu() {
+ hamburgerMenu.classList.toggle('active');
+ mobileMenu.classList.toggle('active');
+ menuOverlay.classList.toggle('active');
+ }
+
+ hamburgerMenu.addEventListener('click', toggleMenu);
+ menuOverlay.addEventListener('click', toggleMenu);
+
+ // Close mobile menu when clicking on a link
+ document.querySelectorAll('.mobile-menu a').forEach(link => {
+ link.addEventListener('click', () => {
+ hamburgerMenu.classList.remove('active');
+ mobileMenu.classList.remove('active');
+ menuOverlay.classList.remove('active');
+ });
+ });
+
+ // Language Selector
+ const langBtn = document.getElementById('langBtn');
+ const langDropdown = document.getElementById('langDropdown');
+ const langOptions = document.querySelectorAll('.lang-option');
+
+ langBtn.addEventListener('click', (e) => {
+ e.stopPropagation();
+ langDropdown.classList.toggle('show');
+ });
+
+ document.addEventListener('click', () => {
+ langDropdown.classList.remove('show');
+ });
+
+ langOptions.forEach(option => {
+ option.addEventListener('click', () => {
+ const lang = option.getAttribute('data-lang');
+ updateLanguage(lang);
+ langDropdown.classList.remove('show');
+ });
+ });
+
+ // Translation Dictionary
+ const translations = {
+ tr: {
+ home: "Ana Sayfa",
+ features: "Özellikler",
+ ai: "Yapay Zeka",
+ contact: "İletişim",
+ heroTitle: "İşletmenizi Dijital Dünyaya Taşıyın",
+ heroDesc: "Modern, hızlı ve güvenli e-ticaret altyapısıyla markanızı büyütün. Çok kanallı satış, yapay zeka destekli yönetim ve mobil POS ile sınırları kaldırın.",
+ ctaButton: "Hemen Başla",
+ uptime: "Sistem Uptime",
+ activeStores: "Aktif Mağaza",
+ support: "Teknik Destek",
+ whyShopnex: "Neden Shopnex?",
+ whyShopnexDesc: "Hızlı, güvenli ve modern altyapı ile işletmeniz için profesyonel çözümler sunuyoruz.",
+ fastInfra: "Hızlı Altyapı",
+ fastInfraDesc: "Yüksek performanslı sistemler ve CDN entegrasyonu ile anında yüklenen mağazalar.",
+ mobilePOS: "Mobil POS & Uygulama",
+ mobilePOSDesc: "El tipi cihazlarla çevrimdışı satış yapın, QR kod ile ödeme alın ve stokları mobilde yönetin.",
+ siteAI: "Site Özel Yapay Zeka",
+ siteAIDesc: "Sadece bu site için eğitilmiş, ürünleriniz ve stoklarınız hakkında anında bilgi veren akıllı asistan.",
+ multiChannel: "Çok Kanallı Satış",
+ multiChannelDesc: "Web sitesi, mobil uygulama, sosyal medya ve pazaryerlerini tek panelden yönetin.",
+ security: "Gelişmiş Güvenlik",
+ securityDesc: "SSL sertifikası, 2FA koruması ve sürekli veri yedekleme ile verileriniz güvende.",
+ analytics: "Detaylı Analiz",
+ analyticsDesc: "Gerçek zamanlı satış raporları, envanter takibi ve müşteri davranış analizleri.",
+ secureShopping: "Güvenli Alışveriş Garantisi",
+ aiAssistantTitle: "Sadece Bu Site İçin Eğitildi",
+ aiAssistantDesc: "Shopnex ürünleri, stok durumları ve sipariş süreçleri hakkında anında bilgi almak için buradayım. Başka bir site hakkında soru sormuyorum, tüm odağım sizin mağazanızda.",
+ contactUs: "Bize Ulaşın",
+ contactDesc: "Projeniz hakkında bilgi almak veya destek talebi oluşturmak için formu doldurun.",
+ yourName: "Adınız Soyadınız",
+ yourEmail: "E-posta Adresiniz",
+ yourMessage: "Mesajınız",
+ sendMessage: "Gönder",
+ footerText: "Profesyonel E-Ticaret Çözümleri",
+ aiChatTitle: "Yapay Zeka Asistanı",
+ aiPlaceholder: "Sorunuzu yazın..."
+ },
+ en: {
+ home: "Home",
+ features: "Features",
+ ai: "AI Assistant",
+ contact: "Contact",
+ heroTitle: "Take Your Business to the Digital World",
+ heroDesc: "Grow your brand with modern, fast and secure e-commerce infrastructure. Remove boundaries with multi-channel sales, AI-powered management and mobile POS.",
+ ctaButton: "Get Started Now",
+ uptime: "System Uptime",
+ activeStores: "Active Stores",
+ support: "Technical Support",
+ whyShopnex: "Why Shopnex?",
+ whyShopnexDesc: "We offer professional solutions for your business with fast, secure and modern infrastructure.",
+ fastInfra: "Fast Infrastructure",
+ fastInfraDesc: "Instantly loading stores with high-performance systems and CDN integration.",
+ mobilePOS: "Mobile POS & App",
+ mobilePOSDesc: "Make offline sales with handheld devices, accept payments with QR code and manage inventory on mobile.",
+ siteAI: "Site-Specific AI",
+ siteAIDesc: "An intelligent assistant trained only for this site, providing instant information about your products and inventory.",
+ multiChannel: "Multi-Channel Sales",
+ multiChannelDesc: "Manage your website, mobile app, social media and marketplaces from a single dashboard.",
+ security: "Advanced Security",
+ securityDesc: "Your data is safe with SSL certificate, 2FA protection and continuous data backup.",
+ analytics: "Detailed Analytics",
+ analyticsDesc: "Real-time sales reports, inventory tracking and customer behavior analysis.",
+ secureShopping: "Secure Shopping Guarantee",
+ aiAssistantTitle: "Trained Only for This Site",
+ aiAssistantDesc: "I'm here to get instant information about Shopnex products, stock status and order processes. I don't ask questions about other sites, my focus is entirely on your store.",
+ contactUs: "Contact Us",
+ contactDesc: "Fill out the form to get information about your project or create a support request.",
+ yourName: "Your Name",
+ yourEmail: "Your Email Address",
+ yourMessage: "Your Message",
+ sendMessage: "Send",
+ footerText: "Professional E-Commerce Solutions",
+ aiChatTitle: "AI Assistant",
+ aiPlaceholder: "Write your question..."
+ }
+ };
+
+ function updateLanguage(lang) {
+ document.documentElement.lang = lang;
+ document.querySelectorAll('[data-key]').forEach(element => {
+ const key = element.getAttribute('data-key');
+ if(translations[lang][key]) {
+ element.textContent = translations[lang][key];
+ }
+ });
+ 
+ // Update language button text
+ const langFlag = lang === 'tr' ? '🇹🇷' : '🇬🇧';
+ langBtn.innerHTML = `\${langFlag} \${lang.toUpperCase()} <span style="font-size: 12px;">▼</span>`;
+ 
+ // Update AI chat placeholder
+ const aiInput = document.getElementById('aiChatInput');
+ if(aiInput && translations[lang]['aiPlaceholder']) {
+ aiInput.placeholder = translations[lang]['aiPlaceholder'];
+ }
+ }
+
+ // Initialize with Turkish
+ updateLanguage('tr');
+
+ // AI Chat Window Toggle
+ const aiChatButton = document.getElementById('aiChatButton');
+ const aiChatWindow = document.getElementById('aiChatWindow');
+ const aiChatClose = document.getElementById('aiChatClose');
+ const aiChatInput = document.getElementById('aiChatInput');
+ const aiChatBody = document.getElementById('aiChatBody');
+
+ aiChatButton.addEventListener('click', () => {
+ aiChatWindow.style.display = 'flex';
+ aiChatButton.style.display = 'none';
+ });
+
+ aiChatClose.addEventListener('click', () => {
+ aiChatWindow.style.display = 'none';
+ aiChatButton.style.display = 'flex';
+ });
+
+ // Simple AI response simulation
+ aiChatInput.addEventListener('keypress', (e) => {
+ if(e.key === 'Enter' && aiChatInput.value.trim() !== '') {
+ // Add user message
+ const userMsg = document.createElement('div');
+ userMsg.className = 'chat-bubble user';
+ userMsg.textContent = aiChatInput.value;
+ aiChatBody.appendChild(userMsg);
+ 
+ // Clear input
+ const message = aiChatInput.value;
+ aiChatInput.value = '';
+ 
+ // Scroll to bottom
+ aiChatBody.scrollTop = aiChatBody.scrollHeight;
+ 
+ // Simulate AI response after delay
+ setTimeout(() => {
+ const aiMsg = document.createElement('div');
+ aiMsg.className = 'chat-bubble ai';
+ aiMsg.textContent = "Bu soru şu anda sadece bu site için eğitilmiş yapay zeka tarafından yanıtlanıyor. '" + message + "' hakkında detaylı bilgi verebilirim.";
+ aiChatBody.appendChild(aiMsg);
+ aiChatBody.scrollTop = aiChatBody.scrollHeight;
+ }, 1000);
+ }
+ });
+
  // Sabit Sayacı Göster (Değişim Yok)
  const counterElement = document.getElementById('onlineCount');
- // Değer sabit 100 olarak ayarlandı, JavaScript ile değiştirilmiyor.
  counterElement.textContent = "100";
 </script>
 
