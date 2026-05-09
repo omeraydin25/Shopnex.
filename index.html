@@ -50,19 +50,22 @@
  body.dark .dashboard{ background:#0f172a; border-color:#1e293b; }
  .dashboard-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
  .widget h3{ font-size:36px; color: var(--accent); margin-bottom:5px; }
+ .widget p{ color: var(--muted); font-size: 14px; }
 
  /* SIDE MENU */
- .side-menu{ position:fixed; top:0; right:-420px; width:380px; max-width:100%; height:100vh; background:white; z-index:9999; padding:30px; transition:.4s; box-shadow:-10px 0 40px rgba(0,0,0,.1); }
+ .side-menu{ position:fixed; top:0; right:-420px; width:380px; max-width:100%; height:100vh; background:white; z-index:9999; padding:30px; transition:.4s; box-shadow:-10px 0 40px rgba(0,0,0,.1); display: flex; flex-direction: column; }
  body.dark .side-menu{ background:#020617; color:white; }
  .side-menu.active{ right:0; }
- .menu-links{ display:flex; flex-direction:column; gap:20px; margin: 40px 0; }
- .menu-links a{ text-decoration:none; color:inherit; font-weight:700; font-size:18px; }
+ .menu-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:30px; }
+ .menu-links{ display:flex; flex-direction:column; gap:15px; flex: 1; }
+ .menu-links a{ text-decoration:none; color:inherit; font-weight:600; font-size:18px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+ .menu-links a:hover{ color: var(--accent); }
 
  /* ÖZEL DESTEK MAIL ALANI */
- .special-support{ background: #f1f5f9; padding: 20px; border-radius: 15px; border-left: 5px solid var(--accent); margin-top: 20px; }
+ .special-support{ background: #f1f5f9; padding: 20px; border-radius: 15px; border-left: 5px solid var(--accent); margin-top: auto; }
  body.dark .special-support{ background: #1e293b; }
- .special-support h4{ margin-bottom: 8px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); }
- .special-support a{ color: inherit; text-decoration: none; font-weight: 800; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+ .special-support h4{ margin-bottom: 8px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); font-weight: 700; }
+ .special-support a{ color: inherit; text-decoration: none; font-weight: 600; font-size: 15px; display: block; word-break: break-all; }
 
  /* AI FLOATING BUTTON */
  .ai-trigger{ 
@@ -89,9 +92,9 @@
  .ai-input-area input{ flex: 1; padding: 8px; border-radius: 8px; border: 1px solid var(--border); outline: none; }
  .ai-input-area button{ padding: 8px 15px; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer; }
 
- /* WHY CHOOSE US SECTION (EKLENEN KISIM) */
+ /* WHY CHOOSE US SECTION (KISALTILMIŞ) */
  .why-choose-us {
- padding: 100px 0;
+ padding: 80px 0;
  background: #f8fafc;
  position: relative;
  }
@@ -100,32 +103,32 @@
  }
  .section-header {
  text-align: center;
- margin-bottom: 60px;
+ margin-bottom: 50px;
  }
  .section-header h2 {
- font-size: 42px;
+ font-size: 36px;
  font-weight: 800;
- margin-bottom: 16px;
+ margin-bottom: 12px;
  color: var(--primary);
  }
  body.dark .section-header h2 {
  color: white;
  }
  .section-header p {
- font-size: 18px;
+ font-size: 16px;
  color: var(--muted);
  max-width: 600px;
  margin: auto;
  }
  .features-grid {
  display: grid;
- grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
- gap: 30px;
+ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+ gap: 25px;
  }
  .feature-card {
  background: white;
- padding: 40px 30px;
- border-radius: 20px;
+ padding: 30px 20px;
+ border-radius: 16px;
  box-shadow: var(--shadow);
  transition: transform 0.3s ease, box-shadow 0.3s ease;
  text-align: center;
@@ -136,18 +139,18 @@
  border-color: #334155;
  }
  .feature-card:hover {
- transform: translateY(-10px);
- box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+ transform: translateY(-5px);
+ box-shadow: 0 15px 30px rgba(0,0,0,0.12);
  }
  .icon-box {
- font-size: 48px;
- margin-bottom: 24px;
+ font-size: 36px;
+ margin-bottom: 16px;
  display: inline-block;
  }
  .feature-card h3 {
- font-size: 22px;
+ font-size: 18px;
  font-weight: 700;
- margin-bottom: 12px;
+ margin-bottom: 8px;
  color: var(--primary);
  }
  body.dark .feature-card h3 {
@@ -155,8 +158,8 @@
  }
  .feature-card p {
  color: var(--muted);
- line-height: 1.6;
- font-size: 16px;
+ line-height: 1.5;
+ font-size: 14px;
  }
 
  /* FOOTER */
@@ -166,6 +169,7 @@
  background: #f8fafc;
  border-top: 1px solid var(--border);
  color: var(--muted);
+ font-size: 14px;
  }
  body.dark footer {
  background: #020617;
@@ -190,9 +194,9 @@
 
  <!-- Side Menu -->
  <div class="side-menu" id="sideMenu">
- <div style="display:flex; justify-content:space-between; margin-bottom:30px;">
+ <div class="menu-header">
  <h3>Menü</h3>
- <button onclick="document.getElementById('sideMenu').classList.remove('active')" style="background:none;border:none;font-size:24px;cursor:pointer;">×</button>
+ <button onclick="document.getElementById('sideMenu').classList.remove('active')" style="background:none;border:none;font-size:24px;cursor:pointer;color:inherit;">×</button>
  </div>
  <div class="menu-links">
  <a href="#">Ana Sayfa</a>
@@ -216,7 +220,7 @@
  <div class="dashboard">
  <div class="dashboard-grid">
  <div class="widget">
- <h3>1.2M+</h3>
+ <h3>1.2K</h3>
  <p>Aylık İşlem</p>
  </div>
  <div class="widget">
@@ -224,40 +228,40 @@
  <p>Uptime Garantisi</p>
  </div>
  <div class="widget">
- <h3>500+</h3>
+ <h3>50+</h3>
  <p>Kurumsal Müşteri</p>
  </div>
  </div>
  </div>
  </section>
 
- <!-- NEDEN BİZİ TERCİH ETMELİSİNİZ BÖLÜMÜ -->
+ <!-- NEDEN BİZİ TERCİH ETMELİSİNİZ BÖLÜMÜ (KISALTILMIŞ) -->
  <section class="why-choose-us">
  <div class="container">
  <div class="section-header">
  <h2>Neden Shopnex?</h2>
- <p>İşletmenizi büyütmek için ihtiyacınız olan tüm teknolojiyi tek bir çatı altında sunuyoruz.</p>
+ <p>Tüm teknoloji tek çatı altında.</p>
  </div>
  <div class="features-grid">
  <div class="feature-card">
  <div class="icon-box">🚀</div>
  <h3>Hızlı Performans</h3>
- <p>Optimize edilmiş kod yapısı ve CDN entegrasyonu ile saniyenin binde biri hızında yükleme süreleri.</p>
+ <p>CDN entegrasyonu ile saniyenin binde biri hızında yükleme.</p>
  </div>
  <div class="feature-card">
  <div class="icon-box">🛡️</div>
  <h3>Güvenli Altyapı</h3>
- <p>En son şifreleme teknolojileri ve sürekli güvenlik güncellemeleri ile verileriniz her zaman güvende.</p>
+ <p>En son şifreleme teknolojileri ile verileriniz her zaman güvende.</p>
  </div>
  <div class="feature-card">
  <div class="icon-box">⚙️</div>
- <h3>7/24 Teknik Destek</h3>
- <p>Uzman ekibimizle sorunlarınız anında çözüme kavuşur, işletmeniz asla durmaz.</p>
+ <h3>7/24 Destek</h3>
+ <p>Uzman ekibimizle sorunlarınız anında çözüme kavuşur.</p>
  </div>
  <div class="feature-card">
  <div class="icon-box">📈</div>
- <h3>Ölçeklenebilir Çözümler</h3>
- <p>İşletmeniz büyüdükçe sizinle birlikte gelişen, esnek ve modüler altyapı yapısı.</p>
+ <h3>Ölçeklenebilir</h3>
+ <p>İşletmeniz büyüdükçe sizinle birlikte gelişen modüler yapı.</p>
  </div>
  </div>
  </div>
