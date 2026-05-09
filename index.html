@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shopnex | Profesyonel Platform</title>
+<title>Shopnex AI E-Ticaret</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -16,17 +16,13 @@
 --primary:#0f172a;
 --accent:#2563eb;
 --border:#e2e8f0;
---bg:#ffffff;
-}
-
-body.dark{
-background:#020617;
-color:white;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter;}
 
-body{background:var(--bg);color:var(--primary);}
+body{background:#fff;color:var(--primary);transition:.3s;}
+
+body.dark{background:#020617;color:white;}
 
 /* NAV */
 nav{
@@ -39,11 +35,9 @@ border-bottom:1px solid var(--border);
 z-index:999;
 }
 
-body.dark nav{
-background:rgba(2,6,23,0.9);
-}
+body.dark nav{background:rgba(2,6,23,0.9);}
 
-.nav-inner{
+.nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -52,89 +46,56 @@ max-width:1200px;
 margin:auto;
 }
 
-.logo{font-weight:900;font-size:22px;color:var(--accent);}
+.logo{font-weight:900;color:var(--accent);font-size:22px;}
 
-/* BUTTONS */
-.btn{
-border:none;
-padding:8px 12px;
-border-radius:8px;
-cursor:pointer;
-}
-
-/* MOBILE MENU */
-.hamburger{
-width:30px;
-cursor:pointer;
-}
-
-.hamburger div{
-height:3px;
-background:var(--primary);
-margin:5px 0;
-transition:0.3s;
-}
-
-body.dark .hamburger div{background:white;}
-
-.mobile-menu{
+/* MENU */
+.menu{
 position:fixed;
-top:0;
 left:-100%;
+top:0;
 width:260px;
 height:100vh;
 background:white;
 padding:80px 20px;
-transition:0.3s;
+transition:.3s;
 z-index:998;
 }
 
-body.dark .mobile-menu{background:#0f172a;}
+body.dark .menu{background:#0f172a;}
 
-.mobile-menu.active{left:0;}
+.menu.active{left:0;}
 
-.mobile-menu a{
-display:block;
-padding:10px;
-text-decoration:none;
-color:inherit;
-font-weight:600;
-}
+.menu a{display:block;padding:12px;text-decoration:none;color:inherit;font-weight:600;}
+
+/* HAMBURGER */
+.hamburger{cursor:pointer;}
+.hamburger div{width:28px;height:3px;background:var(--primary);margin:5px;}
+
+body.dark .hamburger div{background:white;}
 
 /* LANGUAGE */
-.language{
-position:relative;
-}
-
 .lang-btn{
 padding:6px 10px;
 border:1px solid var(--border);
 border-radius:8px;
 background:none;
 cursor:pointer;
-display:flex;
-gap:6px;
-align-items:center;
 }
 
-.lang-menu{
+.lang-box{
 position:absolute;
-top:40px;
+top:45px;
 right:0;
 background:white;
 border:1px solid var(--border);
 display:none;
-min-width:140px;
-z-index:999;
+max-height:300px;
+overflow:auto;
 }
 
-.lang-menu.active{display:block;}
+.lang-box.active{display:block;}
 
-.lang-item{
-padding:10px;
-cursor:pointer;
-}
-
+.lang-item{padding:10px;cursor:pointer;}
 .lang-item:hover{background:#f1f5f9;}
 
 /* CHAT */
@@ -151,18 +112,18 @@ border:none;
 cursor:pointer;
 }
 
-.chat-box{
+.chat{
 position:fixed;
 bottom:90px;
 right:20px;
-width:320px;
-height:420px;
+width:340px;
+height:450px;
 background:white;
 display:none;
 flex-direction:column;
 border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
 overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
 .chat-header{
@@ -173,26 +134,21 @@ display:flex;
 justify-content:space-between;
 }
 
-.chat-messages{
+.chat-body{
 flex:1;
 padding:10px;
 overflow:auto;
 background:#f8fafc;
 }
 
-.msg{
-margin:5px 0;
-padding:8px;
-border-radius:10px;
-max-width:80%;
-}
+.msg{margin:6px 0;padding:8px;border-radius:10px;max-width:80%;}
 
 .user{background:var(--accent);color:white;margin-left:auto;}
-.ai{background:white;border:1px solid var(--border);}
+.ai{background:white;border:1px solid #ddd;}
 
 .chat-input{
 display:flex;
-border-top:1px solid var(--border);
+border-top:1px solid #ddd;
 }
 
 .chat-input input{
@@ -216,7 +172,8 @@ cursor:pointer;
 
 <!-- NAV -->
 <nav>
-<div class="nav-inner">
+<div class="nav">
+
 <div class="hamburger" onclick="toggleMenu()">
 <div></div><div></div><div></div>
 </div>
@@ -225,91 +182,100 @@ cursor:pointer;
 
 <div style="display:flex;gap:10px;align-items:center">
 
-<button onclick="toggleTheme()" class="btn">🌓</button>
+<div style="position:relative">
+<button class="lang-btn" onclick="toggleLang()">TR</button>
+<div class="lang-box" id="langBox"></div>
+</div>
 
-<div class="language">
-<button class="lang-btn" onclick="toggleLang()">TR ⌄</button>
-<div class="lang-menu" id="langMenu">
-<div class="lang-item">Türkçe</div>
-<div class="lang-item">English</div>
-<div class="lang-item">Deutsch</div>
-<div class="lang-item">Español</div>
-</div>
-</div>
+<button onclick="toggleTheme()">🌓</button>
 
 </div>
 </div>
 </nav>
 
-<!-- MOBILE -->
-<div class="mobile-menu" id="menu">
+<!-- MENU -->
+<div class="menu" id="menu">
 <a href="#">Ana Sayfa</a>
 <a href="#">Ürünler</a>
-<a href="#">AI Sistem</a>
+<a href="#">AI</a>
 <a href="#">İletişim</a>
 </div>
 
 <!-- CHAT -->
 <button class="chat-btn" onclick="toggleChat()">💬</button>
 
-<div class="chat-box" id="chat">
+<div class="chat" id="chat">
 <div class="chat-header">
-<span>AI Asistan</span>
+AI
 <span onclick="toggleChat()" style="cursor:pointer">✖</span>
 </div>
 
-<div class="chat-messages" id="msgs">
-<div class="msg ai">Merhaba 👋 nasıl yardımcı olayım?</div>
+<div class="chat-body" id="chatBody">
+<div class="msg ai">Merhaba 👋</div>
 </div>
 
 <div class="chat-input">
-<input id="input" placeholder="Mesaj yaz...">
+<input id="input" placeholder="Yaz...">
 <button onclick="send()">➤</button>
 </div>
 </div>
 
 <script>
 
-// MENU
+/* MENU */
 function toggleMenu(){
 document.getElementById("menu").classList.toggle("active");
 }
 
-// THEME
+/* THEME */
 function toggleTheme(){
 document.body.classList.toggle("dark");
 }
 
-// LANGUAGE
-function toggleLang(){
-document.getElementById("langMenu").classList.toggle("active");
-}
-
-// CHAT
+/* CHAT */
 function toggleChat(){
-let chat=document.getElementById("chat");
-chat.style.display = chat.style.display==="flex"?"none":"flex";
+let c=document.getElementById("chat");
+c.style.display=c.style.display==="flex"?"none":"flex";
 }
 
+/* SEND */
 function send(){
-let input=document.getElementById("input");
-if(!input.value) return;
+let i=document.getElementById("input");
+if(!i.value)return;
 
-let msg=document.createElement("div");
-msg.className="msg user";
-msg.innerText=input.value;
-
-document.getElementById("msgs").appendChild(msg);
+let u=document.createElement("div");
+u.className="msg user";
+u.innerText=i.value;
+document.getElementById("chatBody").appendChild(u);
 
 setTimeout(()=>{
-let ai=document.createElement("div");
-ai.className="msg ai";
-ai.innerText="Bu demo cevap 🤖";
-document.getElementById("msgs").appendChild(ai);
+let a=document.createElement("div");
+a.className="msg ai";
+a.innerText="AI cevap: "+i.value;
+document.getElementById("chatBody").appendChild(a);
 },800);
 
-input.value="";
+i.value="";
 }
+
+/* LANG */
+const langs=["TR Türkçe","EN English","DE Deutsch","ES Español"];
+let box=document.getElementById("langBox");
+
+langs.forEach(l=>{
+let d=document.createElement("div");
+d.className="lang-item";
+d.innerText=l;
+box.appendChild(d);
+});
+
+function toggleLang(){
+box.classList.toggle("active");
+}
+
+document.addEventListener("click",(e)=>{
+if(!e.target.closest(".lang-btn")) box.classList.remove("active");
+});
 
 </script>
 
