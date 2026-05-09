@@ -1,862 +1,333 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shopnex | Enterprise E-Ticaret</title>
-
-<meta name="description" content="Shopnex modern e-ticaret altyapısı">
-<meta name="theme-color" content="#0f172a">
-
-<link rel="icon" href="favicon.ico">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
---primary:#0f172a;
---secondary:#1e293b;
---accent:#3b82f6;
---bg:#ffffff;
---text:#0f172a;
---muted:#64748b;
---border:#e2e8f0;
---radius:18px;
---shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:'Inter',sans-serif;
-background:#fff;
-color:var(--text);
-overflow-x:hidden;
-}
-
-body.dark{
-background:#020617;
-color:white;
-}
-
-.container{
-max-width:1280px;
-margin:auto;
-padding:0 24px;
-}
-
-.bg{
-position:fixed;
-inset:0;
-z-index:-1;
-background:
-radial-gradient(circle at top left,rgba(59,130,246,.15),transparent 30%),
-radial-gradient(circle at bottom right,rgba(16,185,129,.1),transparent 30%);
-}
-
-/* NAVBAR */
-
-nav{
-position:fixed;
-top:0;
-width:100%;
-z-index:999;
-backdrop-filter:blur(18px);
-background:rgba(255,255,255,.75);
-border-bottom:1px solid rgba(255,255,255,.2);
-}
-
-body.dark nav{
-background:rgba(2,6,23,.7);
-}
-
-.nav-inner{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:18px 0;
-}
-
-.logo{
-font-size:28px;
-font-weight:900;
-}
-
-.logo span{
-color:var(--accent);
-}
-
-.nav-links{
-display:flex;
-gap:28px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:inherit;
-font-weight:600;
-font-size:15px;
-}
-
-.right-nav{
-display:flex;
-align-items:center;
-gap:12px;
-}
-
-.theme-btn{
-width:42px;
-height:42px;
-border:none;
-border-radius:50%;
-cursor:pointer;
-background:#f1f5f9;
-font-size:18px;
-}
-
-.btn{
-padding:14px 24px;
-border:none;
-border-radius:12px;
-font-weight:700;
-cursor:pointer;
-transition:.3s;
-text-decoration:none;
-display:inline-block;
-}
-
-.btn-primary{
-background:var(--primary);
-color:white;
-}
-
-.btn-primary:hover{
-transform:translateY(-3px);
-}
-
-.btn-secondary{
-background:#f8fafc;
-color:var(--text);
-border:1px solid var(--border);
-}
-
-/* HERO */
-
-.hero{
-padding-top:170px;
-padding-bottom:120px;
-text-align:center;
-}
-
-.badge{
-display:inline-flex;
-padding:10px 18px;
-border-radius:999px;
-background:#dbeafe;
-color:#2563eb;
-font-weight:700;
-margin-bottom:26px;
-font-size:14px;
-}
-
-h1{
-font-size:72px;
-line-height:1;
-font-weight:900;
-letter-spacing:-3px;
-margin-bottom:28px;
-}
-
-.gradient{
-background:linear-gradient(135deg,#0f172a,#2563eb);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.hero p{
-max-width:760px;
-margin:auto;
-font-size:20px;
-color:var(--muted);
-margin-bottom:40px;
-}
-
-.cta{
-display:flex;
-justify-content:center;
-gap:16px;
-flex-wrap:wrap;
-}
-
-.online{
-margin-top:34px;
-display:inline-flex;
-align-items:center;
-gap:10px;
-padding:12px 18px;
-border-radius:999px;
-background:#f8fafc;
-font-weight:600;
-}
-
-.dot{
-width:10px;
-height:10px;
-border-radius:50%;
-background:#10b981;
-animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.4);}
-100%{transform:scale(1);}
-}
-
-/* DASHBOARD */
-
-.dashboard{
-margin-top:70px;
-background:white;
-border-radius:30px;
-padding:30px;
-box-shadow:var(--shadow);
-border:1px solid var(--border);
-}
-
-body.dark .dashboard{
-background:#0f172a;
-border-color:#1e293b;
-}
-
-.dashboard-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-}
-
-.widget{
-padding:30px;
-border-radius:20px;
-background:#f8fafc;
-}
-
-body.dark .widget{
-background:#111827;
-}
-
-.widget h3{
-font-size:40px;
-margin-bottom:8px;
-}
-
-/* FEATURES */
-
-.section{
-padding:110px 0;
-}
-
-.section-title{
-text-align:center;
-font-size:52px;
-font-weight:900;
-margin-bottom:20px;
-}
-
-.section-desc{
-text-align:center;
-color:var(--muted);
-max-width:700px;
-margin:auto;
-margin-bottom:70px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:24px;
-}
-
-.card{
-padding:40px;
-border-radius:24px;
-background:white;
-border:1px solid var(--border);
-transition:.4s;
-box-shadow:var(--shadow);
-}
-
-body.dark .card{
-background:#0f172a;
-border-color:#1e293b;
-}
-
-.card:hover{
-transform:translateY(-8px);
-}
-
-.card h3{
-margin-top:18px;
-margin-bottom:12px;
-font-size:24px;
-}
-
-/* PRICING */
-
-.pricing{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:24px;
-}
-
-.price-card{
-padding:50px 40px;
-border-radius:30px;
-background:white;
-box-shadow:var(--shadow);
-border:1px solid var(--border);
-text-align:center;
-}
-
-body.dark .price-card{
-background:#0f172a;
-border-color:#1e293b;
-}
-
-.price{
-font-size:60px;
-font-weight:900;
-margin:20px 0;
-}
-
-.price-card ul{
-list-style:none;
-margin:30px 0;
-}
-
-.price-card li{
-margin-bottom:14px;
-color:var(--muted);
-}
-
-/* TESTIMONIALS */
-
-.testimonial{
-padding:36px;
-border-radius:24px;
-background:white;
-box-shadow:var(--shadow);
-border:1px solid var(--border);
-}
-
-body.dark .testimonial{
-background:#0f172a;
-border-color:#1e293b;
-}
-
-.stars{
-color:#f59e0b;
-font-size:20px;
-margin-bottom:12px;
-}
-
-/* FAQ */
-
-.faq{
-max-width:900px;
-margin:auto;
-}
-
-details{
-padding:24px;
-border-radius:20px;
-background:white;
-margin-bottom:18px;
-border:1px solid var(--border);
-}
-
-body.dark details{
-background:#0f172a;
-border-color:#1e293b;
-}
-
-summary{
-cursor:pointer;
-font-weight:700;
-font-size:18px;
-}
-
-/* CONTACT */
-
-.contact-box{
-background:linear-gradient(135deg,#0f172a,#1e3a8a);
-padding:70px;
-border-radius:40px;
-color:white;
-text-align:center;
-}
-
-.contact-box input,
-.contact-box textarea{
-width:100%;
-padding:16px;
-margin-top:14px;
-border:none;
-border-radius:14px;
-}
-
-.contact-box textarea{
-height:140px;
-resize:none;
-}
-
-/* FOOTER */
-
-footer{
-padding:60px 0;
-text-align:center;
-}
-
-footer p{
-color:var(--muted);
-margin-top:10px;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-bottom:24px;
-right:24px;
-width:68px;
-height:68px;
-border-radius:50%;
-background:#25d366;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:34px;
-color:white;
-text-decoration:none;
-box-shadow:0 15px 30px rgba(37,211,102,.3);
-z-index:999;
-}
-
-/* REVEAL */
-
-.reveal{
-opacity:0;
-transform:translateY(50px);
-transition:1s;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-h1{
-font-size:48px;
-}
-
-.nav-links{
-display:none;
-}
-
-.hero{
-padding-top:140px;
-}
-
-.section-title{
-font-size:38px;
-}
-
-.contact-box{
-padding:40px 24px;
-}
-
-}
-
-</style>
-</head>
-<body>
-
-<div class="bg"></div>
-
-<nav>
-<div class="container nav-inner">
-
-<div class="logo">
-Shop<span>nex</span>
-</div>
-
-<div class="nav-links">
-<a href="#">Ana Sayfa</a>
-<a href="#">Özellikler</a>
-<a href="#">Fiyatlandırma</a>
-<a href="#">Referanslar</a>
-<a href="#">SSS</a>
-<a href="#">İletişim</a>
-</div>
+<!-- NAVBAR içine bunu ekle -->
 
 <div class="right-nav">
+
+<button class="menu-btn" id="menuBtn">
+☰
+</button>
+
 <button class="theme-btn" id="themeToggle">🌙</button>
-<a href="#" class="btn btn-primary">Başlayın</a>
-</div>
 
 </div>
-</nav>
 
-<section class="hero">
+<!-- MENU -->
 
-<div class="container">
+<div class="side-menu" id="sideMenu">
 
-<div class="badge">
-Enterprise Seviye Güvenlik
+<div class="menu-top">
+
+<h2>Shopnex</h2>
+
+<button class="close-btn" id="closeMenu">
+✕
+</button>
+
 </div>
 
-<h1 class="gradient">
-Geleceğin <br>
-E-Ticaret Platformu
-</h1>
+<div class="menu-links">
 
-<p>
-Shopnex yüksek performanslı, ultra güvenli ve modern altyapısı ile
-kurumsal markaların satışlarını büyütür.
-</p>
+<a href="#">Ana Sayfa</a>
+<a href="#">Özellikler</a>
+<a href="#">Referanslar</a>
+<a href="#">SSS</a>
 
-<div class="cta">
-<a href="#" class="btn btn-primary">Ücretsiz Başla</a>
-<a href="#" class="btn btn-secondary">Canlı Demo</a>
 </div>
 
-<div class="online">
-<div class="dot"></div>
-Şu anda 128 kişi aktif
-</div>
+<div class="menu-section">
 
-<div class="dashboard reveal">
+<h3>Diller</h3>
 
-<div class="dashboard-grid">
+<div class="lang-grid">
 
-<div class="widget">
-<h3>12.4M+</h3>
-<p>Aylık Sipariş</p>
-</div>
-
-<div class="widget">
-<h3>99.99%</h3>
-<p>Uptime Garantisi</p>
-</div>
-
-<div class="widget">
-<h3>340+</h3>
-<p>Kurumsal Marka</p>
-</div>
-
-<div class="widget">
-<h3>4.9/5</h3>
-<p>Müşteri Memnuniyeti</p>
-</div>
+<button>Türkçe</button>
+<button>English</button>
+<button>Deutsch</button>
+<button>Français</button>
+<button>العربية</button>
+<button>Русский</button>
 
 </div>
 
 </div>
 
+<div class="menu-section">
+
+<h3>Destek</h3>
+
+<a class="support-mail" href="mailto:shopnex.destek.1@gmail.com">
+Mail Gönder
+</a>
+
 </div>
 
-</section>
+<div class="menu-section">
 
-<section class="section">
+<h3>Yapay Zeka Destek</h3>
 
-<div class="container">
+<div class="ai-box">
 
-<h2 class="section-title">
-Neden Shopnex?
-</h2>
+<div class="ai-messages" id="aiMessages">
 
-<p class="section-desc">
-Modern teknolojilerle geliştirilen ultra hızlı e-ticaret deneyimi.
-</p>
-
-<div class="grid">
-
-<div class="card reveal">
-<h3>Ultra Hızlı Altyapı</h3>
-<p>
-Edge caching ve optimize edilmiş sistem sayesinde siteler milisaniyeler içinde açılır.
-</p>
-</div>
-
-<div class="card reveal">
-<h3>Gelişmiş Güvenlik</h3>
-<p>
-AES-256 şifreleme, firewall koruması ve gerçek zamanlı tehdit analizi.
-</p>
-</div>
-
-<div class="card reveal">
-<h3>Mobil Optimizasyon</h3>
-<p>
-Tüm cihazlarda kusursuz responsive yapı ve yüksek dönüşüm oranı.
-</p>
+<div class="ai-message bot">
+Merhaba 👋<br>
+Size nasıl yardımcı olabilirim?
 </div>
 
 </div>
 
-</div>
+<div class="ai-input-area">
 
-</section>
+<input type="text" id="aiInput" placeholder="Bir şey yazın...">
 
-<section class="section">
-
-<div class="container">
-
-<h2 class="section-title">
-Fiyatlandırma
-</h2>
-
-<div class="pricing">
-
-<div class="price-card reveal">
-<h3>Starter</h3>
-<div class="price">₺499</div>
-
-<ul>
-<li>Tek Mağaza</li>
-<li>SSL Güvenlik</li>
-<li>7/24 Destek</li>
-<li>Mobil Uyum</li>
-</ul>
-
-<a href="#" class="btn btn-primary">Başla</a>
-
-</div>
-
-<div class="price-card reveal">
-<h3>Business</h3>
-<div class="price">₺1499</div>
-
-<ul>
-<li>Sınırsız Ürün</li>
-<li>SEO Optimizasyonu</li>
-<li>Premium Destek</li>
-<li>Analytics Paneli</li>
-</ul>
-
-<a href="#" class="btn btn-primary">Başla</a>
-
-</div>
-
-<div class="price-card reveal">
-<h3>Enterprise</h3>
-<div class="price">Özel</div>
-
-<ul>
-<li>Kurumsal Çözümler</li>
-<li>Özel Sunucu</li>
-<li>API Entegrasyonu</li>
-<li>Özel Destek Ekibi</li>
-</ul>
-
-<a href="#" class="btn btn-primary">İletişime Geç</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="container">
-
-<h2 class="section-title">
-Müşteri Yorumları
-</h2>
-
-<div class="grid">
-
-<div class="testimonial reveal">
-<div class="stars">★★★★★</div>
-<p>
-“Shopnex sayesinde satışlarımız 4 ay içinde %240 arttı.”
-</p>
-<h4 style="margin-top:18px;">Ahmet Yılmaz</h4>
-<span style="color:var(--muted)">NovaWear CEO</span>
-</div>
-
-<div class="testimonial reveal">
-<div class="stars">★★★★★</div>
-<p>
-“Türkiye’de kullandığımız en hızlı altyapı oldu.”
-</p>
-<h4 style="margin-top:18px;">Merve Kaya</h4>
-<span style="color:var(--muted)">Lunexa</span>
-</div>
-
-<div class="testimonial reveal">
-<div class="stars">★★★★★</div>
-<p>
-“Gerçekten premium hissiyat veren bir sistem.”
-</p>
-<h4 style="margin-top:18px;">Emir Demir</h4>
-<span style="color:var(--muted)">Velora Tech</span>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="container">
-
-<h2 class="section-title">
-Sık Sorulan Sorular
-</h2>
-
-<div class="faq">
-
-<details class="reveal">
-<summary>Shopnex güvenli mi?</summary>
-<p style="margin-top:14px;">
-Evet. AES-256 şifreleme ve gelişmiş güvenlik sistemleri kullanılır.
-</p>
-</details>
-
-<details class="reveal">
-<summary>Mobil uyumlu mu?</summary>
-<p style="margin-top:14px;">
-Tüm cihazlar için optimize edilmiştir.
-</p>
-</details>
-
-<details class="reveal">
-<summary>Kurulum süresi ne kadar?</summary>
-<p style="margin-top:14px;">
-Çoğu mağaza aynı gün içinde aktif edilir.
-</p>
-</details>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="container">
-
-<div class="contact-box reveal">
-
-<h2 style="font-size:52px;font-weight:900;margin-bottom:20px;">
-Bizimle İletişime Geçin
-</h2>
-
-<p style="margin-bottom:40px;color:rgba(255,255,255,.7);">
-Kurumsal çözümler için bize ulaşın.
-</p>
-
-<input type="text" placeholder="Adınız">
-<input type="email" placeholder="E-Posta">
-<textarea placeholder="Mesajınız"></textarea>
-
-<br><br>
-
-<button class="btn btn-primary">
-Mesaj Gönder
+<button id="sendAi">
+Gönder
 </button>
 
 </div>
 
 </div>
 
-</section>
-
-<footer>
-
-<div class="container">
-
-<h2 style="font-size:42px;font-weight:900;">
-Shopnex
-</h2>
-
-<p>
-Geleceğin ticaret altyapısı.
-</p>
-
-<p style="margin-top:30px;">
-© 2026 Shopnex Teknoloji A.Ş.
-</p>
+</div>
 
 </div>
 
-</footer>
+<style>
 
-<a href="https://wa.me/905000000000" class="whatsapp">
-✆
-</a>
+/* MENU BUTTON */
+
+.menu-btn{
+width:46px;
+height:46px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-size:24px;
+background:#f1f5f9;
+}
+
+/* SIDE MENU */
+
+.side-menu{
+position:fixed;
+top:0;
+right:-420px;
+width:400px;
+max-width:100%;
+height:100vh;
+background:white;
+z-index:99999;
+padding:28px;
+transition:.4s;
+overflow-y:auto;
+box-shadow:-10px 0 40px rgba(0,0,0,.1);
+}
+
+body.dark .side-menu{
+background:#020617;
+color:white;
+}
+
+.side-menu.active{
+right:0;
+}
+
+.menu-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:40px;
+}
+
+.close-btn{
+border:none;
+background:none;
+font-size:28px;
+cursor:pointer;
+color:inherit;
+}
+
+.menu-links{
+display:flex;
+flex-direction:column;
+gap:18px;
+margin-bottom:40px;
+}
+
+.menu-links a{
+text-decoration:none;
+color:inherit;
+font-weight:700;
+font-size:18px;
+}
+
+.menu-section{
+margin-bottom:42px;
+}
+
+.menu-section h3{
+margin-bottom:18px;
+font-size:20px;
+}
+
+.lang-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.lang-grid button{
+padding:14px;
+border:none;
+border-radius:12px;
+background:#f1f5f9;
+font-weight:600;
+cursor:pointer;
+}
+
+body.dark .lang-grid button{
+background:#0f172a;
+color:white;
+}
+
+.support-mail{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:16px;
+border-radius:14px;
+background:#2563eb;
+color:white;
+text-decoration:none;
+font-weight:700;
+}
+
+.ai-box{
+background:#f8fafc;
+padding:18px;
+border-radius:20px;
+}
+
+body.dark .ai-box{
+background:#0f172a;
+}
+
+.ai-messages{
+height:260px;
+overflow:auto;
+margin-bottom:18px;
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.ai-message{
+padding:14px;
+border-radius:14px;
+max-width:85%;
+font-size:14px;
+line-height:1.5;
+}
+
+.bot{
+background:#dbeafe;
+align-self:flex-start;
+}
+
+.user{
+background:#2563eb;
+color:white;
+align-self:flex-end;
+}
+
+.ai-input-area{
+display:flex;
+gap:10px;
+}
+
+.ai-input-area input{
+flex:1;
+padding:14px;
+border:none;
+border-radius:12px;
+outline:none;
+}
+
+.ai-input-area button{
+padding:14px 18px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:12px;
+font-weight:700;
+cursor:pointer;
+}
+
+</style>
 
 <script>
 
-const toggle=document.getElementById('themeToggle');
+/* MENU */
 
-toggle.onclick=()=>{
+const menuBtn=document.getElementById('menuBtn');
+const sideMenu=document.getElementById('sideMenu');
+const closeMenu=document.getElementById('closeMenu');
 
-document.body.classList.toggle('dark');
-
-if(document.body.classList.contains('dark')){
-localStorage.setItem('theme','dark');
-toggle.innerHTML='☀️';
-}else{
-localStorage.setItem('theme','light');
-toggle.innerHTML='🌙';
+menuBtn.onclick=()=>{
+sideMenu.classList.add('active');
 }
 
-};
-
-if(localStorage.getItem('theme')==='dark'){
-document.body.classList.add('dark');
-toggle.innerHTML='☀️';
+closeMenu.onclick=()=>{
+sideMenu.classList.remove('active');
 }
 
-const reveals=document.querySelectorAll('.reveal');
+/* AI CHAT */
 
-window.addEventListener('scroll',()=>{
+const aiInput=document.getElementById('aiInput');
+const sendAi=document.getElementById('sendAi');
+const aiMessages=document.getElementById('aiMessages');
 
-reveals.forEach(el=>{
+function sendMessage(){
 
-const top=el.getBoundingClientRect().top;
+const text=aiInput.value.trim();
 
-if(top<window.innerHeight-100){
-el.classList.add('active');
+if(text==="") return;
+
+const userDiv=document.createElement('div');
+
+userDiv.className='ai-message user';
+
+userDiv.innerHTML=text;
+
+aiMessages.appendChild(userDiv);
+
+setTimeout(()=>{
+
+const botDiv=document.createElement('div');
+
+botDiv.className='ai-message bot';
+
+botDiv.innerHTML='Talebiniz alındı ✅<br>Shopnex AI destek sistemi size yardımcı oluyor.';
+
+aiMessages.appendChild(botDiv);
+
+aiMessages.scrollTop=aiMessages.scrollHeight;
+
+},700);
+
+aiInput.value='';
+
+aiMessages.scrollTop=aiMessages.scrollHeight;
+
 }
 
-});
+sendAi.onclick=sendMessage;
+
+aiInput.addEventListener('keypress',(e)=>{
+
+if(e.key==='Enter'){
+sendMessage();
+}
 
 });
 
 </script>
-
-</body>
-</html>
