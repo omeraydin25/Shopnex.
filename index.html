@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shopnex | Sosyal Medya Büyüme Çözümleri</title>
+<title>Shopnex | Sosyal Medya & Yapay Zeka</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
@@ -13,442 +13,146 @@
  --text-secondary: #b0b0b5;
  --primary: #6c5ce7;
  --secondary: #a29bfe;
- --accent: #fd79a8; /* Instagram gradient start */
- --accent-end: #e84393; /* Instagram gradient end */
  --border: rgba(255,255,255,.08);
  --green: #00b894;
+ --chat-bg: #1e1e24;
 }
 
-* {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- scroll-behavior: smooth;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; }
+body { background: var(--bg-color); color: var(--text-color); overflow-x: hidden; line-height: 1.6; }
 
-body {
- background: var(--bg-color);
- color: var(--text-color);
- overflow-x: hidden;
- line-height: 1.6;
-}
+/* HEADER */
+header { position: fixed; top: 0; width: 100%; padding: 15px 5%; background: rgba(15, 15, 19, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: 1px; }
+.hamburger-btn { display: flex; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; }
+.bar { width: 30px; height: 3px; background: var(--text-color); border-radius: 2px; transition: 0.3s; }
 
-/* HEADER & NAVIGATION */
-header {
- position: fixed;
- top: 0;
- width: 100%;
- padding: 15px 5%;
- background: rgba(15, 15, 19, 0.95);
- backdrop-filter: blur(10px);
- border-bottom: 1px solid var(--border);
- z-index: 1000;
- display: flex;
- justify-content: space-between;
- align-items: center;
-}
+/* MOBILE MENU */
+.mobile-menu { position: fixed; top: 0; left: -100%; width: 80%; max-width: 300px; height: 100vh; background: var(--card-bg); border-right: 1px solid var(--border); padding: 80px 20px 20px; transition: 0.4s ease; z-index: 1000; display: flex; flex-direction: column; gap: 20px; box-shadow: 5px 0 15px rgba(0,0,0,0.5); }
+.mobile-menu.active { left: 0; }
+.menu-link { color: var(--text-color); text-decoration: none; font-size: 1.1rem; font-weight: 600; padding: 10px; border-radius: 8px; transition: 0.3s; }
+.menu-link:hover { background: var(--primary); color: white; }
+.lang-select-mobile { padding: 10px; border-radius: 8px; background: var(--bg-color); color: var(--text-color); border: 1px solid var(--border); width: 100%; }
+.close-menu { position: absolute; top: 20px; right: 20px; font-size: 1.5rem; cursor: pointer; color: var(--text-secondary); }
 
-.logo {
- font-size: 1.8rem;
- font-weight: 800;
- color: var(--primary);
- text-decoration: none;
- letter-spacing: 1px;
-}
-
-.hamburger-btn {
- display: flex;
- flex-direction: column;
- gap: 6px;
- cursor: pointer;
- z-index: 1001;
-}
-
-.bar {
- width: 30px;
- height: 3px;
- background: var(--text-color);
- border-radius: 2px;
- transition: 0.3s;
-}
-
-/* Mobile Menu Overlay */
-.mobile-menu {
- position: fixed;
- top: 0;
- left: -100%;
- width: 80%;
- max-width: 300px;
- height: 100vh;
- background: var(--card-bg);
- border-right: 1px solid var(--border);
- padding: 80px 20px 20px;
- transition: 0.4s ease;
- z-index: 1000;
- display: flex;
- flex-direction: column;
- gap: 20px;
- box-shadow: 5px 0 15px rgba(0,0,0,0.5);
-}
-
-.mobile-menu.active {
- left: 0;
-}
-
-.menu-link {
- color: var(--text-color);
- text-decoration: none;
- font-size: 1.1rem;
- font-weight: 600;
- padding: 10px;
- border-radius: 8px;
- transition: 0.3s;
-}
-
-.menu-link:hover {
- background: var(--primary);
- color: white;
-}
-
-.lang-select-mobile {
- padding: 10px;
- border-radius: 8px;
- background: var(--bg-color);
- color: var(--text-color);
- border: 1px solid var(--border);
- width: 100%;
-}
-
-.close-menu {
- position: absolute;
- top: 20px;
- right: 20px;
- font-size: 1.5rem;
- cursor: pointer;
- color: var(--text-secondary);
-}
-
-/* HERO SECTION */
-.hero {
- padding: 140px 5% 80px;
- min-height: 80vh;
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- text-align: center;
- background: linear-gradient(rgba(15,15,19,0.8), rgba(15,15,19,0.9)), url("https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1600&auto=format&fit=crop") center/cover;
-}
-
-.hero h1 {
- font-size: 3rem;
- margin-bottom: 20px;
- background: linear-gradient(to right, var(--primary), var(--accent));
- -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;
-}
-
-.hero p {
- max-width: 700px;
- font-size: 1.2rem;
- color: var(--text-secondary);
- margin-bottom: 30px;
-}
+/* HERO */
+.hero { padding: 140px 5% 80px; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(15,15,19,0.8), rgba(15,15,19,0.9)), url("https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1600&auto=format&fit=crop") center/cover; }
+.hero h1 { font-size: 3rem; margin-bottom: 20px; background: linear-gradient(to right, var(--primary), #fd79a8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero p { max-width: 700px; font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 30px; }
 
 /* PLATFORM TABS */
-.platform-tabs {
- display: flex;
- justify-content: center;
- gap: 15px;
- margin-bottom: 50px;
- flex-wrap: wrap;
-}
-
-.tab-btn {
- padding: 12px 25px;
- border: 1px solid var(--border);
- background: var(--card-bg);
- color: var(--text-color);
- border-radius: 30px;
- cursor: pointer;
- font-weight: 600;
- transition: 0.3s;
- display: flex;
- align-items: center;
- gap: 8px;
-}
-
-.tab-btn.active, .tab-btn:hover {
- background: var(--primary);
- border-color: var(--primary);
- color: white;
- transform: translateY(-2px);
-}
+.platform-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
+.tab-btn { padding: 12px 25px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text-color); border-radius: 30px; cursor: pointer; font-weight: 600; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+.tab-btn.active, .tab-btn:hover { background: var(--primary); border-color: var(--primary); color: white; transform: translateY(-2px); }
 
 /* SERVICES GRID */
-.services-section {
- padding: 60px 5%;
- max-width: 1400px;
- margin: 0 auto;
-}
+.services-section { padding: 60px 5%; max-width: 1400px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 40px; }
+.section-header h2 { font-size: 2.2rem; margin-bottom: 10px; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+.service-card { background: var(--card-bg); padding: 25px; border-radius: 16px; border: 1px solid var(--border); transition: 0.3s; position: relative; overflow: hidden; }
+.service-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(108, 92, 231, 0.15); }
+.service-icon { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
+.service-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+.service-desc { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px; }
+.btn-investigate { display: inline-block; padding: 8px 20px; background: transparent; border: 1px solid var(--primary); color: var(--primary); border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
+.btn-investigate:hover { background: var(--primary); color: white; }
 
-.section-header {
- text-align: center;
- margin-bottom: 40px;
-}
+/* PRODUCT DETAIL */
+.product-detail { padding: 80px 5%; background: var(--card-bg); margin-top: 50px; border-top: 1px solid var(--border); }
+.product-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; }
+.product-info { flex: 1; min-width: 300px; }
+.product-stats { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 20px; }
+.stat-box { background: var(--bg-color); padding: 20px; border-radius: 12px; border: 1px solid var(--border); display: flex; align-items: center; gap: 15px; }
+.stat-number { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; margin-top: 20px; }
+.price-card { background: var(--bg-color); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid var(--border); cursor: pointer; transition: 0.3s; }
+.price-card:hover, .price-card.selected { border-color: var(--green); background: rgba(0, 184, 148, 0.1); }
+.price-val { font-size: 1.2rem; font-weight: 700; display: block; margin-bottom: 5px; }
+.features-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: var(--text-secondary); }
+.features-list i { color: var(--green); }
 
-.section-header h2 {
- font-size: 2.2rem;
- margin-bottom: 10px;
-}
-
-.services-grid {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
- gap: 25px;
-}
-
-.service-card {
- background: var(--card-bg);
- padding: 25px;
- border-radius: 16px;
- border: 1px solid var(--border);
- transition: 0.3s;
- position: relative;
- overflow: hidden;
-}
-
-.service-card:hover {
- transform: translateY(-5px);
- border-color: var(--primary);
- box-shadow: 0 10px 20px rgba(108, 92, 231, 0.15);
-}
-
-.service-icon {
- font-size: 2rem;
- color: var(--primary);
- margin-bottom: 15px;
-}
-
-.service-title {
- font-size: 1.2rem;
- font-weight: 700;
- margin-bottom: 10px;
-}
-
-.service-desc {
- font-size: 0.9rem;
- color: var(--text-secondary);
- margin-bottom: 20px;
-}
-
-.btn-investigate {
- display: inline-block;
- padding: 8px 20px;
- background: transparent;
- border: 1px solid var(--primary);
- color: var(--primary);
- border-radius: 6px;
- text-decoration: none;
- font-size: 0.9rem;
- font-weight: 600;
- transition: 0.3s;
-}
-
-.btn-investigate:hover {
- background: var(--primary);
- color: white;
-}
-
-/* PRODUCT DETAIL SECTION (Simulated) */
-.product-detail {
- padding: 80px 5%;
- background: var(--card-bg);
- margin-top: 50px;
- border-top: 1px solid var(--border);
-}
-
-.product-container {
- max-width: 1200px;
- margin: 0 auto;
- display: flex;
- flex-wrap: wrap;
- gap: 40px;
-}
-
-.product-info {
- flex: 1;
- min-width: 300px;
-}
-
-.product-stats {
- flex: 1;
- min-width: 300px;
- display: flex;
- flex-direction: column;
- gap: 20px;
-}
-
-.stat-box {
- background: var(--bg-color);
- padding: 20px;
- border-radius: 12px;
- border: 1px solid var(--border);
- display: flex;
- align-items: center;
- gap: 15px;
-}
-
-.stat-number {
- font-size: 1.5rem;
- font-weight: 800;
- color: var(--primary);
-}
-
-.pricing-grid {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
- gap: 15px;
- margin-top: 20px;
-}
-
-.price-card {
- background: var(--bg-color);
- padding: 15px;
- border-radius: 10px;
- text-align: center;
- border: 1px solid var(--border);
- cursor: pointer;
- transition: 0.3s;
-}
-
-.price-card:hover, .price-card.selected {
- border-color: var(--green);
- background: rgba(0, 184, 148, 0.1);
-}
-
-.price-val {
- font-size: 1.2rem;
- font-weight: 700;
- display: block;
- margin-bottom: 5px;
-}
-
-.features-list li {
- margin-bottom: 10px;
- display: flex;
- align-items: center;
- gap: 10px;
- color: var(--text-secondary);
-}
-
-.features-list i {
- color: var(--green);
-}
-
-/* CORPORATE SECTION */
-.corporate {
- padding: 80px 5%;
- max-width: 1200px;
- margin: 0 auto;
-}
-
-.corp-block {
- margin-bottom: 40px;
-}
-
-.corp-block h3 {
- font-size: 1.8rem;
- color: var(--primary);
- margin-bottom: 15px;
- border-left: 4px solid var(--primary);
- padding-left: 15px;
-}
-
-.corp-block p {
- color: var(--text-secondary);
- line-height: 1.8;
-}
+/* CORPORATE */
+.corporate { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+.corp-block { margin-bottom: 40px; }
+.corp-block h3 { font-size: 1.8rem; color: var(--primary); margin-bottom: 15px; border-left: 4px solid var(--primary); padding-left: 15px; }
+.corp-block p { color: var(--text-secondary); line-height: 1.8; }
 
 /* FOOTER */
-footer {
- background: #0a0a0d;
- padding: 60px 5% 20px;
- border-top: 1px solid var(--border);
-}
+footer { background: #0a0a0d; padding: 60px 5% 20px; border-top: 1px solid var(--border); }
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 40px; }
+.footer-col h4 { color: var(--primary); margin-bottom: 20px; font-size: 1.2rem; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { color: var(--text-secondary); text-decoration: none; transition: 0.3s; }
+.footer-col ul li a:hover { color: var(--primary); }
+.contact-social { display: flex; gap: 15px; margin-top: 20px; }
+.social-icon { width: 45px; height: 45px; border-radius: 50%; background: var(--card-bg); display: flex; align-items: center; justify-content: center; color: var(--text-color); text-decoration: none; font-size: 1.2rem; transition: 0.3s; border: 1px solid var(--border); }
+.social-icon.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; border-color: transparent; }
+.footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text-secondary); font-size: 0.9rem; }
 
-.footer-content {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
- gap: 40px;
- max-width: 1200px;
- margin: 0 auto 40px;
-}
-
-.footer-col h4 {
- color: var(--primary);
- margin-bottom: 20px;
- font-size: 1.2rem;
-}
-
-.footer-col ul {
- list-style: none;
-}
-
-.footer-col ul li {
- margin-bottom: 10px;
-}
-
-.footer-col ul li a {
- color: var(--text-secondary);
- text-decoration: none;
- transition: 0.3s;
-}
-
-.footer-col ul li a:hover {
- color: var(--primary);
-}
-
-.contact-social {
- display: flex;
- gap: 15px;
- margin-top: 20px;
-}
-
-.social-icon {
- width: 45px;
- height: 45px;
+/* AI CHAT BUTTON & MODAL */
+.ai-chat-btn {
+ position: fixed;
+ bottom: 30px;
+ right: 30px;
+ width: 60px;
+ height: 60px;
+ background: linear-gradient(135deg, var(--primary), var(--accent-end));
  border-radius: 50%;
- background: var(--card-bg);
  display: flex;
  align-items: center;
  justify-content: center;
- color: var(--text-color);
- text-decoration: none;
- font-size: 1.2rem;
- transition: 0.3s;
- border: 1px solid var(--border);
-}
-
-.social-icon.instagram:hover {
- background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
  color: white;
- border-color: transparent;
+ font-size: 1.5rem;
+ cursor: pointer;
+ box-shadow: 0 5px 20px rgba(108, 92, 231, 0.5);
+ z-index: 2000;
+ transition: transform 0.3s;
+ animation: pulse 2s infinite;
 }
+.ai-chat-btn:hover { transform: scale(1.1); }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(108, 92, 231, 0); } 100% { box-shadow: 0 0 0 0 rgba(108, 92, 231, 0); } }
 
-.footer-bottom {
- text-align: center;
- padding-top: 20px;
- border-top: 1px solid var(--border);
- color: var(--text-secondary);
- font-size: 0.9rem;
+.ai-modal {
+ position: fixed;
+ bottom: 100px;
+ right: 30px;
+ width: 350px;
+ height: 500px;
+ background: var(--chat-bg);
+ border: 1px solid var(--border);
+ border-radius: 20px;
+ box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+ z-index: 2000;
+ display: none;
+ flex-direction: column;
+ overflow: hidden;
 }
+.ai-modal.active { display: flex; animation: slideUp 0.3s ease; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.ai-header { background: var(--primary); padding: 15px; display: flex; justify-content: space-between; align-items: center; color: white; }
+.ai-close { cursor: pointer; font-size: 1.2rem; }
+.ai-body { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
+.ai-msg { padding: 10px 15px; border-radius: 12px; max-width: 80%; font-size: 0.9rem; line-height: 1.4; }
+.ai-msg.bot { background: #2d2d35; align-self: flex-start; border-bottom-left-radius: 2px; }
+.ai-msg.user { background: var(--primary); align-self: flex-end; border-bottom-right-radius: 2px; }
+
+.ai-options { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.ai-option { background: rgba(255,255,255,0.1); padding: 8px 12px; border-radius: 20px; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.3s; border: 1px solid transparent; }
+.ai-option:hover { background: var(--primary); border-color: white; }
+.ai-option i { font-size: 1rem; }
+
+.ai-input-area { padding: 15px; border-top: 1px solid var(--border); display: flex; gap: 10px; }
+.ai-input { flex: 1; padding: 10px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg-color); color: white; outline: none; }
+.ai-send { background: var(--primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 
 @media (max-width: 768px) {
  .hero h1 { font-size: 2.2rem; }
  .product-container { flex-direction: column; }
  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+ .ai-modal { width: 90%; right: 5%; bottom: 100px; }
 }
 </style>
 </head>
@@ -471,13 +175,10 @@ footer {
  <a href="#services" class="menu-link">Sosyal Medya Hizmetleri</a>
  <a href="#corporate" class="menu-link">Kurumsal</a>
  <a href="#contact" class="menu-link">İletişim</a>
- 
  <select class="lang-select-mobile">
  <option value="tr">Türkçe</option>
  <option value="en">English</option>
  <option value="de">Deutsch</option>
- <option value="fr">Français</option>
- <option value="es">Español</option>
  </select>
 </div>
 
@@ -503,13 +204,12 @@ footer {
  <button class="tab-btn" onclick="filterPlatform('twitter')"><i class="fab fa-twitter"></i> Twitter</button>
  </div>
 
- <!-- DYNAMIC GRID CONTENT (Simulated with JS for simplicity in one file) -->
  <div class="services-grid" id="servicesGrid">
- <!-- Content will be injected by JS -->
+ <!-- JS ile doldurulacak -->
  </div>
 </section>
 
-<!-- PRODUCT DETAIL SIMULATION (Instagram Specific Example) -->
+<!-- PRODUCT DETAIL SIMULATION -->
 <section class="product-detail">
  <div class="product-container">
  <div class="product-info">
@@ -527,7 +227,6 @@ footer {
  <li><i class="fas fa-check-circle"></i> 7/24 Whatsapp Destek</li>
  </ul>
  </div>
- 
  <div class="product-stats">
  <div class="stat-box">
  <i class="fas fa-shopping-cart" style="color:var(--primary); font-size:1.5rem;"></i>
@@ -536,7 +235,6 @@ footer {
  <span class="stat-number">46</span>
  </div>
  </div>
- 
  <div class="pricing-grid">
  <div class="price-card selected"><span class="price-val">100</span>Takipçi</div>
  <div class="price-card"><span class="price-val">250</span>Takipçi</div>
@@ -556,19 +254,19 @@ footer {
 <section class="corporate" id="corporate">
  <div class="corp-block">
  <h3>KURULUŞ</h3>
- <p>Takipci.al, 2020 yılında dijital dünyada fark yaratmayı hedefleyen bir vizyonla kuruldu. Sosyal medya, markaların ve bireylerin çevrimiçi varlıklarını inşa etmelerinde önemli bir rol oynamaktadır ve bu dinamik dünyada etkili stratejiler oluşturmak her geçen gün daha da zorlaşmaktadır. Biz de bu zorlukların üstesinden gelmek, sosyal medya etkileşimini güçlendirmek ve takipçi kitlesini organik yollarla artırmak isteyen tüm bireyler ve markalar için akılcı, veri odaklı çözümler geliştirmek için yola çıktık. Takipci.al olarak, kullanıcılarımızın dijital pazarlama stratejilerini güçlendirerek onlara sürdürülebilir başarılar sunmayı amaçlıyoruz.</p>
+ <p>Takipci.al, 2020 yılında dijital dünyada fark yaratmayı hedefleyen bir vizyonla kuruldu. Sosyal medya, markaların ve bireylerin çevrimiçi varlıklarını inşa etmelerinde önemli bir rol oynamaktadır ve bu dinamik dünyada etkili stratejiler oluşturmak her geçen gün daha da zorlaşmaktadır. Biz de bu zorlukların üstesinden gelmek, sosyal medya etkileşimini güçlendirmek ve takipçi kitlesini organik yollarla artırmak isteyen tüm bireyler ve markalar için akılcı, veri odaklı çözümler geliştirmek için yola çıktık.</p>
  </div>
  <div class="corp-block">
  <h3>AMACIMIZ</h3>
- <p>Takipci.al'ın kurulumundan itibaren belirlediği temel amaç, sosyal medyada daha etkili ve verimli sonuçlar elde etmek isteyen herkes için güçlü araçlar ve stratejiler sunmaktır. Sosyal medya etkileşimi, takipçi sayısı ve marka bilinirliğini artırmak, sadece sayıların peşinden gitmek değil, aynı zamanda organik ve hedeflenmiş büyüme sağlamak anlamına gelir. Bizim amacımız, kullanıcılarımıza bu hedeflere ulaşabilmeleri için en doğru stratejileri, analizleri ve araçları sunmaktır.</p>
+ <p>Takipci.al'ın kurulumundan itibaren belirlediği temel amaç, sosyal medyada daha etkili ve verimli sonuçlar elde etmek isteyen herkes için güçlü araçlar ve stratejiler sunmaktır.</p>
  </div>
  <div class="corp-block">
  <h3>MİSYONUMUZ</h3>
- <p>Misyonumuz, sosyal medya yönetimini daha verimli ve etkili hale getiren dijital çözümler sunmaktır. Takipci.al olarak, yalnızca takipçi sayısını artırmakla kalmayıp, aynı zamanda kullanıcılarımıza sosyal medya hesaplarını büyütme, güçlendirme ve içeriklerini daha geniş kitlelere ulaştırma konusunda kapsamlı bir yol haritası sunuyoruz.</p>
+ <p>Misyonumuz, sosyal medya yönetimini daha verimli ve etkili hale getiren dijital çözümler sunmaktır.</p>
  </div>
  <div class="corp-block">
  <h3>VİZYONUMUZ</h3>
- <p>Vizyonumuz, sosyal medya yönetimi alanında sektördeki en güvenilir, inovatif ve kullanıcı odaklı platform olmaktır. Takipci.al, gelecekte yalnızca yerel pazarlarda değil, küresel ölçekte de tanınan ve tercih edilen bir marka olmayı hedeflemektedir.</p>
+ <p>Vizyonumuz, sosyal medya yönetimi alanında sektördeki en güvenilir, inovatif ve kullanıcı odaklı platform olmaktır.</p>
  </div>
 </section>
 
@@ -610,6 +308,40 @@ footer {
  </div>
 </footer>
 
+<!-- AI CHAT BUTTON -->
+<div class="ai-chat-btn" onclick="toggleChat()">
+ <i class="fas fa-robot"></i>
+</div>
+
+<!-- AI CHAT MODAL -->
+<div class="ai-modal" id="aiModal">
+ <div class="ai-header">
+ <span><i class="fas fa-robot"></i> Shopnex AI Asistan</span>
+ <span class="ai-close" onclick="toggleChat()">&times;</span>
+ </div>
+ <div class="ai-body" id="chatBody">
+ <div class="ai-msg bot">Merhaba! Ben Shopnex asistanıyım. Size nasıl yardımcı olabilirim?</div>
+ <div class="ai-options">
+ <div class="ai-option" onclick="sendOption('Instagram takipçi paketi öner')">
+ <i class="fab fa-instagram" style="color:#E1306C"></i> Instagram Takipçi
+ </div>
+ <div class="ai-option" onclick="sendOption('TikTok izlenme artırımı')">
+ <i class="fab fa-tiktok" style="color:#000"></i> TikTok İzlenme
+ </div>
+ <div class="ai-option" onclick="sendOption('YouTube abone nasıl olur?')">
+ <i class="fab fa-youtube" style="color:#FF0000"></i> YouTube Abone
+ </div>
+ <div class="ai-option" onclick="sendOption('Telegram kanal büyüme stratejisi')">
+ <i class="fab fa-telegram" style="color:#0088cc"></i> Telegram Büyüme
+ </div>
+ </div>
+ </div>
+ <div class="ai-input-area">
+ <input type="text" class="ai-input" placeholder="Mesajınızı yazın..." id="chatInput">
+ <button class="ai-send" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+ </div>
+</div>
+
 <script>
 // Mobile Menu Toggle
 function toggleMenu() {
@@ -617,7 +349,7 @@ function toggleMenu() {
  menu.classList.toggle('active');
 }
 
-// Platform Data
+// Platform Data (Fixed Template Literal Issue)
 const platforms = {
  instagram: [
  { title: "Ucuz Yabancı Takipçi", desc: "Hızlı ve uygun fiyatlı yabancı takipçi paketi.", icon: "fa-user-friends" },
@@ -673,6 +405,7 @@ function renderServices(platform) {
  services.forEach(s => {
  const card = document.createElement('div');
  card.className = 'service-card';
+ // Fixed template literal usage here
  card.innerHTML = `
  <i class="fas \${s.icon} service-icon"></i>
  <h3 class="service-title">\${s.title}</h3>
@@ -698,6 +431,54 @@ document.querySelectorAll('.price-card').forEach(card => {
  document.querySelectorAll('.price-card').forEach(c => c.classList.remove('selected'));
  this.classList.add('selected');
  });
+});
+
+// AI Chat Logic
+function toggleChat() {
+ const modal = document.getElementById('aiModal');
+ modal.classList.toggle('active');
+}
+
+function sendOption(text) {
+ sendMessage(text);
+}
+
+function sendMessage(customText) {
+ const input = document.getElementById('chatInput');
+ const text = customText || input.value;
+ if (!text.trim()) return;
+
+ const chatBody = document.getElementById('chatBody');
+ 
+ // User Message
+ const userMsg = document.createElement('div');
+ userMsg.className = 'ai-msg user';
+ userMsg.textContent = text;
+ chatBody.appendChild(userMsg);
+ 
+ input.value = '';
+ chatBody.scrollTop = chatBody.scrollHeight;
+
+ // Bot Response Simulation
+ setTimeout(() => {
+ const botMsg = document.createElement('div');
+ botMsg.className = 'ai-msg bot';
+ let response = "Bu özellik şu an için manuel olarak seçilmelidir. Lütfen ilgili hizmet kartına tıklayın.";
+ 
+ if(text.toLowerCase().includes("instagram")) response = "Instagram hizmetlerimizde takipçi, beğeni ve izlenme paketlerini inceleyebilirsiniz. En popüler paket 'Düşmeyen Takipçi' dir.";
+ if(text.toLowerCase().includes("tiktok")) response = "TikTok'ta viral olmak için izlenme ve takipçi paketlerimizi kullanabilirsiniz.";
+ if(text.toLowerCase().includes("youtube")) response = "YouTube kanalınızı büyütmek için abone ve izlenme desteklerimiz mevcuttur.";
+ if(text.toLowerCase().includes("telegram")) response = "Telegram kanallarınız için üye ve mesaj izlenme artırımı yapabilirsiniz.";
+ 
+ botMsg.textContent = response;
+ chatBody.appendChild(botMsg);
+ chatBody.scrollTop = chatBody.scrollHeight;
+ }, 800);
+}
+
+// Enter key to send
+document.getElementById('chatInput').addEventListener('keypress', function(e) {
+ if (e.key === 'Enter') sendMessage();
 });
 </script>
 </body>
