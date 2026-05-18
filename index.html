@@ -3,746 +3,297 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shopnex | Güvenilir Sosyal Medya Platformu</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>Shopnex | Sosyal Medya Hizmet Paneli</title>
+
 <style>
-:root{
---bg-color:#0f0f13;
---card-bg:#1e1e24;
---text-color:#ffffff;
---text-secondary:#b2bec3;
---primary:#6c5ce7;
---secondary:#a29bfe;
---border:rgba(255,255,255,.08);
---green:#00b894;
---danger:#ff7675;
-}
-
-[data-theme="light"]{
---bg-color:#f5f6fa;
---card-bg:#ffffff;
---text-color:#111;
---text-secondary:#555;
---primary:#6c5ce7;
---secondary:#a29bfe;
---border:#ddd;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-scroll-behavior:smooth;
-transition:all .3s ease;
-}
-
 body{
-background:var(--bg-color);
-color:var(--text-color);
-overflow-x:hidden;
-line-height:1.6;
+margin:0;
+font-family:Arial;
+background:#0f0f13;
+color:white;
 }
 
-/* HEADER & NAV */
 header{
-position:fixed;
-top:0;
-width:100%;
-padding:18px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(15,15,19,.95);
-backdrop-filter:blur(12px);
-border-bottom:1px solid var(--border);
-z-index:999;
+padding:15px;
+background:#15151d;
+position:sticky;
+top:0;
 }
 
 .logo{
-font-size:1.8rem;
-font-weight:800;
-color:var(--primary);
-letter-spacing:1.5px;
-text-decoration:none;
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.nav-links{
-display:flex;
-gap:30px;
-list-style:none;
-align-items:center;
-}
-
-.nav-links a{
-color:var(--text-color);
-text-decoration:none;
-font-weight:600;
-font-size:0.95rem;
-position:relative;
-}
-
-.nav-links a::after{
-content:'';
-position:absolute;
-width:0;
-height:2px;
-bottom:-5px;
-left:0;
-background:var(--primary);
-transition:.3s;
-}
-
-.nav-links a:hover::after{
-width:100%;
-}
-
-.controls{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-.lang-select{
-padding:8px 12px;
-border-radius:8px;
-background:var(--card-bg);
-color:var(--text-color);
-border:1px solid var(--border);
-cursor:pointer;
-font-size:0.9rem;
-outline:none;
-}
-
-.theme-toggle{
-padding:8px 12px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-background:var(--card-bg);
-color:var(--text-color);
-font-size:1rem;
-display:flex;
-align-items:center;
-justify-content:center;
-width:40px;
-height:40px;
-}
-
-.hamburger{
-display:none;
-flex-direction:column;
-gap:5px;
-cursor:pointer;
-}
-
-.bar{
-width:25px;
-height:3px;
-background:var(--text-color);
-border-radius:2px;
-}
-
-/* HERO SECTION */
-.hero{
-padding:160px 5% 100px;
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(rgba(15,15,19,.85),rgba(15,15,19,.95)), url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop") center/cover fixed;
-}
-
-.hero h1{
-font-size:3.5rem;
-max-width:900px;
-line-height:1.2;
-margin-bottom:25px;
-background:linear-gradient(to right,#fff,var(--secondary));
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-font-weight:800;
-}
-
-.hero p{
-max-width:750px;
-color:var(--text-secondary);
-font-size:1.15rem;
-margin-bottom:40px;
-}
-
-.cta-btn{
-padding:16px 40px;
-border-radius:50px;
-background:var(--primary);
-color:white;
-text-decoration:none;
+font-size:22px;
 font-weight:bold;
-font-size:1.1rem;
-box-shadow:0 10px 25px rgba(108,92,231,.3);
-position:relative;
-overflow:hidden;
-z-index:1;
+color:#6c5ce7;
 }
 
-.cta-btn::before{
-content:'';
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(45deg, var(--primary), var(--secondary));
-opacity:0;
-z-index:-1;
-transition:.3s;
+.menu-btn{
+font-size:26px;
+cursor:pointer;
 }
 
-.cta-btn:hover::before{
-opacity:1;
-}
-
-.cta-btn:hover{
-transform:translateY(-5px);
-box-shadow:0 15px 35px rgba(108,92,231,.5);
-}
-
-/* TRUST BADGES */
-.trust-badges{
-margin-top:60px;
-display:flex;
-gap:25px;
-flex-wrap:wrap;
-justify-content:center;
-max-width:1200px;
-}
-
-.badge{
-padding:14px 24px;
-border-radius:12px;
-background:rgba(30,30,36,0.8);
-border:1px solid var(--border);
-backdrop-filter:blur(5px);
-display:flex;
-align-items:center;
-gap:12px;
-font-size:0.9rem;
-font-weight:600;
-color:var(--text-color);
-box-shadow:0 4px 15px rgba(0,0,0,0.2);
-}
-
-.badge i{
-color:var(--green);
-font-size:1.2rem;
-}
-
-.badge.security i{
-color:var(--primary);
-}
-
-/* SECTIONS */
-section{
-padding:100px 5%;
-}
-
-.section-title{
-text-align:center;
-font-size:2.5rem;
-margin-bottom:20px;
-font-weight:700;
-}
-
-.section-subtitle{
-text-align:center;
-max-width:700px;
-margin:0 auto 60px;
-color:var(--text-secondary);
-font-size:1.1rem;
-}
-
-.category-header{
-display:flex;
-align-items:center;
-margin:60px 0 30px;
-border-left:5px solid var(--primary);
-padding-left:20px;
-}
-
-.category-header h3{
-font-size:1.9rem;
-}
-
-/* GRID & CARDS */
-.services-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
-}
-
-.service-card{
-background:var(--card-bg);
-padding:35px;
-border-radius:20px;
-border:1px solid var(--border);
-position:relative;
-overflow:hidden;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-}
-
-.service-card::before{
-content:"";
-position:absolute;
+.nav{
+position:fixed;
 top:0;
 left:-100%;
-width:100%;
-height:4px;
-background:linear-gradient(to right,var(--primary),var(--secondary));
-transition:.5s;
+width:250px;
+height:100%;
+background:#1e1e24;
+padding:20px;
+transition:.3s;
 }
 
-.service-card:hover::before{
+.nav.active{
 left:0;
 }
 
-.service-card:hover{
-transform:translateY(-10px);
-border-color:var(--primary);
-box-shadow:0 20px 40px rgba(0,0,0,0.3);
+.nav a{
+display:block;
+color:white;
+padding:10px 0;
+text-decoration:none;
+border-bottom:1px solid #333;
 }
 
-.service-card h4{
-margin-bottom:15px;
-font-size:1.4rem;
-color:var(--text-color);
+.section{
+padding:20px;
 }
 
-.service-card p{
-color:var(--text-secondary);
-font-size:1rem;
-margin-bottom:25px;
-line-height:1.6;
-}
-
-.btn-small{
-padding:12px 25px;
+.card{
+background:#1e1e24;
+padding:15px;
+margin:10px 0;
 border-radius:10px;
-border:1px solid var(--primary);
-background:transparent;
-color:var(--primary);
 cursor:pointer;
-font-weight:600;
-align-self:flex-start;
-transition:.3s;
 }
 
-.btn-small:hover{
-background:var(--primary);
+.sub{
+display:none;
+padding:10px;
+background:#2a2a35;
+margin-top:10px;
+border-radius:8px;
+}
+
+.sub button{
+display:block;
+width:100%;
+margin:5px 0;
+padding:8px;
+background:#6c5ce7;
+border:none;
 color:white;
-transform:scale(1.05);
+cursor:pointer;
+border-radius:6px;
 }
 
-/* ABOUT */
-.about-section{
-background:var(--bg-color);
+/* AI BOX */
+.ai-box{
+position:fixed;
+bottom:10px;
+right:10px;
+width:260px;
+background:#1e1e24;
+border-radius:10px;
+overflow:hidden;
 }
 
-.about-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
-}
-
-.about-card{
-background:var(--card-bg);
-padding:35px;
-border-radius:20px;
-border:1px solid var(--border);
-transition:.3s;
-}
-
-.about-card:hover{
-border-color:var(--secondary);
-transform:translateY(-5px);
-}
-
-.about-card h3{
-margin-bottom:20px;
-color:var(--primary);
-font-size:1.5rem;
-}
-
-/* CONTACT */
-.contact-section{
-text-align:center;
-background:linear-gradient(180deg, var(--bg-color) 0%, #0a0a0d 100%);
-}
-
-.social-contact{
-display:flex;
-justify-content:center;
-gap:25px;
-margin-top:40px;
-flex-wrap:wrap;
-}
-
-.social-icon{
-width:70px;
-height:70px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-background:var(--card-bg);
-font-size:1.8rem;
-text-decoration:none;
-color:var(--text-color);
-border:2px solid var(--primary);
-transition:.3s;
-}
-
-.social-icon:hover{
-background:var(--primary);
-color:white;
-transform:scale(1.15) rotate(5deg);
-box-shadow:0 0 20px rgba(108,92,231,0.6);
-}
-
-.contact-info{
-margin-top:40px;
-font-size:1.1rem;
-color:var(--text-secondary);
-}
-
-.contact-info a{
-color:var(--primary);
-text-decoration:none;
+.ai-header{
+background:#6c5ce7;
+padding:10px;
 font-weight:bold;
 }
 
-/* FOOTER */
-footer{
-padding:40px 5%;
-text-align:center;
-border-top:1px solid var(--border);
-color:var(--text-secondary);
-background:#050507;
-font-size:0.9rem;
+.ai-body{
+height:150px;
+overflow:auto;
+padding:10px;
+font-size:12px;
 }
 
-.footer-links{
-margin-top:20px;
+.ai-input{
 display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
 }
 
-.footer-links a{
-color:var(--text-secondary);
-text-decoration:none;
-transition:.3s;
+.ai-input input{
+flex:1;
+padding:8px;
+border:none;
 }
 
-.footer-links a:hover{
-color:var(--primary);
+.ai-input button{
+background:#6c5ce7;
+border:none;
+color:white;
+padding:8px;
 }
 
-/* MODAL */
-.modal{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:1000;
-opacity:0;
-visibility:hidden;
-transition:.3s;
-}
-
-.modal.active{
-opacity:1;
-visibility:visible;
-}
-
-.modal-content{
-background:var(--card-bg);
-padding:40px;
-border-radius:20px;
-max-width:500px;
-width:90%;
-text-align:center;
-border:1px solid var(--border);
-position:relative;
-}
-
-.close-modal{
-position:absolute;
-top:15px;
-right:20px;
-font-size:1.5rem;
-cursor:pointer;
-color:var(--text-secondary);
-}
-
-/* RESPONSIVE */
-@media (max-width:768px){
-.hero h1{font-size:2.5rem;}
-.nav-links{
-position:fixed;
-top:70px;
-right:-100%;
-width:100%;
-height:calc(100vh - 70px);
-background:var(--bg-color);
-flex-direction:column;
-justify-content:center;
-transition:.4s;
-border-top:1px solid var(--border);
-}
-.nav-links.active{right:0;}
-.hamburger{display:flex;}
-.section-title{font-size:2rem;}
-}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
-<a href="#" class="logo"><i class="fas fa-layer-group"></i> Shopnex</a>
-<ul class="nav-links" id="navLinks">
-<li><a href="#home" data-key="home">Ana Sayfa</a></li>
-<li><a href="#services" data-key="services">Hizmetler</a></li>
-<li><a href="#about" data-key="about">Hakkımızda</a></li>
-<li><a href="#contact" data-key="contact">İletişim</a></li>
-</ul>
-<div class="controls">
-<select class="lang-select" id="langSelect">
-<option value="tr">Türkçe</option>
-<option value="en">English</option>
-<option value="es">Español</option>
-<option value="fr">Français</option>
-<option value="it">Italiano</option>
-<option value="nl">Nederlands</option>
-<option value="no">Norsk</option>
-<option value="pl">Polski</option>
-<option value="pt">Português</option>
-<option value="ru">Русский</option>
-<option value="sv">Svenska</option>
-<option value="ja">日本語</option>
-<option value="ko">한국어</option>
-<option value="cs">Čeština</option>
-<option value="th">ไทย</option>
-<option value="uk">Українська</option>
-<option value="zh-TW">繁體中文</option>
-<option value="vi">Tiếng Việt</option>
-<option value="id">Bahasa Indonesia</option>
-<option value="de">Deutsch</option>
-<option value="ar">العربية</option>
-<option value="hi">हिन्दी</option>
-<option value="fa">فارسی</option>
-<option value="tr-TR">Türkçe (TR)</option>
-</select>
-<button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
-<div class="hamburger" id="hamburger">
-<div class="bar"></div>
-<div class="bar"></div>
-<div class="bar"></div>
-</div>
-</div>
+<div class="menu-btn" onclick="menu()">☰</div>
+<div class="logo">SHOPNEX</div>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="home">
-<h1 data-key="hero_title">Geleceğin Sosyal Medyası Burada</h1>
-<p data-key="hero_desc">Shopnex ile güvenli, hızlı ve modern bir dijital deneyim yaşayın. Kişisel verileriniz hiçbir şekilde üçüncü taraflarla paylaşılmaz.</p>
-<a href="#services" class="cta-btn" data-key="cta_btn">Keşfetmeye Başla</a>
-
-<div class="trust-badges">
-<div class="badge security"><i class="fas fa-shield-alt"></i> <span data-key="badge_ssl">SSL Güvenli Bağlantı</span></div>
-<div class="badge"><i class="fas fa-lock"></i> <span data-key="badge_privacy">Verileriniz Gizlidir</span></div>
-<div class="badge"><i class="fas fa-headset"></i> <span data-key="badge_support">7/24 Destek</span></div>
-</div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-<h2 class="section-title" data-key="services_title">Hizmetlerimiz</h2>
-<p class="section-subtitle" data-key="services_sub">Size özel çözümlerle işinizi büyütün.</p>
-
-<div class="services-grid">
-<div class="service-card">
-<h4 data-key="service_1_title">Gelişmiş Analitik</h4>
-<p data-key="service_1_desc">Kullanıcı davranışlarını derinlemesine analiz edin ve stratejilerinizi buna göre şekillendirin.</p>
-<button class="btn-small" data-key="learn_more">Daha Fazla</button>
-</div>
-<div class="service-card">
-<h4 data-key="service_2_title">Güvenli Ödeme Altyapısı</h4>
-<p data-key="service_2_desc">Sistemimiz, finansal verilerin gizliliğini sağlamak için gelişmiş güvenlik katmanları ile korunmaktadır.</p>
-<button class="btn-small" data-key="learn_more">Daha Fazla</button>
-</div>
-<div class="service-card">
-<h4 data-key="service_3_title">Çoklu Dil Desteği</h4>
-<p data-key="service_3_desc">Dünyanın her yerinden müşterilerinize ulaşmak için 20'den fazla dil seçeneği.</p>
-<button class="btn-small" data-key="learn_more">Daha Fazla</button>
-</div>
-</div>
-</section>
-
-<!-- ABOUT -->
-<section class="about-section" id="about">
-<h2 class="section-title" data-key="about_title">Hakkımızda</h2>
-<p class="section-subtitle" data-key="about_sub">Teknolojiyi güvenle birleştiriyoruz.</p>
-
-<div class="about-grid">
-<div class="about-card">
-<h3 data-key="about_1_title">Misyonumuz</h3>
-<p data-key="about_1_desc">Kullanıcılar için en güvenli ve kullanıcı dostu sosyal medya platformunu oluşturmak.</p>
-</div>
-<div class="about-card">
-<h3 data-key="about_2_title">Güven Politikası</h3>
-<p data-key="about_2_desc">Kişisel verileriniz hiçbir şekilde üçüncü taraflarla paylaşılmaz. Tüm veriler şifrelenerek saklanır.</p>
-</div>
-<div class="about-card">
-<h3 data-key="about_3_title">Innovation</h3>
-<p data-key="about_3_desc">Sürekli gelişen teknolojileri takip ederek platformu en güncel standartlarda tutuyoruz.</p>
-</div>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-<h2 class="section-title" data-key="contact_title">Bize Ulaşın</h2>
-<p class="section-subtitle" data-key="contact_sub">Sorularınız veya önerileriniz için hemen iletişime geçin.</p>
-
-<div class="social-contact">
-<a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-<a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-<a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-<a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+<!-- MENU -->
+<div class="nav" id="nav">
+<a href="#">Anasayfa</a>
+<a href="#">Sosyal Medya Hizmetleri</a>
+<a href="#">Dil Seçimi</a>
+<a href="#">İletişim</a>
 </div>
 
-<div class="contact-info">
-<p data-key="email_label">E-posta:</p>
-<a href="mailto:shopnex.destek.1@gmail.com">shopnex.destek.1@gmail.com</a>
-</div>
-</section>
+<!-- INSTAGRAM -->
+<div class="section">
+<h2>Instagram Hizmetleri</h2>
 
-<!-- FOOTER -->
-<footer>
-<p>&copy; 2026 Shopnex. Tüm hakları saklıdır.</p>
-<div class="footer-links">
-<a href="#" data-key="privacy">Gizlilik Politikası</a>
-<a href="#" data-key="terms">Kullanım Şartları</a>
-<a href="#" data-key="cookies">Çerezler</a>
+<div class="card" onclick="toggle(this)">
+Instagram Takipçi Hizmetleri
+<div class="sub">
+<button>Ucuz Yabancı Takipçi</button>
+<button>Düşmeyen Takipçi</button>
+<button>Türk Takipçi</button>
+<button>Premium Takipçi</button>
 </div>
-</footer>
+</div>
 
-<!-- MODAL -->
-<div class="modal" id="infoModal">
-<div class="modal-content">
-<span class="close-modal" id="closeModal">&times;</span>
-<h3 id="modalTitle">Detaylı Bilgi</h3>
-<p id="modalText">Seçilen hizmet hakkında detaylı bilgi burada yer alacak.</p>
-<button class="cta-btn" style="margin-top:20px; font-size:1rem;" onclick="document.getElementById('infoModal').classList.remove('active')">Kapat</button>
+<div class="card" onclick="toggle(this)">
+Instagram Beğeni Hizmetleri
+<div class="sub">
+<button>Türk Beğeni</button>
+<button>Yabancı Beğeni</button>
+<button>Otomatik Beğeni</button>
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+Instagram İzlenme
+<div class="sub">
+<button>Video İzlenme</button>
+<button>Hikaye İzlenme</button>
+<button>Canlı Yayın İzlenme</button>
+</div>
+</div>
+</div>
+
+<!-- TIKTOK -->
+<div class="section">
+<h2>TikTok Hizmetleri</h2>
+
+<div class="card" onclick="toggle(this)">
+TikTok Takipçi
+<div class="sub">
+<button>Türk Takipçi</button>
+<button>Yabancı Takipçi</button>
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+TikTok Beğeni
+<div class="sub">
+<button>Beğeni Paketleri</button>
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+TikTok İzlenme
+<div class="sub">
+<button>Video İzlenme</button>
+<button>Canlı Yayın İzlenme</button>
+</div>
+</div>
+</div>
+
+<!-- YOUTUBE -->
+<div class="section">
+<h2>YouTube Hizmetleri</h2>
+
+<div class="card" onclick="toggle(this)">
+YouTube Büyüme
+<div class="sub">
+<button>Abone</button>
+<button>Beğeni</button>
+<button>İzlenme</button>
+<button>Shorts İzlenme</button>
+<button>Canlı Yayın İzlenme</button>
+</div>
+</div>
+</div>
+
+<!-- TELEGRAM -->
+<div class="section">
+<h2>Telegram Hizmetleri</h2>
+
+<div class="card" onclick="toggle(this)">
+Telegram Büyüme
+<div class="sub">
+<button>Abone</button>
+<button>Grup Üye</button>
+<button>Görüntülenme</button>
+<button>Emoji Tepki</button>
+</div>
+</div>
+</div>
+
+<!-- AI CHAT -->
+<div class="ai-box">
+<div class="ai-header">Shopnex AI</div>
+<div class="ai-body" id="chat"></div>
+<div class="ai-input">
+<input id="msg" placeholder="Bir şey yaz...">
+<button onclick="send()">></button>
 </div>
 </div>
 
 <script>
-// Language Data Object
-const translations = {
-tr: {
-home: "Ana Sayfa", services: "Hizmetler", about: "Hakkımızda", contact: "İletişim",
-hero_title: "Geleceğin Sosyal Medyası Burada", hero_desc: "Shopnex ile güvenli, hızlı ve modern bir dijital deneyim yaşayın. Kişisel verileriniz hiçbir şekilde üçüncü taraflarla paylaşılmaz.",
-cta_btn: "Keşfetmeye Başla", badge_ssl: "SSL Güvenli Bağlantı", badge_privacy: "Verileriniz Gizlidir", badge_support: "7/24 Destek",
-services_title: "Hizmetlerimiz", services_sub: "Size özel çözümlerle işinizi büyütün.",
-service_1_title: "Gelişmiş Analitik", service_1_desc: "Kullanıcı davranışlarını derinlemesine analiz edin ve stratejilerinizi buna göre şekillendirin.",
-service_2_title: "Güvenli Ödeme Altyapısı", service_2_desc: "Sistemimiz, finansal verilerin gizliliğini sağlamak için gelişmiş güvenlik katmanları ile korunmaktadır.",
-service_3_title: "Çoklu Dil Desteği", service_3_desc: "Dünyanın her yerinden müşterilerinize ulaşmak için 20'den fazla dil seçeneği.",
-learn_more: "Daha Fazla",
-about_title: "Hakkımızda", about_sub: "Teknolojiyi güvenle birleştiriyoruz.",
-about_1_title: "Misyonumuz", about_1_desc: "Kullanıcılar için en güvenli ve kullanıcı dostu sosyal medya platformunu oluşturmak.",
-about_2_title: "Güven Politikası", about_2_desc: "Kişisel verileriniz hiçbir şekilde üçüncü taraflarla paylaşılmaz. Tüm veriler şifrelenerek saklanır.",
-about_3_title: "İnovasyon", about_3_desc: "Sürekli gelişen teknolojileri takip ederek platformu en güncel standartlarda tutuyoruz.",
-contact_title: "Bize Ulaşın", contact_sub: "Sorularınız veya önerileriniz için hemen iletişime geçin.",
-email_label: "E-posta:", privacy: "Gizlilik Politikası", terms: "Kullanım Şartları", cookies: "Çerezler"
-},
-en: {
-home: "Home", services: "Services", about: "About Us", contact: "Contact",
-hero_title: "The Future of Social Media is Here", hero_desc: "Experience a secure, fast, and modern digital journey with Shopnex. Your personal data is never shared with third parties.",
-cta_btn: "Get Started", badge_ssl: "SSL Secure Connection", badge_privacy: "Your Data is Private", badge_support: "24/7 Support",
-services_title: "Our Services", services_sub: "Grow your business with tailored solutions.",
-service_1_title: "Advanced Analytics", service_1_desc: "Deeply analyze user behavior and shape your strategies accordingly.",
-service_2_title: "Secure Payment Infrastructure", service_2_desc: "Our system uses advanced security layers to protect financial data confidentiality.",
-service_3_title: "Multi-Language Support", service_3_desc: "Over 20 language options to reach customers worldwide.",
-learn_more: "Learn More",
-about_title: "About Us", about_sub: "Combining technology with trust.",
-about_1_title: "Our Mission", about_1_desc: "To create the safest and most user-friendly social media platform for users.",
-about_2_title: "Security Policy", about_2_desc: "Your personal data is never shared with third parties. All data is encrypted.",
-about_3_title: "Innovation", about_3_desc: "We keep the platform up to date by following continuously evolving technologies.",
-contact_title: "Contact Us", contact_sub: "Reach out immediately for your questions or suggestions.",
-email_label: "Email:", privacy: "Privacy Policy", terms: "Terms of Use", cookies: "Cookies"
+
+function menu(){
+document.getElementById("nav").classList.toggle("active");
 }
-};
 
-// Theme Toggle
-const themeToggle = document.getElementById('themeToggle');
-themeToggle.addEventListener('click', () => {
-const currentTheme = document.documentElement.getAttribute('data-theme');
-const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-document.documentElement.setAttribute('data-theme', newTheme);
-themeToggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-});
+function toggle(el){
+let sub = el.querySelector(".sub");
+sub.style.display = sub.style.display === "block" ? "none" : "block";
+}
 
-// Mobile Menu
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-hamburger.addEventListener('click', () => {
-navLinks.classList.toggle('active');
-});
+/* BASİT AI */
+function send(){
+let input = document.getElementById("msg");
+let chat = document.getElementById("chat");
 
-// Language Switcher
-const langSelect = document.getElementById('langSelect');
-langSelect.addEventListener('change', (e) => {
-const lang = e.target.value;
-const content = translations[lang] || translations['tr']; // Fallback to TR
-document.querySelectorAll('[data-key]').forEach(el => {
-const key = el.getAttribute('data-key');
-if(content[key]) el.textContent = content[key];
-});
-});
+let text = input.value;
+if(!text) return;
 
-// Modal Logic
-const modal = document.getElementById('infoModal');
-const closeModal = document.getElementById('closeModal');
-const btns = document.querySelectorAll('.btn-small');
+chat.innerHTML += "<div><b>Sen:</b> "+text+"</div>";
 
-btns.forEach(btn => {
-btn.addEventListener('click', function() {
-modal.classList.add('active');
-});
-});
+let reply = "";
 
-closeModal.addEventListener('click', () => {
-modal.classList.remove('active');
-});
+if(text.includes("instagram")){
+reply = "Instagram hizmetlerini üst menüden seçebilirsin.";
+}
+else if(text.includes("tiktok")){
+reply = "TikTok paketleri hazır, kategorilere bak.";
+}
+else if(text.includes("youtube")){
+reply = "YouTube abonelik ve izlenme paketleri mevcut.";
+}
+else{
+reply = "Shopnex AI: İstediğin hizmeti seçebilirsin.";
+}
 
-window.addEventListener('click', (e) => {
-if(e.target == modal) modal.classList.remove('active');
-});
+setTimeout(()=>{
+chat.innerHTML += "<div><b>AI:</b> "+reply+"</div>";
+chat.scrollTop = chat.scrollHeight;
+},500);
+
+input.value = "";
+}
+
 </script>
+
 </body>
 </html>
