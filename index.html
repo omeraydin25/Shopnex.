@@ -3,297 +3,702 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shopnex | Sosyal Medya Hizmet Paneli</title>
-
+<title>Shopnex | Sosyal Medya Büyüme Çözümleri</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:#0f0f13;
-color:white;
+:root {
+ --bg-color: #0f0f13;
+ --card-bg: #1a1a20;
+ --text-color: #ffffff;
+ --text-secondary: #b0b0b5;
+ --primary: #6c5ce7;
+ --secondary: #a29bfe;
+ --accent: #fd79a8; /* Instagram gradient start */
+ --accent-end: #e84393; /* Instagram gradient end */
+ --border: rgba(255,255,255,.08);
+ --green: #00b894;
 }
 
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px;
-background:#15151d;
-position:sticky;
-top:0;
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ scroll-behavior: smooth;
 }
 
-.logo{
-font-size:22px;
-font-weight:bold;
-color:#6c5ce7;
+body {
+ background: var(--bg-color);
+ color: var(--text-color);
+ overflow-x: hidden;
+ line-height: 1.6;
 }
 
-.menu-btn{
-font-size:26px;
-cursor:pointer;
+/* HEADER & NAVIGATION */
+header {
+ position: fixed;
+ top: 0;
+ width: 100%;
+ padding: 15px 5%;
+ background: rgba(15, 15, 19, 0.95);
+ backdrop-filter: blur(10px);
+ border-bottom: 1px solid var(--border);
+ z-index: 1000;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
 }
 
-.nav{
-position:fixed;
-top:0;
-left:-100%;
-width:250px;
-height:100%;
-background:#1e1e24;
-padding:20px;
-transition:.3s;
+.logo {
+ font-size: 1.8rem;
+ font-weight: 800;
+ color: var(--primary);
+ text-decoration: none;
+ letter-spacing: 1px;
 }
 
-.nav.active{
-left:0;
+.hamburger-btn {
+ display: flex;
+ flex-direction: column;
+ gap: 6px;
+ cursor: pointer;
+ z-index: 1001;
 }
 
-.nav a{
-display:block;
-color:white;
-padding:10px 0;
-text-decoration:none;
-border-bottom:1px solid #333;
+.bar {
+ width: 30px;
+ height: 3px;
+ background: var(--text-color);
+ border-radius: 2px;
+ transition: 0.3s;
 }
 
-.section{
-padding:20px;
+/* Mobile Menu Overlay */
+.mobile-menu {
+ position: fixed;
+ top: 0;
+ left: -100%;
+ width: 80%;
+ max-width: 300px;
+ height: 100vh;
+ background: var(--card-bg);
+ border-right: 1px solid var(--border);
+ padding: 80px 20px 20px;
+ transition: 0.4s ease;
+ z-index: 1000;
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+ box-shadow: 5px 0 15px rgba(0,0,0,0.5);
 }
 
-.card{
-background:#1e1e24;
-padding:15px;
-margin:10px 0;
-border-radius:10px;
-cursor:pointer;
+.mobile-menu.active {
+ left: 0;
 }
 
-.sub{
-display:none;
-padding:10px;
-background:#2a2a35;
-margin-top:10px;
-border-radius:8px;
+.menu-link {
+ color: var(--text-color);
+ text-decoration: none;
+ font-size: 1.1rem;
+ font-weight: 600;
+ padding: 10px;
+ border-radius: 8px;
+ transition: 0.3s;
 }
 
-.sub button{
-display:block;
-width:100%;
-margin:5px 0;
-padding:8px;
-background:#6c5ce7;
-border:none;
-color:white;
-cursor:pointer;
-border-radius:6px;
+.menu-link:hover {
+ background: var(--primary);
+ color: white;
 }
 
-/* AI BOX */
-.ai-box{
-position:fixed;
-bottom:10px;
-right:10px;
-width:260px;
-background:#1e1e24;
-border-radius:10px;
-overflow:hidden;
+.lang-select-mobile {
+ padding: 10px;
+ border-radius: 8px;
+ background: var(--bg-color);
+ color: var(--text-color);
+ border: 1px solid var(--border);
+ width: 100%;
 }
 
-.ai-header{
-background:#6c5ce7;
-padding:10px;
-font-weight:bold;
+.close-menu {
+ position: absolute;
+ top: 20px;
+ right: 20px;
+ font-size: 1.5rem;
+ cursor: pointer;
+ color: var(--text-secondary);
 }
 
-.ai-body{
-height:150px;
-overflow:auto;
-padding:10px;
-font-size:12px;
+/* HERO SECTION */
+.hero {
+ padding: 140px 5% 80px;
+ min-height: 80vh;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ background: linear-gradient(rgba(15,15,19,0.8), rgba(15,15,19,0.9)), url("https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1600&auto=format&fit=crop") center/cover;
 }
 
-.ai-input{
-display:flex;
+.hero h1 {
+ font-size: 3rem;
+ margin-bottom: 20px;
+ background: linear-gradient(to right, var(--primary), var(--accent));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
 }
 
-.ai-input input{
-flex:1;
-padding:8px;
-border:none;
+.hero p {
+ max-width: 700px;
+ font-size: 1.2rem;
+ color: var(--text-secondary);
+ margin-bottom: 30px;
 }
 
-.ai-input button{
-background:#6c5ce7;
-border:none;
-color:white;
-padding:8px;
+/* PLATFORM TABS */
+.platform-tabs {
+ display: flex;
+ justify-content: center;
+ gap: 15px;
+ margin-bottom: 50px;
+ flex-wrap: wrap;
 }
 
+.tab-btn {
+ padding: 12px 25px;
+ border: 1px solid var(--border);
+ background: var(--card-bg);
+ color: var(--text-color);
+ border-radius: 30px;
+ cursor: pointer;
+ font-weight: 600;
+ transition: 0.3s;
+ display: flex;
+ align-items: center;
+ gap: 8px;
+}
+
+.tab-btn.active, .tab-btn:hover {
+ background: var(--primary);
+ border-color: var(--primary);
+ color: white;
+ transform: translateY(-2px);
+}
+
+/* SERVICES GRID */
+.services-section {
+ padding: 60px 5%;
+ max-width: 1400px;
+ margin: 0 auto;
+}
+
+.section-header {
+ text-align: center;
+ margin-bottom: 40px;
+}
+
+.section-header h2 {
+ font-size: 2.2rem;
+ margin-bottom: 10px;
+}
+
+.services-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+ gap: 25px;
+}
+
+.service-card {
+ background: var(--card-bg);
+ padding: 25px;
+ border-radius: 16px;
+ border: 1px solid var(--border);
+ transition: 0.3s;
+ position: relative;
+ overflow: hidden;
+}
+
+.service-card:hover {
+ transform: translateY(-5px);
+ border-color: var(--primary);
+ box-shadow: 0 10px 20px rgba(108, 92, 231, 0.15);
+}
+
+.service-icon {
+ font-size: 2rem;
+ color: var(--primary);
+ margin-bottom: 15px;
+}
+
+.service-title {
+ font-size: 1.2rem;
+ font-weight: 700;
+ margin-bottom: 10px;
+}
+
+.service-desc {
+ font-size: 0.9rem;
+ color: var(--text-secondary);
+ margin-bottom: 20px;
+}
+
+.btn-investigate {
+ display: inline-block;
+ padding: 8px 20px;
+ background: transparent;
+ border: 1px solid var(--primary);
+ color: var(--primary);
+ border-radius: 6px;
+ text-decoration: none;
+ font-size: 0.9rem;
+ font-weight: 600;
+ transition: 0.3s;
+}
+
+.btn-investigate:hover {
+ background: var(--primary);
+ color: white;
+}
+
+/* PRODUCT DETAIL SECTION (Simulated) */
+.product-detail {
+ padding: 80px 5%;
+ background: var(--card-bg);
+ margin-top: 50px;
+ border-top: 1px solid var(--border);
+}
+
+.product-container {
+ max-width: 1200px;
+ margin: 0 auto;
+ display: flex;
+ flex-wrap: wrap;
+ gap: 40px;
+}
+
+.product-info {
+ flex: 1;
+ min-width: 300px;
+}
+
+.product-stats {
+ flex: 1;
+ min-width: 300px;
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+}
+
+.stat-box {
+ background: var(--bg-color);
+ padding: 20px;
+ border-radius: 12px;
+ border: 1px solid var(--border);
+ display: flex;
+ align-items: center;
+ gap: 15px;
+}
+
+.stat-number {
+ font-size: 1.5rem;
+ font-weight: 800;
+ color: var(--primary);
+}
+
+.pricing-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+ gap: 15px;
+ margin-top: 20px;
+}
+
+.price-card {
+ background: var(--bg-color);
+ padding: 15px;
+ border-radius: 10px;
+ text-align: center;
+ border: 1px solid var(--border);
+ cursor: pointer;
+ transition: 0.3s;
+}
+
+.price-card:hover, .price-card.selected {
+ border-color: var(--green);
+ background: rgba(0, 184, 148, 0.1);
+}
+
+.price-val {
+ font-size: 1.2rem;
+ font-weight: 700;
+ display: block;
+ margin-bottom: 5px;
+}
+
+.features-list li {
+ margin-bottom: 10px;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ color: var(--text-secondary);
+}
+
+.features-list i {
+ color: var(--green);
+}
+
+/* CORPORATE SECTION */
+.corporate {
+ padding: 80px 5%;
+ max-width: 1200px;
+ margin: 0 auto;
+}
+
+.corp-block {
+ margin-bottom: 40px;
+}
+
+.corp-block h3 {
+ font-size: 1.8rem;
+ color: var(--primary);
+ margin-bottom: 15px;
+ border-left: 4px solid var(--primary);
+ padding-left: 15px;
+}
+
+.corp-block p {
+ color: var(--text-secondary);
+ line-height: 1.8;
+}
+
+/* FOOTER */
+footer {
+ background: #0a0a0d;
+ padding: 60px 5% 20px;
+ border-top: 1px solid var(--border);
+}
+
+.footer-content {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 40px;
+ max-width: 1200px;
+ margin: 0 auto 40px;
+}
+
+.footer-col h4 {
+ color: var(--primary);
+ margin-bottom: 20px;
+ font-size: 1.2rem;
+}
+
+.footer-col ul {
+ list-style: none;
+}
+
+.footer-col ul li {
+ margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+ color: var(--text-secondary);
+ text-decoration: none;
+ transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+ color: var(--primary);
+}
+
+.contact-social {
+ display: flex;
+ gap: 15px;
+ margin-top: 20px;
+}
+
+.social-icon {
+ width: 45px;
+ height: 45px;
+ border-radius: 50%;
+ background: var(--card-bg);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: var(--text-color);
+ text-decoration: none;
+ font-size: 1.2rem;
+ transition: 0.3s;
+ border: 1px solid var(--border);
+}
+
+.social-icon.instagram:hover {
+ background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+ color: white;
+ border-color: transparent;
+}
+
+.footer-bottom {
+ text-align: center;
+ padding-top: 20px;
+ border-top: 1px solid var(--border);
+ color: var(--text-secondary);
+ font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+ .hero h1 { font-size: 2.2rem; }
+ .product-container { flex-direction: column; }
+ .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-<div class="menu-btn" onclick="menu()">☰</div>
-<div class="logo">SHOPNEX</div>
+ <div class="logo">Shopnex</div>
+ <div class="hamburger-btn" onclick="toggleMenu()">
+ <span class="bar"></span>
+ <span class="bar"></span>
+ <span class="bar"></span>
+ </div>
 </header>
 
-<!-- MENU -->
-<div class="nav" id="nav">
-<a href="#">Anasayfa</a>
-<a href="#">Sosyal Medya Hizmetleri</a>
-<a href="#">Dil Seçimi</a>
-<a href="#">İletişim</a>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+ <div class="close-menu" onclick="toggleMenu()">&times;</div>
+ <a href="#home" class="menu-link">Ana Sayfa</a>
+ <a href="#services" class="menu-link">Sosyal Medya Hizmetleri</a>
+ <a href="#corporate" class="menu-link">Kurumsal</a>
+ <a href="#contact" class="menu-link">İletişim</a>
+ 
+ <select class="lang-select-mobile">
+ <option value="tr">Türkçe</option>
+ <option value="en">English</option>
+ <option value="de">Deutsch</option>
+ <option value="fr">Français</option>
+ <option value="es">Español</option>
+ </select>
 </div>
 
-<!-- INSTAGRAM -->
-<div class="section">
-<h2>Instagram Hizmetleri</h2>
+<!-- HERO -->
+<section class="hero" id="home">
+ <h1>Dijital Dünyada Fark Yaratın</h1>
+ <p>Sosyal medya etkileşimini güçlendirmek, takipçi kitlesini artırmak ve marka bilinirliğini yükseltmek için en doğru stratejiler burada.</p>
+ <a href="#services" class="cta-btn" style="padding:15px 30px; background:var(--primary); color:white; text-decoration:none; border-radius:30px; font-weight:bold;">Hizmetleri Keşfet</a>
+</section>
 
-<div class="card" onclick="toggle(this)">
-Instagram Takipçi Hizmetleri
-<div class="sub">
-<button>Ucuz Yabancı Takipçi</button>
-<button>Düşmeyen Takipçi</button>
-<button>Türk Takipçi</button>
-<button>Premium Takipçi</button>
-</div>
-</div>
+<!-- PLATFORM SELECTION -->
+<section class="services-section" id="services">
+ <div class="section-header">
+ <h2>Hizmetlerimiz</h2>
+ <p style="color:var(--text-secondary)">İstediğiniz platformu seçin ve büyümeye başlayın.</p>
+ </div>
 
-<div class="card" onclick="toggle(this)">
-Instagram Beğeni Hizmetleri
-<div class="sub">
-<button>Türk Beğeni</button>
-<button>Yabancı Beğeni</button>
-<button>Otomatik Beğeni</button>
-</div>
-</div>
+ <div class="platform-tabs">
+ <button class="tab-btn active" onclick="filterPlatform('instagram')"><i class="fab fa-instagram"></i> Instagram</button>
+ <button class="tab-btn" onclick="filterPlatform('tiktok')"><i class="fab fa-tiktok"></i> TikTok</button>
+ <button class="tab-btn" onclick="filterPlatform('youtube')"><i class="fab fa-youtube"></i> YouTube</button>
+ <button class="tab-btn" onclick="filterPlatform('telegram')"><i class="fab fa-telegram"></i> Telegram</button>
+ <button class="tab-btn" onclick="filterPlatform('twitter')"><i class="fab fa-twitter"></i> Twitter</button>
+ </div>
 
-<div class="card" onclick="toggle(this)">
-Instagram İzlenme
-<div class="sub">
-<button>Video İzlenme</button>
-<button>Hikaye İzlenme</button>
-<button>Canlı Yayın İzlenme</button>
-</div>
-</div>
-</div>
+ <!-- DYNAMIC GRID CONTENT (Simulated with JS for simplicity in one file) -->
+ <div class="services-grid" id="servicesGrid">
+ <!-- Content will be injected by JS -->
+ </div>
+</section>
 
-<!-- TIKTOK -->
-<div class="section">
-<h2>TikTok Hizmetleri</h2>
+<!-- PRODUCT DETAIL SIMULATION (Instagram Specific Example) -->
+<section class="product-detail">
+ <div class="product-container">
+ <div class="product-info">
+ <h2 style="margin-bottom:20px;">Instagram Ucuz Yabancı Takipçi Satın Al</h2>
+ <p style="color:var(--text-secondary); margin-bottom:20px;">
+ Instagram ucuz yabancı takipçi satın al hizmetimiz ile tamamen kaliteli ve hızlı bot takipçilere erişmek sizin de hakkınız! 
+ Takipci.Al ile hesabınızı yükseltin.
+ </p>
+ <ul class="features-list">
+ <li><i class="fas fa-check-circle"></i> Yüksek Kaliteli Yabancı Takipçiler</li>
+ <li><i class="fas fa-check-circle"></i> Düşüşlere Karşı 30 Gün Telafi</li>
+ <li><i class="fas fa-check-circle"></i> Hızlı Teslimat</li>
+ <li><i class="fas fa-check-circle"></i> Şifre Gerektirmez</li>
+ <li><i class="fas fa-check-circle"></i> 3D Güvenli Ödeme</li>
+ <li><i class="fas fa-check-circle"></i> 7/24 Whatsapp Destek</li>
+ </ul>
+ </div>
+ 
+ <div class="product-stats">
+ <div class="stat-box">
+ <i class="fas fa-shopping-cart" style="color:var(--primary); font-size:1.5rem;"></i>
+ <div>
+ <span style="display:block; font-size:0.9rem; color:var(--text-secondary);">Aktif Kullanıcı</span>
+ <span class="stat-number">46</span>
+ </div>
+ </div>
+ 
+ <div class="pricing-grid">
+ <div class="price-card selected"><span class="price-val">100</span>Takipçi</div>
+ <div class="price-card"><span class="price-val">250</span>Takipçi</div>
+ <div class="price-card"><span class="price-val">500</span>Takipçi</div>
+ <div class="price-card"><span class="price-val">750</span>Takipçi</div>
+ <div class="price-card"><span class="price-val">1.000</span>Takipçi</div>
+ <div class="price-card"><span class="price-val">2.500</span>Takipçi</div>
+ <div class="price-card"><span class="price-val">5.000</span>Takipçi</div>
+ <div class="price-card"><span class="price-val">7.500</span>Takipçi</div>
+ </div>
+ <button style="width:100%; padding:15px; background:var(--green); color:white; border:none; border-radius:8px; font-weight:bold; margin-top:20px; cursor:pointer;">Satın Al</button>
+ </div>
+ </div>
+</section>
 
-<div class="card" onclick="toggle(this)">
-TikTok Takipçi
-<div class="sub">
-<button>Türk Takipçi</button>
-<button>Yabancı Takipçi</button>
-</div>
-</div>
+<!-- CORPORATE SECTION -->
+<section class="corporate" id="corporate">
+ <div class="corp-block">
+ <h3>KURULUŞ</h3>
+ <p>Takipci.al, 2020 yılında dijital dünyada fark yaratmayı hedefleyen bir vizyonla kuruldu. Sosyal medya, markaların ve bireylerin çevrimiçi varlıklarını inşa etmelerinde önemli bir rol oynamaktadır ve bu dinamik dünyada etkili stratejiler oluşturmak her geçen gün daha da zorlaşmaktadır. Biz de bu zorlukların üstesinden gelmek, sosyal medya etkileşimini güçlendirmek ve takipçi kitlesini organik yollarla artırmak isteyen tüm bireyler ve markalar için akılcı, veri odaklı çözümler geliştirmek için yola çıktık. Takipci.al olarak, kullanıcılarımızın dijital pazarlama stratejilerini güçlendirerek onlara sürdürülebilir başarılar sunmayı amaçlıyoruz.</p>
+ </div>
+ <div class="corp-block">
+ <h3>AMACIMIZ</h3>
+ <p>Takipci.al'ın kurulumundan itibaren belirlediği temel amaç, sosyal medyada daha etkili ve verimli sonuçlar elde etmek isteyen herkes için güçlü araçlar ve stratejiler sunmaktır. Sosyal medya etkileşimi, takipçi sayısı ve marka bilinirliğini artırmak, sadece sayıların peşinden gitmek değil, aynı zamanda organik ve hedeflenmiş büyüme sağlamak anlamına gelir. Bizim amacımız, kullanıcılarımıza bu hedeflere ulaşabilmeleri için en doğru stratejileri, analizleri ve araçları sunmaktır.</p>
+ </div>
+ <div class="corp-block">
+ <h3>MİSYONUMUZ</h3>
+ <p>Misyonumuz, sosyal medya yönetimini daha verimli ve etkili hale getiren dijital çözümler sunmaktır. Takipci.al olarak, yalnızca takipçi sayısını artırmakla kalmayıp, aynı zamanda kullanıcılarımıza sosyal medya hesaplarını büyütme, güçlendirme ve içeriklerini daha geniş kitlelere ulaştırma konusunda kapsamlı bir yol haritası sunuyoruz.</p>
+ </div>
+ <div class="corp-block">
+ <h3>VİZYONUMUZ</h3>
+ <p>Vizyonumuz, sosyal medya yönetimi alanında sektördeki en güvenilir, inovatif ve kullanıcı odaklı platform olmaktır. Takipci.al, gelecekte yalnızca yerel pazarlarda değil, küresel ölçekte de tanınan ve tercih edilen bir marka olmayı hedeflemektedir.</p>
+ </div>
+</section>
 
-<div class="card" onclick="toggle(this)">
-TikTok Beğeni
-<div class="sub">
-<button>Beğeni Paketleri</button>
-</div>
-</div>
-
-<div class="card" onclick="toggle(this)">
-TikTok İzlenme
-<div class="sub">
-<button>Video İzlenme</button>
-<button>Canlı Yayın İzlenme</button>
-</div>
-</div>
-</div>
-
-<!-- YOUTUBE -->
-<div class="section">
-<h2>YouTube Hizmetleri</h2>
-
-<div class="card" onclick="toggle(this)">
-YouTube Büyüme
-<div class="sub">
-<button>Abone</button>
-<button>Beğeni</button>
-<button>İzlenme</button>
-<button>Shorts İzlenme</button>
-<button>Canlı Yayın İzlenme</button>
-</div>
-</div>
-</div>
-
-<!-- TELEGRAM -->
-<div class="section">
-<h2>Telegram Hizmetleri</h2>
-
-<div class="card" onclick="toggle(this)">
-Telegram Büyüme
-<div class="sub">
-<button>Abone</button>
-<button>Grup Üye</button>
-<button>Görüntülenme</button>
-<button>Emoji Tepki</button>
-</div>
-</div>
-</div>
-
-<!-- AI CHAT -->
-<div class="ai-box">
-<div class="ai-header">Shopnex AI</div>
-<div class="ai-body" id="chat"></div>
-<div class="ai-input">
-<input id="msg" placeholder="Bir şey yaz...">
-<button onclick="send()">></button>
-</div>
-</div>
+<!-- FOOTER -->
+<footer id="contact">
+ <div class="footer-content">
+ <div class="footer-col">
+ <h4>Bize Ulaşabilirsiniz!</h4>
+ <p style="color:var(--text-secondary); margin-bottom:15px;">Aktif iletişim adreslerimizden bize ulaşabilirsiniz.</p>
+ <div class="contact-social">
+ <a href="https://instagram.com/shopnex__1" target="_blank" class="social-icon instagram" title="@shopnex__1">
+ <i class="fab fa-instagram"></i>
+ </a>
+ <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+ <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+ </div>
+ </div>
+ <div class="footer-col">
+ <h4>Hizmetlerimiz</h4>
+ <ul>
+ <li><a href="#">Instagram Hizmetleri</a></li>
+ <li><a href="#">TikTok Hizmetleri</a></li>
+ <li><a href="#">YouTube Hizmetleri</a></li>
+ <li><a href="#">Telegram Hizmetleri</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Kurumsal</h4>
+ <ul>
+ <li><a href="#home">Ana Sayfa</a></li>
+ <li><a href="#">Blog</a></li>
+ <li><a href="#contact">İletişim</a></li>
+ <li><a href="#corporate">Hakkımızda</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ © Shopnex - 2026, Tüm Hakları Saklıdır | ❤️
+ </div>
+</footer>
 
 <script>
-
-function menu(){
-document.getElementById("nav").classList.toggle("active");
+// Mobile Menu Toggle
+function toggleMenu() {
+ const menu = document.getElementById('mobileMenu');
+ menu.classList.toggle('active');
 }
 
-function toggle(el){
-let sub = el.querySelector(".sub");
-sub.style.display = sub.style.display === "block" ? "none" : "block";
+// Platform Data
+const platforms = {
+ instagram: [
+ { title: "Ucuz Yabancı Takipçi", desc: "Hızlı ve uygun fiyatlı yabancı takipçi paketi.", icon: "fa-user-friends" },
+ { title: "Düşmeyen Takipçi", desc: "30 gün garantili, düşüş yapmayan paketler.", icon: "fa-chart-line" },
+ { title: "Premium Türk Takipçi", desc: "Gerçek Türk profil takipleri.", icon: "fa-users" },
+ { title: "Türk Takipçi", desc: "Organik görünümlü Türk takipçiler.", icon: "fa-user-check" },
+ { title: "Bayan Takipçi", desc: "Sadece bayan profillerden oluşan paketler.", icon: "fa-female" },
+ { title: "Türk Beğeni", desc: "Etkileşimi artıran Türk beğeni paketleri.", icon: "fa-heart" },
+ { title: "Yabancı Beğeni", desc: "Global beğeni desteği.", icon: "fa-thumbs-up" },
+ { title: "Video İzlenme", desc: "Reels ve video izlenme artırımı.", icon: "fa-play-circle" },
+ { title: "Yorum", desc: "Gerçekçi yorum paketleri.", icon: "fa-comment-dots" },
+ { title: "Canlı Yayın İzlenme", desc: "Canlı yayın anında izlenme desteği.", icon: "fa-video" },
+ { title: "Hikaye İzlenme", desc: "Hikaye görüntülenme sayısı.", icon: "fa-images" },
+ { title: "Paylaşım", desc: "Paylaşım sayısı artırımı.", icon: "fa-share-alt" },
+ { title: "Etkileşim & Gösterim", desc: "Genel etkileşim desteği.", icon: "fa-bolt" },
+ { title: "Profil Ziyareti", desc: "Profil ziyaretçi sayısı.", icon: "fa-eye" },
+ { title: "Kaydetme", desc: "İçerik kaydetme sayısı.", icon: "fa-bookmark" },
+ { title: "Otomatik Beğeni", desc: "Otomatik beğeni servisi.", icon: "fa-magic" },
+ { title: "Otomatik İzlenme", desc: "Otomatik izlenme servisi.", icon: "fa-robot" },
+ { title: "Kanal Üyesi", desc: "YouTube kanal üyeliği.", icon: "fa-star" },
+ { title: "Keşfet Paketleri", desc: "Keşfet çıkış garantili paketler.", icon: "fa-compass" },
+ { title: "Repost", desc: "Yayın tekrarlama hizmeti.", icon: "fa-retweet" }
+ ],
+ tiktok: [
+ { title: "TikTok Takipçi", desc: "Hızlı TikTok takipçi paketi.", icon: "fa-user-plus" },
+ { title: "TikTok Beğeni", desc: "Video beğeni artırımı.", icon: "fa-heart" },
+ { title: "TikTok İzlenme", desc: "Video izlenme garantisi.", icon: "fa-play-circle" },
+ { title: "TikTok Yorum", desc: "Yorum desteği.", icon: "fa-comment" }
+ ],
+ youtube: [
+ { title: "YouTube Abone", desc: "Kanal abone sayısı.", icon: "fa-user-plus" },
+ { title: "YouTube İzlenme", desc: "Video izlenme.", icon: "fa-play-circle" },
+ { title: "YouTube Beğeni", desc: "Video beğeni.", icon: "fa-thumbs-up" },
+ { title: "Canlı Yayın İzleyici", desc: "Canlı yayın izleyici sayısı.", icon: "fa-video" }
+ ],
+ telegram: [
+ { title: "Telegram Abone", desc: "Kanal üyesi sayısı.", icon: "fa-user-plus" },
+ { title: "Telegram İzlenme", desc: "Mesaj görüntülenme.", icon: "fa-eye" }
+ ],
+ twitter: [
+ { title: "Twitter Takipçi", desc: "Hesap takipçi sayısı.", icon: "fa-user-plus" },
+ { title: "Twitter Beğeni", desc: "Tweet beğeni.", icon: "fa-heart" },
+ { title: "Twitter Retweet", desc: "Retweet sayısı.", icon: "fa-retweet" }
+ ]
+};
+
+const grid = document.getElementById('servicesGrid');
+const tabs = document.querySelectorAll('.tab-btn');
+
+function renderServices(platform) {
+ grid.innerHTML = '';
+ const services = platforms[platform];
+ services.forEach(s => {
+ const card = document.createElement('div');
+ card.className = 'service-card';
+ card.innerHTML = `
+ <i class="fas \${s.icon} service-icon"></i>
+ <h3 class="service-title">\${s.title}</h3>
+ <p class="service-desc">\${s.desc}</p>
+ <a href="#" class="btn-investigate">İncele</a>
+ `;
+ grid.appendChild(card);
+ });
 }
 
-/* BASİT AI */
-function send(){
-let input = document.getElementById("msg");
-let chat = document.getElementById("chat");
-
-let text = input.value;
-if(!text) return;
-
-chat.innerHTML += "<div><b>Sen:</b> "+text+"</div>";
-
-let reply = "";
-
-if(text.includes("instagram")){
-reply = "Instagram hizmetlerini üst menüden seçebilirsin.";
-}
-else if(text.includes("tiktok")){
-reply = "TikTok paketleri hazır, kategorilere bak.";
-}
-else if(text.includes("youtube")){
-reply = "YouTube abonelik ve izlenme paketleri mevcut.";
-}
-else{
-reply = "Shopnex AI: İstediğin hizmeti seçebilirsin.";
+function filterPlatform(platform) {
+ tabs.forEach(t => t.classList.remove('active'));
+ event.currentTarget.classList.add('active');
+ renderServices(platform);
 }
 
-setTimeout(()=>{
-chat.innerHTML += "<div><b>AI:</b> "+reply+"</div>";
-chat.scrollTop = chat.scrollHeight;
-},500);
+// Initial Render
+renderServices('instagram');
 
-input.value = "";
-}
-
+// Price Card Selection Logic
+document.querySelectorAll('.price-card').forEach(card => {
+ card.addEventListener('click', function() {
+ document.querySelectorAll('.price-card').forEach(c => c.classList.remove('selected'));
+ this.classList.add('selected');
+ });
+});
 </script>
-
 </body>
 </html>
