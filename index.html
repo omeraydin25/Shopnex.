@@ -1,628 +1,628 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopnex | Sosyal Medya Büyüme Platformu</title>
-    <style>
-        :root {
-            --primary-color: #6c5ce7;
-            --secondary-color: #a29bfe;
-            --dark-bg: #0f0f13;
-            --card-bg: #1e1e24;
-            --text-light: #ffffff;
-            --text-gray: #b2bec3;
-            --accent-green: #00b894;
-            --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Shopnex | Sosyal Medya Büyüme Platformu</title>
+ <style>
+ :root {
+ --primary-color: #6c5ce7;
+ --secondary-color: #a29bfe;
+ --dark-bg: #0f0f13;
+ --card-bg: #1e1e24;
+ --text-light: #ffffff;
+ --text-gray: #b2bec3;
+ --accent-green: #00b894;
+ --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+ }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
 
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+ body {
+ background-color: var(--dark-bg);
+ color: var(--text-light);
+ line-height: 1.6;
+ overflow-x: hidden;
+ }
 
-        /* Header & Navigation */
-        header {
-            background-color: rgba(15, 15, 19, 0.95);
-            padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #333;
-        }
+ /* Header & Navigation */
+ header {
+ background-color: rgba(15, 15, 19, 0.95);
+ padding: 1rem 5%;
+ position: fixed;
+ width: 100%;
+ top: 0;
+ z-index: 1000;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ border-bottom: 1px solid #333;
+ }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+ .logo {
+ font-size: 1.8rem;
+ font-weight: bold;
+ color: var(--primary-color);
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+ .nav-links {
+ display: flex;
+ gap: 2rem;
+ list-style: none;
+ }
 
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+ .nav-links a {
+ color: var(--text-light);
+ text-decoration: none;
+ font-weight: 500;
+ transition: color 0.3s;
+ }
 
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
+ .nav-links a:hover {
+ color: var(--primary-color);
+ }
 
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 5px;
-        }
+ .hamburger {
+ display: none;
+ cursor: pointer;
+ flex-direction: column;
+ gap: 5px;
+ }
 
-        .bar {
-            width: 25px;
-            height: 3px;
-            background-color: var(--text-light);
-            transition: 0.3s;
-        }
+ .bar {
+ width: 25px;
+ height: 3px;
+ background-color: var(--text-light);
+ transition: 0.3s;
+ }
 
-        /* Hero Section */
-        .hero {
-            padding: 140px 5% 80px;
-            text-align: center;
-            background: linear-gradient(rgba(15, 15, 19, 0.8), rgba(15, 15, 19, 0.9)), url('https://source.unsplash.com/random/1920x1080/?technology,digital') no-repeat center/cover;
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+ /* Hero Section */
+ .hero {
+ padding: 140px 5% 80px;
+ text-align: center;
+ background: linear-gradient(rgba(15, 15, 19, 0.8), rgba(15, 15, 19, 0.9)), url('https://source.unsplash.com/random/1920x1080/?technology,digital') no-repeat center/cover;
+ min-height: 80vh;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #fff, var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+ .hero h1 {
+ font-size: 3.5rem;
+ margin-bottom: 1rem;
+ background: linear-gradient(to right, #fff, var(--secondary-color));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            max-width: 800px;
-            margin-bottom: 2rem;
-        }
+ .hero p {
+ font-size: 1.2rem;
+ color: var(--text-gray);
+ max-width: 800px;
+ margin-bottom: 2rem;
+ }
 
-        .cta-btn {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+ .cta-btn {
+ background-color: var(--primary-color);
+ color: white;
+ padding: 12px 30px;
+ border-radius: 50px;
+ text-decoration: none;
+ font-weight: bold;
+ transition: transform 0.3s, box-shadow 0.3s;
+ }
 
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.4);
-        }
+ .cta-btn:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 10px 20px rgba(108, 92, 231, 0.4);
+ }
 
-        /* Features & Trust */
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-        }
+ /* Features & Trust */
+ .trust-badges {
+ display: flex;
+ justify-content: center;
+ gap: 2rem;
+ flex-wrap: wrap;
+ margin-top: 3rem;
+ }
 
-        .badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px 20px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+ .badge {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ background: rgba(255, 255, 255, 0.05);
+ padding: 10px 20px;
+ border-radius: 8px;
+ border: 1px solid rgba(255, 255, 255, 0.1);
+ }
 
-        .badge i {
-            color: var(--accent-green);
-        }
+ .badge i {
+ color: var(--accent-green);
+ }
 
-        /* Services Grid */
-        .services-section {
-            padding: 80px 5%;
-        }
+ /* Services Grid */
+ .services-section {
+ padding: 80px 5%;
+ }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
+ .section-title {
+ text-align: center;
+ font-size: 2.5rem;
+ margin-bottom: 1rem;
+ }
 
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-gray);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+ .section-subtitle {
+ text-align: center;
+ color: var(--text-gray);
+ margin-bottom: 3rem;
+ max-width: 700px;
+ margin-left: auto;
+ margin-right: auto;
+ }
 
-        .category-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin: 40px 0 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-        }
+ .category-header {
+ display: flex;
+ align-items: center;
+ gap: 15px;
+ margin: 40px 0 20px;
+ padding-bottom: 10px;
+ border-bottom: 2px solid var(--primary-color);
+ }
 
-        .category-header h3 {
-            font-size: 1.8rem;
-            color: var(--text-light);
-        }
+ .category-header h3 {
+ font-size: 1.8rem;
+ color: var(--text-light);
+ }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
+ .services-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 2rem;
+ }
 
-        .service-card {
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
+ .service-card {
+ background-color: var(--card-bg);
+ padding: 2rem;
+ border-radius: 15px;
+ transition: transform 0.3s, box-shadow 0.3s;
+ border: 1px solid rgba(255, 255, 255, 0.05);
+ position: relative;
+ overflow: hidden;
+ }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--primary-color);
-        }
+ .service-card:hover {
+ transform: translateY(-10px);
+ box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+ border-color: var(--primary-color);
+ }
 
-        .service-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-        }
+ .service-card h4 {
+ font-size: 1.3rem;
+ margin-bottom: 1rem;
+ color: var(--text-light);
+ }
 
-        .service-card p {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
+ .service-card p {
+ color: var(--text-gray);
+ font-size: 0.9rem;
+ margin-bottom: 1.5rem;
+ }
 
-        .btn-small {
-            display: inline-block;
-            padding: 8px 20px;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
+ .btn-small {
+ display: inline-block;
+ padding: 8px 20px;
+ border: 1px solid var(--primary-color);
+ color: var(--primary-color);
+ text-decoration: none;
+ border-radius: 5px;
+ font-size: 0.9rem;
+ transition: all 0.3s;
+ }
 
-        .btn-small:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
+ .btn-small:hover {
+ background-color: var(--primary-color);
+ color: white;
+ }
 
-        /* Instagram Specific Highlight */
-        .insta-highlight {
-            background: linear-gradient(135deg, #1e1e24 0%, #2d2b38 100%);
-            border-left: 5px solid #e1306c;
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 40px;
-        }
+ /* Instagram Specific Highlight */
+ .insta-highlight {
+ background: linear-gradient(135deg, #1e1e24 0%, #2d2b38 100%);
+ border-left: 5px solid #e1306c;
+ padding: 30px;
+ border-radius: 10px;
+ margin-bottom: 40px;
+ }
 
-        .pricing-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
+ .pricing-options {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 15px;
+ margin-top: 20px;
+ }
 
-        .price-tag {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+ .price-tag {
+ background: rgba(255, 255, 255, 0.1);
+ padding: 10px 20px;
+ border-radius: 8px;
+ cursor: pointer;
+ transition: 0.3s;
+ }
 
-        .price-tag:hover {
-            background: var(--primary-color);
-        }
+ .price-tag:hover {
+ background: var(--primary-color);
+ }
 
-        /* About Section */
-        .about-section {
-            padding: 80px 5%;
-            background-color: #16161a;
-        }
+ /* About Section */
+ .about-section {
+ padding: 80px 5%;
+ background-color: #16161a;
+ }
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
+ .about-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 3rem;
+ }
 
-        .about-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-        }
+ .about-card {
+ background: var(--card-bg);
+ padding: 2rem;
+ border-radius: 15px;
+ }
 
-        .about-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
+ .about-card h3 {
+ color: var(--primary-color);
+ margin-bottom: 1rem;
+ font-size: 1.5rem;
+ }
 
-        /* Contact & Footer */
-        .contact-section {
-            padding: 60px 5%;
-            text-align: center;
-            background: linear-gradient(to top, #0f0f13, #16161a);
-        }
+ /* Contact & Footer */
+ .contact-section {
+ padding: 60px 5%;
+ text-align: center;
+ background: linear-gradient(to top, #0f0f13, #16161a);
+ }
 
-        .social-contact {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
+ .social-contact {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 20px;
+ margin-top: 20px;
+ }
 
-        .social-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--card-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            text-decoration: none;
-            transition: 0.3s;
-            border: 2px solid var(--primary-color);
-        }
+ .social-icon {
+ width: 60px;
+ height: 60px;
+ border-radius: 50%;
+ background: var(--card-bg);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 1.5rem;
+ color: white;
+ text-decoration: none;
+ transition: 0.3s;
+ border: 2px solid var(--primary-color);
+ }
 
-        .social-icon:hover {
-            background: var(--primary-color);
-            transform: scale(1.1);
-        }
+ .social-icon:hover {
+ background: var(--primary-color);
+ transform: scale(1.1);
+ }
 
-        footer {
-            background-color: #000;
-            padding: 2rem 5%;
-            text-align: center;
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            border-top: 1px solid #333;
-        }
+ footer {
+ background-color: #000;
+ padding: 2rem 5%;
+ text-align: center;
+ color: var(--text-gray);
+ font-size: 0.9rem;
+ border-top: 1px solid #333;
+ }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                right: -100%;
-                top: 70px;
-                height: calc(100vh - 70px);
-                background-color: var(--dark-bg);
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-                padding-top: 2rem;
-                transition: 0.4s;
-                border-top: 1px solid #333;
-            }
+ /* Mobile Responsive */
+ @media (max-width: 768px) {
+ .nav-links {
+ position: fixed;
+ right: -100%;
+ top: 70px;
+ height: calc(100vh - 70px);
+ background-color: var(--dark-bg);
+ flex-direction: column;
+ width: 100%;
+ text-align: center;
+ padding-top: 2rem;
+ transition: 0.4s;
+ border-top: 1px solid #333;
+ }
 
-            .nav-links.active {
-                right: 0;
-            }
+ .nav-links.active {
+ right: 0;
+ }
 
-            .hamburger {
-                display: flex;
-            }
+ .hamburger {
+ display: flex;
+ }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+ .hero h1 {
+ font-size: 2.5rem;
+ }
+ }
+ </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">SHOPNEX</div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Ana Sayfa</a></li>
-            <li><a href="#services">Sosyal Medya Hizmetleri</a></li>
-            <li><a href="#about">Hakkımızda</a></li>
-            <li><a href="#contact">İletişim</a></li>
-            <li>
-                <select id="languageSelector" style="background: transparent; color: white; border: none; outline: none;">
-                    <option value="tr">Türkçe</option>
-                    <option value="en">English</option>
-                </select>
-            </li>
-        </ul>
-        <div class="hamburger" id="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-    </header>
+ <!-- Header -->
+ <header>
+ <div class="logo">SHOPNEX</div>
+ <ul class="nav-links" id="navLinks">
+ <li><a href="#home">Ana Sayfa</a></li>
+ <li><a href="#services">Sosyal Medya Hizmetleri</a></li>
+ <li><a href="#about">Hakkımızda</a></li>
+ <li><a href="#contact">İletişim</a></li>
+ <li>
+ <select id="languageSelector" style="background: transparent; color: white; border: none; outline: none;">
+ <option value="tr">Türkçe</option>
+ <option value="en">English</option>
+ </select>
+ </li>
+ </ul>
+ <div class="hamburger" id="hamburger">
+ <span class="bar"></span>
+ <span class="bar"></span>
+ <span class="bar"></span>
+ </div>
+ </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <h1>Dijital Varlığınızı Büyütün</h1>
-        <p>Shopnex ile sosyal medya hesaplarınızı güvenli, hızlı ve etkili bir şekilde büyütün. Kurumsal çözümler ve 7/24 destek.</p>
-        
-        <div class="trust-badges">
-            <div class="badge"><span>🔒 SSL/TLS Korumalı</span></div>
-            <div class="badge"><span>⚡ Hızlı Teslimat</span></div>
-            <div class="badge"><span>🛡️ %100 Güvenli Ödeme</span></div>
-            <div class="badge"><span>📞 7/24 Canlı Destek</span></div>
-        </div>
-        
-        <br>
-        <a href="#services" class="cta-btn">Hizmetleri Keşfet</a>
-    </section>
+ <!-- Hero Section -->
+ <section class="hero" id="home">
+ <h1>Dijital Varlığınızı Büyütün</h1>
+ <p>Shopnex ile sosyal medya hesaplarınızı güvenli, hızlı ve etkili bir şekilde büyütün. Kurumsal çözümler ve 7/24 destek.</p>
+ 
+ <div class="trust-badges">
+ <div class="badge"><span>🔒 SSL/TLS Korumalı</span></div>
+ <div class="badge"><span>⚡ Hızlı Teslimat</span></div>
+ <div class="badge"><span>🛡️ %100 Güvenli Ödeme</span></div>
+ <div class="badge"><span>📞 7/24 Canlı Destek</span></div>
+ </div>
+ 
+ <br>
+ <a href="#services" class="cta-btn">Hizmetleri Keşfet</a>
+ </section>
 
-    <!-- Instagram Featured Section -->
-    <section class="services-section" id="services">
-        <div class="insta-highlight">
-            <h2 style="color: #e1306c; margin-bottom: 10px;">Instagram Hizmetleri</h2>
-            <p>Hesabınızı büyütmeye yönelik özel çözümler. Güvenli ödeme ve kurumsal destek ile tanışın.</p>
-            
-            <div style="margin-top: 20px;">
-                <strong>Öne Çıkan Hizmet:</strong> Instagram Ucuz Yabancı Takipçi Satın Al
-                <p style="font-size: 0.9rem; margin-top: 5px;">Yüksek kaliteli bot takipçiler, düşüşlere karşı 30 gün telafi garantisi ve şifre gerektirmez.</p>
-                
-                <div class="pricing-options">
-                    <div class="price-tag">100 Takipçi</div>
-                    <div class="price-tag">250 Takipçi</div>
-                    <div class="price-tag">500 Takipçi</div>
-                    <div class="price-tag">750 Takipçi</div>
-                    <div class="price-tag">1.000 Takipçi</div>
-                    <div class="price-tag">2.500 Takipçi</div>
-                    <div class="price-tag">5.000 Takipçi</div>
-                    <div class="price-tag">7.500 Takipçi</div>
-                </div>
-            </div>
-        </div>
+ <!-- Instagram Featured Section -->
+ <section class="services-section" id="services">
+ <div class="insta-highlight">
+ <h2 style="color: #e1306c; margin-bottom: 10px;">Instagram Hizmetleri</h2>
+ <p>Hesabınızı büyütmeye yönelik özel çözümler. Güvenli ödeme ve kurumsal destek ile tanışın.</p>
+ 
+ <div style="margin-top: 20px;">
+ <strong>Öne Çıkan Hizmet:</strong> Instagram Ucuz Yabancı Takipçi Satın Al
+ <p style="font-size: 0.9rem; margin-top: 5px;">Yüksek kaliteli bot takipçiler, düşüşlere karşı 30 gün telafi garantisi ve şifre gerektirmez.</p>
+ 
+ <div class="pricing-options">
+ <div class="price-tag">100 Takipçi</div>
+ <div class="price-tag">250 Takipçi</div>
+ <div class="price-tag">500 Takipçi</div>
+ <div class="price-tag">750 Takipçi</div>
+ <div class="price-tag">1.000 Takipçi</div>
+ <div class="price-tag">2.500 Takipçi</div>
+ <div class="price-tag">5.000 Takipçi</div>
+ <div class="price-tag">7.500 Takipçi</div>
+ </div>
+ </div>
+ </div>
 
-        <!-- Instagram Categories -->
-        <div class="category-header">
-            <h3>Instagram Kategorileri</h3>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <h4>Ucuz Yabancı Takipçi</h4>
-                <p>Hızlı teslimat ve uygun fiyatlarla hesabınızı uluslararası kitleye taşıyın.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>Düşmeyen Takipçi</h4>
-                <p>Kaliteli paketler ile takipçi kaybı yaşamadan büyüme sağlayın.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>Premium Türk Takipçi</h4>
-                <p>Gerçek Türk profilleri ile organik görünümlü büyüme.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>Bayan Takipçi</h4>
-                <p>Hedef kitlenize özel kadın takipçi paketleri.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>Türk Beğeni</h4>
-                <p>Yüksek etkileşim için gerçek Türk kullanıcı beğenileri.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>Video İzlenme</h4>
-                <p>Reels ve videolarınızın keşfete düşmesi için yüksek izlenme.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>Yorum</h4>
-                <p>Etkileşimi artıran profesyonel yorum hizmetleri.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>Canlı Yayın İzlenme</h4>
-                <p>Canlı yayınlarınızda yüksek izleyici sayısı ile dikkat çekin.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>Hikaye İzlenme</h4>
-                <p>Hikayelerinizin daha fazla kişiye ulaşmasını sağlayın.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>Otomatik Beğeni</h4>
-                <p>Belirlenen süreler boyunca otomatik beğeni desteği.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>Keşfet Paketleri</h4>
-                <p>İçeriğinizin keşfet sayfasında çıkması için özel stratejiler.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>Repost</h4>
-                <p>İçeriklerinizi geniş kitlelerle tekrar paylaşma hizmeti.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-        </div>
+ <!-- Instagram Categories -->
+ <div class="category-header">
+ <h3>Instagram Kategorileri</h3>
+ </div>
+ <div class="services-grid">
+ <div class="service-card">
+ <h4>Ucuz Yabancı Takipçi</h4>
+ <p>Hızlı teslimat ve uygun fiyatlarla hesabınızı uluslararası kitleye taşıyın.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>Düşmeyen Takipçi</h4>
+ <p>Kaliteli paketler ile takipçi kaybı yaşamadan büyüme sağlayın.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>Premium Türk Takipçi</h4>
+ <p>Gerçek Türk profilleri ile organik görünümlü büyüme.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>Bayan Takipçi</h4>
+ <p>Hedef kitlenize özel kadın takipçi paketleri.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>Türk Beğeni</h4>
+ <p>Yüksek etkileşim için gerçek Türk kullanıcı beğenileri.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>Video İzlenme</h4>
+ <p>Reels ve videolarınızın keşfete düşmesi için yüksek izlenme.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>Yorum</h4>
+ <p>Etkileşimi artıran profesyonel yorum hizmetleri.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>Canlı Yayın İzlenme</h4>
+ <p>Canlı yayınlarınızda yüksek izleyici sayısı ile dikkat çekin.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>Hikaye İzlenme</h4>
+ <p>Hikayelerinizin daha fazla kişiye ulaşmasını sağlayın.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>Otomatik Beğeni</h4>
+ <p>Belirlenen süreler boyunca otomatik beğeni desteği.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>Keşfet Paketleri</h4>
+ <p>İçeriğinizin keşfet sayfasında çıkması için özel stratejiler.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>Repost</h4>
+ <p>İçeriklerinizi geniş kitlelerle tekrar paylaşma hizmeti.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ </div>
 
-        <!-- TikTok Section -->
-        <div class="category-header">
-            <h3>TikTok Hizmetleri</h3>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <h4>TikTok Takipçi</h4>
-                <p>Hesabınızı büyütmek için hızlı ve güvenilir takipçi paketleri.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>TikTok Beğeni</h4>
-                <p>Videolarınızın viral olmasını destekleyen yüksek beğeni.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>TikTok İzlenme</h4>
-                <p>Videolarınızın milyonlarca kez izlenmesini sağlayın.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>TikTok Yorum</h4>
-                <p>Yorumlar ile etkileşimi artırın.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-        </div>
+ <!-- TikTok Section -->
+ <div class="category-header">
+ <h3>TikTok Hizmetleri</h3>
+ </div>
+ <div class="services-grid">
+ <div class="service-card">
+ <h4>TikTok Takipçi</h4>
+ <p>Hesabınızı büyütmek için hızlı ve güvenilir takipçi paketleri.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>TikTok Beğeni</h4>
+ <p>Videolarınızın viral olmasını destekleyen yüksek beğeni.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>TikTok İzlenme</h4>
+ <p>Videolarınızın milyonlarca kez izlenmesini sağlayın.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>TikTok Yorum</h4>
+ <p>Yorumlar ile etkileşimi artırın.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ </div>
 
-        <!-- YouTube Section -->
-        <div class="category-header">
-            <h3>YouTube Hizmetleri</h3>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <h4>YouTube Abone</h4>
-                <p>Kanalınızı büyütmek için kaliteli abone paketleri.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>YouTube İzlenme</h4>
-                <p>Videolarınızın izlenme sayısını artırın.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>Canlı Yayın İzleyici</h4>
-                <p>Canlı yayınlarınıza gerçek izleyici desteği.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-        </div>
+ <!-- YouTube Section -->
+ <div class="category-header">
+ <h3>YouTube Hizmetleri</h3>
+ </div>
+ <div class="services-grid">
+ <div class="service-card">
+ <h4>YouTube Abone</h4>
+ <p>Kanalınızı büyütmek için kaliteli abone paketleri.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>YouTube İzlenme</h4>
+ <p>Videolarınızın izlenme sayısını artırın.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>Canlı Yayın İzleyici</h4>
+ <p>Canlı yayınlarınıza gerçek izleyici desteği.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ </div>
 
-        <!-- Telegram Section -->
-        <div class="category-header">
-            <h3>Telegram Hizmetleri</h3>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <h4>Telegram İzlenme</h4>
-                <p>Mesajlarınızın ve kanallarınızın yüksek görüntülenme alması.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-            <div class="service-card">
-                <h4>Telegram Abone</h4>
-                <p>Kanalınıza üye sayısını hızla artırın.</p>
-                <a href="#" class="btn-small">İncele</a>
-            </div>
-        </div>
-    </section>
+ <!-- Telegram Section -->
+ <div class="category-header">
+ <h3>Telegram Hizmetleri</h3>
+ </div>
+ <div class="services-grid">
+ <div class="service-card">
+ <h4>Telegram İzlenme</h4>
+ <p>Mesajlarınızın ve kanallarınızın yüksek görüntülenme alması.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ <div class="service-card">
+ <h4>Telegram Abone</h4>
+ <p>Kanalınıza üye sayısını hızla artırın.</p>
+ <a href="#" class="btn-small">İncele</a>
+ </div>
+ </div>
+ </section>
 
-    <!-- About Section (Shopnex) -->
-    <section class="about-section" id="about">
-        <h2 class="section-title">Shopnex Hakkında</h2>
-        <p class="section-subtitle">Dijital dünyada fark yaratmak için buradayız.</p>
-        
-        <div class="about-grid">
-            <div class="about-card">
-                <h3>KURULUŞ</h3>
-                <p>Shopnex, 2020 yılında dijital dünyada fark yaratmayı hedefleyen bir vizyonla kuruldu. Sosyal medya, markaların ve bireylerin çevrimiçi varlıklarını inşa etmelerinde önemli bir rol oynamaktadır. Biz de bu zorlukların üstesinden gelmek, sosyal medya etkileşimini güçlendirmek ve takipçi kitlesini organik yollarla artırmak isteyen tüm bireyler ve markalar için akılcı, veri odaklı çözümler geliştirmek için yola çıktık.</p>
-            </div>
-            <div class="about-card">
-                <h3>AMACIMIZ</h3>
-                <p>Sosyal medyada daha etkili ve verimli sonuçlar elde etmek isteyen herkes için güçlü araçlar sunmak. Sadece sayıların peşinden gitmek değil, aynı zamanda organik ve hedeflenmiş büyüme sağlamak anlamına gelir. Geliştirdiğimiz çözümlerle, her türden işletmenin dijital alandaki potansiyelini ortaya çıkarmayı hedefliyoruz.</p>
-            </div>
-            <div class="about-card">
-                <h3>MİSYONUMUZ</h3>
-                <p>Sosyal medya yönetimini daha verimli ve etkili hale getiren dijital çözümler sunmak. Kullanıcılarımıza analiz verilerine dayalı kararlar alabilme imkanı tanırken, etkileşim oranlarını arttırmak için yaratıcı stratejiler öneriyoruz. Güvenli ve sürdürülebilir adımlarla ilerlemelerini sağlıyoruz.</p>
-            </div>
-            <div class="about-card">
-                <h3>VİZYONUMUZ</h3>
-                <p>Sektördeki en güvenilir, inovatif ve kullanıcı odaklı platform olmak. Küresel ölçekte tanınan bir marka olmayı hedefliyoruz. Sürekli yenilikçi özellikler ekleyerek kullanıcı deneyimini iyileştiriyoruz.</p>
-            </div>
-        </div>
-    </section>
+ <!-- About Section (Shopnex) -->
+ <section class="about-section" id="about">
+ <h2 class="section-title">Shopnex Hakkında</h2>
+ <p class="section-subtitle">Dijital dünyada fark yaratmak için buradayız.</p>
+ 
+ <div class="about-grid">
+ <div class="about-card">
+ <h3>KURULUŞ</h3>
+ <p>Shopnex, 2020 yılında dijital dünyada fark yaratmayı hedefleyen bir vizyonla kuruldu. Sosyal medya, markaların ve bireylerin çevrimiçi varlıklarını inşa etmelerinde önemli bir rol oynamaktadır. Biz de bu zorlukların üstesinden gelmek, sosyal medya etkileşimini güçlendirmek ve takipçi kitlesini organik yollarla artırmak isteyen tüm bireyler ve markalar için akılcı, veri odaklı çözümler geliştirmek için yola çıktık.</p>
+ </div>
+ <div class="about-card">
+ <h3>AMACIMIZ</h3>
+ <p>Sosyal medyada daha etkili ve verimli sonuçlar elde etmek isteyen herkes için güçlü araçlar sunmak. Sadece sayıların peşinden gitmek değil, aynı zamanda organik ve hedeflenmiş büyüme sağlamak anlamına gelir. Geliştirdiğimiz çözümlerle, her türden işletmenin dijital alandaki potansiyelini ortaya çıkarmayı hedefliyoruz.</p>
+ </div>
+ <div class="about-card">
+ <h3>MİSYONUMUZ</h3>
+ <p>Sosyal medya yönetimini daha verimli ve etkili hale getiren dijital çözümler sunmak. Kullanıcılarımıza analiz verilerine dayalı kararlar alabilme imkanı tanırken, etkileşim oranlarını arttırmak için yaratıcı stratejiler öneriyoruz. Güvenli ve sürdürülebilir adımlarla ilerlemelerini sağlıyoruz.</p>
+ </div>
+ <div class="about-card">
+ <h3>VİZYONUMUZ</h3>
+ <p>Sektördeki en güvenilir, inovatif ve kullanıcı odaklı platform olmak. Küresel ölçekte tanınan bir marka olmayı hedefliyoruz. Sürekli yenilikçi özellikler ekleyerek kullanıcı deneyimini iyileştiriyoruz.</p>
+ </div>
+ </div>
+ </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <h2>Bize Ulaşabilirsiniz!</h2>
-        <p>Aktif iletişim adreslerimizden bize ulaşabilirsiniz.</p>
-        
-        <div class="social-contact">
-            <a href="https://instagram.com/shopnex__1" target="_blank" class="social-icon" title="Instagram">
-                📸
-            </a>
-            <a href="mailto:shopnex.destek.1@gmail.com" class="social-icon" title="E-posta">
-                ✉️
-            </a>
-        </div>
-        <p style="margin-top: 15px; color: var(--text-gray);">shopnex.destek.1@gmail.com</p>
-    </section>
+ <!-- Contact Section -->
+ <section class="contact-section" id="contact">
+ <h2>Bize Ulaşabilirsiniz!</h2>
+ <p>Aktif iletişim adreslerimizden bize ulaşabilirsiniz.</p>
+ 
+ <div class="social-contact">
+ <a href="https://instagram.com/shopnex__1" target="_blank" class="social-icon" title="Instagram">
+ 📸
+ </a>
+ <a href="mailto:shopnex.destek.1@gmail.com" class="social-icon" title="E-posta">
+ ✉️
+ </a>
+ </div>
+ <p style="margin-top: 15px; color: var(--text-gray);">shopnex.destek.1@gmail.com</p>
+ </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Shopnex | Tüm Hakları Saklıdır ❤️</p>
-        <p style="font-size: 0.8rem; margin-top: 5px;">Kullanıcı bilgileri hiçbir şekilde üçüncü taraflarla paylaşılmaz. Tüm veri akışı SSL/TLS protokolü ile korunur.</p>
-    </footer>
+ <!-- Footer -->
+ <footer>
+ <p>&copy; 2026 Shopnex | Tüm Hakları Saklıdır ❤️</p>
+ <p style="font-size: 0.8rem; margin-top: 5px;">Kullanıcı bilgileri hiçbir şekilde üçüncü taraflarla paylaşılmaz. Tüm veri akışı SSL/TLS protokolü ile korunur.</p>
+ </footer>
 
-    <script>
-        // Hamburger Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+ <script>
+ // Hamburger Menu Toggle
+ const hamburger = document.getElementById('hamburger');
+ const navLinks = document.getElementById('navLinks');
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+ hamburger.addEventListener('click', () => {
+ navLinks.classList.toggle('active');
+ });
 
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
+ // Close menu when clicking a link
+ document.querySelectorAll('.nav-links a').forEach(link => {
+ link.addEventListener('click', () => {
+ navLinks.classList.remove('active');
+ });
+ });
 
-        // Language Selector Logic (Placeholder for functionality)
-        const langSelector = document.getElementById('languageSelector');
-        langSelector.addEventListener('change', (e) => {
-            alert('Dil seçimi: ' + e.target.value + ' (Bu özellik demo amaçlıdır)');
-        });
-    </script>
+ // Language Selector Logic (Placeholder for functionality)
+ const langSelector = document.getElementById('languageSelector');
+ langSelector.addEventListener('change', (e) => {
+ alert('Dil seçimi: ' + e.target.value + ' (Bu özellik demo amaçlıdır)');
+ });
+ </script>
 </body>
 </html>
