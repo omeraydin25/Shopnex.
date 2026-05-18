@@ -1,283 +1,536 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopnex - Sosyal Medya Hizmetleri</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #f1f5f9;
+            --accent: #0ea5e9;
+        }
 
-<title>Shopnex AI E-Ticaret</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        /* Header & Navigation */
+        header {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
 
-<style>
-:root{
---primary:#0f172a;
---accent:#2563eb;
---border:#e2e8f0;
-}
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: var(--accent);
+        }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter;}
+        .hamburger {
+            cursor: pointer;
+            font-size: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
 
-body{background:#fff;color:var(--primary);transition:.3s;}
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
 
-body.dark{background:#020617;color:white;}
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            right: -100%;
+            width: 250px;
+            height: 100vh;
+            background-color: var(--dark-bg);
+            transition: 0.4s ease;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+        }
 
-/* NAV */
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(255,255,255,0.9);
-backdrop-filter:blur(15px);
-border-bottom:1px solid var(--border);
-z-index:999;
-}
+        .mobile-menu.active {
+            right: 0;
+        }
 
-body.dark nav{background:rgba(2,6,23,0.9);}
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
 
-.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 20px;
-max-width:1200px;
-margin:auto;
-}
+        .mobile-menu a:hover {
+            color: var(--accent);
+        }
 
-.logo{font-weight:900;color:var(--accent);font-size:22px;}
+        .lang-select {
+            background: transparent;
+            color: white;
+            border: 1px solid var(--accent);
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: auto;
+        }
 
-/* MENU */
-.menu{
-position:fixed;
-left:-100%;
-top:0;
-width:260px;
-height:100vh;
-background:white;
-padding:80px 20px;
-transition:.3s;
-z-index:998;
-}
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--dark-bg), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
 
-body.dark .menu{background:#0f172a;}
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
 
-.menu.active{left:0;}
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
 
-.menu a{display:block;padding:12px;text-decoration:none;color:inherit;font-weight:600;}
+        /* Services Grid */
+        .services-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-/* HAMBURGER */
-.hamburger{cursor:pointer;}
-.hamburger div{width:28px;height:3px;background:var(--primary);margin:5px;}
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
 
-body.dark .hamburger div{background:white;}
+        .platform-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
 
-/* LANGUAGE */
-.lang-btn{
-padding:6px 10px;
-border:1px solid var(--border);
-border-radius:8px;
-background:none;
-cursor:pointer;
-}
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-.lang-box{
-position:absolute;
-top:45px;
-right:0;
-background:white;
-border:1px solid var(--border);
-display:none;
-max-height:300px;
-overflow:auto;
-}
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
 
-.lang-box.active{display:block;}
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
 
-.lang-item{padding:10px;cursor:pointer;}
-.lang-item:hover{background:#f1f5f9;}
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+        }
 
-/* CHAT */
-.chat-btn{
-position:fixed;
-bottom:20px;
-right:20px;
-width:60px;
-height:60px;
-border-radius:50%;
-background:var(--accent);
-color:white;
-border:none;
-cursor:pointer;
-}
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
 
-.chat{
-position:fixed;
-bottom:90px;
-right:20px;
-width:340px;
-height:450px;
-background:white;
-display:none;
-flex-direction:column;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-}
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
 
-.chat-header{
-background:var(--accent);
-color:white;
-padding:10px;
-display:flex;
-justify-content:space-between;
-}
+        .service-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
 
-.chat-body{
-flex:1;
-padding:10px;
-overflow:auto;
-background:#f8fafc;
-}
+        .service-desc {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
 
-.msg{margin:6px 0;padding:8px;border-radius:10px;max-width:80%;}
+        .btn-check {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
 
-.user{background:var(--accent);color:white;margin-left:auto;}
-.ai{background:white;border:1px solid #ddd;}
+        .btn-check:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
 
-.chat-input{
-display:flex;
-border-top:1px solid #ddd;
-}
+        /* About Section */
+        .about-section {
+            background-color: white;
+            padding: 4rem 2rem;
+        }
 
-.chat-input input{
-flex:1;
-padding:10px;
-border:none;
-outline:none;
-}
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-.chat-input button{
-background:var(--accent);
-color:white;
-border:none;
-padding:10px;
-cursor:pointer;
-}
-</style>
+        .about-block {
+            margin-bottom: 2rem;
+        }
+
+        .about-block h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact-box {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .insta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .insta-link:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #020617;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer p span {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .grid-container { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav>
-<div class="nav">
+    <!-- Header -->
+    <header>
+        <div class="logo">Shopnex</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
 
-<div class="hamburger" onclick="toggleMenu()">
-<div></div><div></div><div></div>
-</div>
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <a href="#home">Ana Sayfa</a>
+        <a href="#services">Sosyal Medya Hizmetleri</a>
+        <a href="#about">Kurumsal</a>
+        <a href="#contact">İletişim</a>
+        
+        <select class="lang-select" onchange="changeLanguage(this.value)">
+            <option value="tr">Türkçe</option>
+            <option value="en">English</option>
+        </select>
+    </nav>
 
-<div class="logo">Shopnex</div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Dijital Dünyada Fark Yaratın</h1>
+        <p>Sosyal medya etkileşimini güçlendirin, takipçi kitlesini organik yollarla artırın ve markanızı büyütün.</p>
+    </section>
 
-<div style="display:flex;gap:10px;align-items:center">
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <h2 class="section-title">Hizmetlerimiz</h2>
+        
+        <div class="platform-tabs">
+            <button class="tab-btn active" onclick="filterServices('all')"><i class="fas fa-globe"></i> Tüm</button>
+            <button class="tab-btn" onclick="filterServices('instagram')"><i class="fab fa-instagram"></i> Instagram</button>
+            <button class="tab-btn" onclick="filterServices('tiktok')"><i class="fab fa-tiktok"></i> TikTok</button>
+            <button class="tab-btn" onclick="filterServices('youtube')"><i class="fab fa-youtube"></i> YouTube</button>
+            <button class="tab-btn" onclick="filterServices('telegram')"><i class="fab fa-telegram"></i> Telegram</button>
+        </div>
 
-<div style="position:relative">
-<button class="lang-btn" onclick="toggleLang()">TR</button>
-<div class="lang-box" id="langBox"></div>
-</div>
+        <div class="grid-container" id="serviceGrid">
+            <!-- Instagram Services -->
+            <div class="service-card instagram">
+                <div class="service-icon"><i class="fab fa-instagram"></i></div>
+                <h3 class="service-title">Ucuz Yabancı Takipçi</h3>
+                <p class="service-desc">Global erişim için uygun fiyatlı takipçi paketleri.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+            <div class="service-card instagram">
+                <div class="service-icon"><i class="fas fa-user-shield"></i></div>
+                <h3 class="service-title">Düşmeyen Takipçi</h3>
+                <p class="service-desc">Garantili, kalıcı ve düşüş yaşamayan takipçi hizmetleri.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+            <div class="service-card instagram">
+                <div class="service-icon"><i class="fas fa-crown"></i></div>
+                <h3 class="service-title">Premium Türk Takipçi</h3>
+                <p class="service-desc">Yüksek kaliteli, gerçek Türk kullanıcı profilleri.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+            <div class="service-card instagram">
+                <div class="service-icon"><i class="fas fa-heart"></i></div>
+                <h3 class="service-title">Türk Beğeni</h3>
+                <p class="service-desc">Etkileşimi artıran gerçek Türk kullanıcı beğenileri.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+            <div class="service-card instagram">
+                <div class="service-icon"><i class="fas fa-video"></i></div>
+                <h3 class="service-title">Video İzlenme</h3>
+                <p class="service-desc">Reels ve videolarınız için yüksek izlenme oranları.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+            <div class="service-card instagram">
+                <div class="service-icon"><i class="fas fa-comment-dots"></i></div>
+                <h3 class="service-title">Yorum Hizmeti</h3>
+                <p class="service-desc">Postlarınıza özel ve doğal yorumlar.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+            <div class="service-card instagram">
+                <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                <h3 class="service-title">Canlı Yayın İzlenme</h3>
+                <p class="service-desc">Yayınlarınızda anlık izleyici artışı.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+            <div class="service-card instagram">
+                <div class="service-icon"><i class="fas fa-share-square"></i></div>
+                <h3 class="service-title">Paylaşım & Repost</h3>
+                <p class="service-desc">İçeriğinizin daha geniş kitlelere ulaşması için paylaşım.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+            
+            <!-- TikTok Services -->
+            <div class="service-card tiktok">
+                <div class="service-icon"><i class="fab fa-tiktok"></i></div>
+                <h3 class="service-title">TikTok Takipçi</h3>
+                <p class="service-desc">Viral olma yolunda hızlı takipçi desteği.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+            <div class="service-card tiktok">
+                <div class="service-icon"><i class="fas fa-thumbs-up"></i></div>
+                <h3 class="service-title">TikTok Beğeni</h3>
+                <p class="service-desc">Video kalitenizi artıran yüksek beğeni sayıları.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+            <div class="service-card tiktok">
+                <div class="service-icon"><i class="fas fa-eye"></i></div>
+                <h3 class="service-title">TikTok İzlenme</h3>
+                <p class="service-desc">Keşfet sayfasına çıkmak için gerekli izlenme gücü.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
 
-<button onclick="toggleTheme()">🌓</button>
+            <!-- YouTube Services -->
+            <div class="service-card youtube">
+                <div class="service-icon"><i class="fab fa-youtube"></i></div>
+                <h3 class="service-title">YouTube Abone</h3>
+                <p class="service-desc">Kanalınızın büyümesi için güvenilir abone desteği.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+            <div class="service-card youtube">
+                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                <h3 class="service-title">YouTube İzlenme</h3>
+                <p class="service-desc">Video performansını artıran organik izlenme.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+            <div class="service-card youtube">
+                <div class="service-icon"><i class="fas fa-users"></i></div>
+                <h3 class="service-title">Canlı Yayın İzleyici</h3>
+                <p class="service-desc">Canlı yayınlarınızda anlık izleyici kitlesi.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
 
-</div>
-</div>
-</nav>
+            <!-- Telegram Services -->
+            <div class="service-card telegram">
+                <div class="service-icon"><i class="fab fa-telegram"></i></div>
+                <h3 class="service-title">Telegram Abone</h3>
+                <p class="service-desc">Kanalınıza sadık aboneler kazandırın.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+            <div class="service-card telegram">
+                <div class="service-icon"><i class="fas fa-eye"></i></div>
+                <h3 class="service-title">Telegram İzlenme</h3>
+                <p class="service-desc">Gönderilerinizin görünürlüğünü artırın.</p>
+                <a href="#" class="btn-check">İncele</a>
+            </div>
+        </div>
+    </section>
 
-<!-- MENU -->
-<div class="menu" id="menu">
-<a href="#">Ana Sayfa</a>
-<a href="#">Ürünler</a>
-<a href="#">AI</a>
-<a href="#">İletişim</a>
-</div>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2 class="section-title">Kurumsal</h2>
+            
+            <div class="about-block">
+                <h3>Bize Ulaşabilirsiniz!</h3>
+                <p>Aktif iletişim adreslerimizden bize ulaşabilirsiniz.</p>
+                <a href="mailto:shopnex.destek.1@gmail.com" style="color: var(--primary-color); font-weight: bold;">shopnex.destek.1@gmail.com</a>
+            </div>
 
-<!-- CHAT -->
-<button class="chat-btn" onclick="toggleChat()">💬</button>
+            <div class="about-block">
+                <h3>Kuruluş</h3>
+                <p>Takipci.al, 2020 yılında dijital dünyada fark yaratmayı hedefleyen bir vizyonla kuruldu. Sosyal medya, markaların ve bireylerin çevrimiçi varlıklarını inşa etmelerinde önemli bir rol oynamaktadır ve bu dinamik dünyada etkili stratejiler oluşturmak her geçen gün daha da zorlaşmaktadır. Biz de bu zorlukların üstesinden gelmek, sosyal medya etkileşimini güçlendirmek ve takipçi kitlesini organik yollarla artırmak isteyen tüm bireyler ve markalar için akılcı, veri odaklı çözümler geliştirmek için yola çıktık.</p>
+            </div>
 
-<div class="chat" id="chat">
-<div class="chat-header">
-AI
-<span onclick="toggleChat()" style="cursor:pointer">✖</span>
-</div>
+            <div class="about-block">
+                <h3>Amacımız</h3>
+                <p>Takipci.al'ın kurulumundan itibaren belirlediği temel amaç, sosyal medyada daha etkili ve verimli sonuçlar elde etmek isteyen herkes için güçlü araçlar ve stratejiler sunmaktır. Sosyal medya etkileşimi, takipçi sayısı ve marka bilinirliğini artırmak, sadece sayıların peşinden gitmek değil, aynı zamanda organik ve hedeflenmiş büyüme sağlamak anlamına gelir.</p>
+            </div>
 
-<div class="chat-body" id="chatBody">
-<div class="msg ai">Merhaba 👋</div>
-</div>
+            <div class="about-block">
+                <h3>Misyonumuz</h3>
+                <p>Misyonumuz, sosyal medya yönetimini daha verimli ve etkili hale getiren dijital çözümler sunmaktır. Kullanıcılarımıza sosyal medya hesaplarını büyütme, güçlendirme ve içeriklerini daha geniş kitlelere ulaştırma konusunda kapsamlı bir yol haritası sunuyoruz.</p>
+            </div>
 
-<div class="chat-input">
-<input id="input" placeholder="Yaz...">
-<button onclick="send()">➤</button>
-</div>
-</div>
+            <div class="about-block">
+                <h3>Vizyonumuz</h3>
+                <p>Vizyonumuz, sosyal medya yönetimi alanında sektördeki en güvenilir, inovatif ve kullanıcı odaklı platform olmaktır. Takipci.al, gelecekte yalnızca yerel pazarlarda değil, küresel ölçekte de tanınan ve tercih edilen bir marka olmayı hedeflemektedir.</p>
+            </div>
+        </div>
+    </section>
 
-<script>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2 style="margin-bottom: 1rem;">Instagram Hizmetleri</h2>
+        <p>Hesabınızı büyütmeye yönelik çözümlere kurumsal destek ile ulaşın.</p>
+        
+        <div class="contact-box">
+            <p>Bize Ulaşabilirsiniz! Aktif iletişim adreslerimizden bize ulaşabilirsiniz.</p>
+            <br>
+            <a href="https://instagram.com/shopnex__1" target="_blank" class="insta-link">
+                <i class="fab fa-instagram"></i> shopnex__1
+            </a>
+        </div>
+    </section>
 
-/* MENU */
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("active");
-}
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Takipçi Al - 2026, Tüm Hakları Saklıdır | ❤️</p>
+    </footer>
 
-/* THEME */
-function toggleTheme(){
-document.body.classList.toggle("dark");
-}
+    <script>
+        // Hamburger Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
 
-/* CHAT */
-function toggleChat(){
-let c=document.getElementById("chat");
-c.style.display=c.style.display==="flex"?"none":"flex";
-}
+        // Service Filtering
+        function filterServices(category) {
+            const cards = document.querySelectorAll('.service-card');
+            const buttons = document.querySelectorAll('.tab-btn');
 
-/* SEND */
-function send(){
-let i=document.getElementById("input");
-if(!i.value)return;
+            // Update active button state
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
 
-let u=document.createElement("div");
-u.className="msg user";
-u.innerText=i.value;
-document.getElementById("chatBody").appendChild(u);
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
 
-setTimeout(()=>{
-let a=document.createElement("div");
-a.className="msg ai";
-a.innerText="AI cevap: "+i.value;
-document.getElementById("chatBody").appendChild(a);
-},800);
-
-i.value="";
-}
-
-/* LANG */
-const langs=["TR Türkçe","EN English","DE Deutsch","ES Español"];
-let box=document.getElementById("langBox");
-
-langs.forEach(l=>{
-let d=document.createElement("div");
-d.className="lang-item";
-d.innerText=l;
-box.appendChild(d);
-});
-
-function toggleLang(){
-box.classList.toggle("active");
-}
-
-document.addEventListener("click",(e)=>{
-if(!e.target.closest(".lang-btn")) box.classList.remove("active");
-});
-
-</script>
-
+        // Simple Language Switcher (Placeholder for real translation logic)
+        function changeLanguage(lang) {
+            alert("Dil seçimi: " + lang + ". Bu özellik tam metin çevirisi için geliştirilmeye devam edecektir.");
+        }
+    </script>
 </body>
 </html>
