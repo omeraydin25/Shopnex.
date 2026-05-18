@@ -696,12 +696,10 @@ about_3_title: "Innovation", about_3_desc: "We keep the platform up to date by f
 contact_title: "Contact Us", contact_sub: "Reach out immediately for your questions or suggestions.",
 email_label: "Email:", privacy: "Privacy Policy", terms: "Terms of Use", cookies: "Cookies"
 }
-// Other languages would be populated similarly in a full production environment
 };
 
 // Theme Toggle
 const themeToggle = document.getElementById('themeToggle');
-const body = document.body;
 themeToggle.addEventListener('click', () => {
 const currentTheme = document.documentElement.getAttribute('data-theme');
 const newTheme = currentTheme === 'light' ? 'dark' : 'light';
